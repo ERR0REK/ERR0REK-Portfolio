@@ -1,0 +1,95 @@
+/* ===================================== */
+/* Discord Tag Widget Styles             */
+/* ===================================== */
+
+.discord-tag-widget {
+    display: flex;
+    align-items: center;
+    background-color: var(--military-medium);
+    border: 0.2rem solid var(--border-color);
+    border-radius: 2.5rem; /* Zwiększony border-radius dla bardziej zaokrąglonego kształtu */
+    padding: 0.8rem 1.8rem; /* Większy padding */
+    cursor: pointer;
+    transition: var(--transition-speed);
+    box-shadow: 0 0 10px rgba(0, 255, 76, 0.3);
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+}
+
+.discord-tag-widget:hover {
+    background-color: var(--military-green-primary);
+    color: var(--military-dark);
+    transform: scale(1.05); /* Lekkie powiększenie */
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.discord-logo-icon {
+    color: #7289DA; /* Standardowy kolor Discorda */
+    font-size: 2.2rem; /* Większy rozmiar ikony */
+    margin-right: 0.8rem; /* Odstęp od tekstu */
+    transition: color var(--transition-speed);
+}
+
+.discord-tag-widget:hover .discord-logo-icon {
+    color: var(--military-dark); /* Zmiana koloru ikony na ciemny przy najechaniu */
+}
+
+.discord-username {
+    color: var(--military-green-primary);
+    font-size: 1.7rem; /* Większy rozmiar czcionki */
+    font-weight: 600;
+    text-shadow: 0 0 5px var(--military-green-primary);
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+.discord-tag-widget:hover .discord-username {
+    color: var(--military-dark); /* Zmiana koloru tekstu na ciemny przy najechaniu */
+    text-shadow: none; /* Usunięcie cienia tekstu przy najechaniu */
+}
+
+/* ===================================== */
+/* Media Queries for Discord Tag Widget  */
+/* ===================================== */
+
+/* Na średnich ekranach (tablety, typowo poniżej 995px) */
+@media(max-width:995px) {
+    .discord-tag-widget {
+        padding: 0.7rem 1.5rem;
+    }
+    .discord-logo-icon {
+        font-size: 2rem;
+        margin-right: 0.7rem;
+    }
+    .discord-username {
+        font-size: 1.6rem;
+    }
+}
+
+/* Na małych ekranach (smartfony, typowo poniżej 768px) */
+@media (max-width: 768px) {
+    .discord-tag-widget {
+        padding: 0.6rem 1.2rem;
+        border-radius: 2rem; /* Nieco mniejszy border-radius */
+    }
+    .discord-logo-icon {
+        font-size: 1.8rem;
+        margin-right: 0.6rem;
+    }
+    .discord-username {
+        font-size: 1.5rem;
+    }
+}
+
+/* Na bardzo małych ekranach (poniżej 480px) */
+@media (max-width: 480px) {
+    .discord-tag-widget {
+        padding: 0.5rem 1rem;
+        border-radius: 1.8rem;
+    }
+    .discord-logo-icon {
+        font-size: 1.6rem;
+        margin-right: 0.5rem;
+    }
+    .discord-username {
+        font-size: 1.4rem;
+    }
+}

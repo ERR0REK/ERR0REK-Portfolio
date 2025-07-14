@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_fav_games">ERR0REK - Ulubione Gry</title>
+    <link rel="stylesheet" href="Style/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="obrazy/cyberpunk.mp4" type="video/mp4">
+        Twój przeglądarka nie obsługuje tagu wideo.
+    </video>
+
+    <header>
+        <a href="index.html" class="logo">ERR0REK</a>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_home">Strona Główna</a></li>
+                <li><a href="fav-games.html" class="active" data-i18n="nav_fav_games">Ulubione Gry</a></li>
+                <li><a href="projects.html" data-i18n="nav_projects">Projekty</a></li>
+                <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
+            </ul>
+        </nav>
+        <div class="header-widgets">
+            <div id="current-time" class="time-widget"></div>
+            <div class="language-dropdown">
+                <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#" data-lang="pl" class="lang-option active">Polski</a>
+                    <a href="#" data-lang="en" class="lang-option">English</a>
+                    <a href="#" data-lang="cs" class="lang-option">Čeština</a> <a href="#" data-lang="sk" class="lang-option">Slovenčina</a> <a href="#" data-lang="de" class="lang-option">Deutsch</a> </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="fav-games">
+            <h2 data-i18n="fav_games_heading">Ulubione Gry</h2>
+
+            <div class="games-category">
+                <h3 data-i18n="category_computer_games">Gry Komputerowe:</h3>
+                <ul>
+                    <li>GTA5</li>
+                    <li>Cyberpunk 2077</li>
+                    <li>Minecraft</li>
+                    <li>Roblox</li>
+                </ul>
+            </div>
+
+            <div class="games-category">
+                <h3 data-i18n="category_roblox_games">Gry w Robloxie:</h3>
+                <ul>
+                    <li>MadCity (Chapter 1 & 2)</li>
+                    <li>Weaponry</li>
+                    <li>War Tycoon</li>
+                </ul>
+            </div>
+
+            <div class="games-category">
+                <h3 data-i18n="category_nicks">Nicki w Grach:</h3>
+                <ul>
+                    <li data-i18n="nick_roblox">Roblox - <strong>ERR0R_Gl1tchTV</strong></li>
+                    <li data-i18n="nick_rockstar">Rockstar (GTA) - <strong>ERR0R_Gl1tchTV</strong></li>
+                    <li data-i18n="nick_minecraft_java">Minecraft (Java) - <strong>ERR0R_Gl1tchTV</strong></li>
+                    <li data-i18n="nick_minecraft_bedrock">Minecraft (Bedrock) - <strong>XherobrineYT</strong></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; ERR0REK. <span data-i18n="all_rights_reserved">Wszystkie prawa zastrzeżone.</span></p>
+        </div>
+    </footer>
+
+    <script src="Skrypty/translate.js"></script>
+    <script>
+        // Obsługa zegara (przeniesiona z index.html dla spójności)
+        function updateClock() {
+            const now = new Date();
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                timeZone: 'Europe/Warsaw'
+            };
+            const timeString = now.toLocaleTimeString('pl-PL', options);
+
+            const timezoneOffset = now.getTimezoneOffset();
+            const isCEST = (timezoneOffset === -120); // Sprawdza, czy offset to -120 minut (czyli +2 godziny, dla CEST)
+            const timezoneAbbr = isCEST ? 'CEST' : 'CET'; // Przyjmuje CET poza okresem letnim
+
+            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // --- Obsługa Dropdowna Języka (przeniesiona z index.html dla spójności) ---
+        const dropbtn = document.getElementById('current-language');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const langOptions = document.querySelectorAll('.lang-option');
+        let currentLang = localStorage.getItem('lang') || 'pl'; // Domyślny język to PL
+
+        function updateDropbtnText(lang) {
+            const langTextMap = {
+                pl: 'PL',
+                en: 'EN',
+                cs: 'CS', // Dodano
+                sk: 'SK', // Dodano
+                de: 'DE'  // Dodano
+            };
+            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
+        }
+
+        // Ustaw aktywną klasę na odpowiednim języku po załadowaniu
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('lang') || 'pl';
+            langOptions.forEach(option => {
+                if (option.dataset.lang === storedLang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            updateDropbtnText(storedLang); // Ustaw tekst przycisku
+             // Wywołaj translatePage z translate.js po załadowaniu DOM i ustawieniu języka
+            if (typeof translatePage === 'function') {
+                translatePage(storedLang);
+            }
+        });
+
+
+        dropbtn.addEventListener('click', (event) => {
+            dropdownContent.classList.toggle('show');
+            event.stopPropagation();
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', (event) => {
+                event.preventDefault();
+                const newLang = option.dataset.lang;
+                if (newLang !== currentLang) {
+                    currentLang = newLang;
+                    localStorage.setItem('lang', newLang);
+                    langOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+
+                    // Wywołaj translatePage z translate.js
+                    if (typeof translatePage === 'function') {
+                        translatePage(newLang);
+                    }
+                    updateDropbtnText(newLang);
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
+                if (dropdownContent.classList.contains('show')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
