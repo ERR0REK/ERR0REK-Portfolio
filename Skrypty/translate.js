@@ -64,8 +64,8 @@ const translations = {
         desc_elita: "I am a former member of the Artificial Elite – a group formed in 2020, although it never had an official owner. It dominated games like MM2 (Murder Mystery 2) and MadCity. After two years, in 2022, with the release of MadCity: Chapter 2, the members parted ways, and the Artificial Elite ultimately disbanded.",
         community_neo: "N.E.O (New Elite Organization)",
         desc_neo: "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
-        clan_ipf_title: "[MIPF⚡] InterPolishForces",
-        clan_ipf_description: "I am a member of MIPF, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "I am a member of IPF, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
     },
     pl: {
         // Index.html
@@ -130,8 +130,8 @@ const translations = {
         desc_elita: "Jestem byłym członkiem Sztucznej Elity – grupy, która powstała w 2020 roku, choć nigdy nie miała oficjalnego właściciela. Dominowała w takich grach jak MM2 (Murder Mystery 2) i MadCity. Po dwóch latach, w 2022 roku, wraz z premierą MadCity: Chapter 2, członkowie się rozstali, a Sztuczna Elita ostatecznie się rozpadła.",
         community_neo: "N.E.O (Nowa Elitarna Organizacja)",
         desc_neo: "Jestem właścicielem Nowej Elitarnej Organizacji (N.E.O), która jest kontynuacją dawnej Sztucznej Elity. N.E.O narodziła się w grudniu 2023 roku, czyli rok po premierze MadCity: Chapter 2. Początkowo nosiła nazwę „Nowa Elita”, jednak z czasem przekształciłem ją w organizację.",
-        clan_ipf_title: "[MIPF⚡] InterPolishForces",
-        clan_ipf_description: "Jestem członkiem MIPF który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Jestem członkiem IPF który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
     },
     cs: { // Czeski
         // Index.html
@@ -196,8 +196,8 @@ const translations = {
         desc_elita: "Jsem bývalým členem Umělé Elity – skupiny, která vznikla v roce 2020, i když nikdy neměla oficiálního vlastníka. Dominovala ve hrách jako MM2 (Murder Mystery 2) i MadCity. Po dvou letech, v roce 2022, s vydáním MadCity: Kapitola 2, se členové rozešli a Umělá Elita se nakonec rozpadla.",
         community_neo: "Nová Elitní Organizace (N.E.O)",
         desc_neo: "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
-        clan_ipf_title: "[MIPF⚡] InterPolishForces",
-        clan_ipf_description: "Jsem členem MIPF, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Jsem členem IPF, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
     },
     sk: { // Słowacki
         // Index.html
@@ -262,8 +262,8 @@ const translations = {
         desc_elita: "Som bývalým členom Umelej Elity – skupiny, ktorá vznikla v roku 2020, aj keď nikdy nemala oficiálneho vlastníka. Dominovala v hrách ako MM2 (Murder Mystery 2) i MadCity. Po dvoch rokoch, v roku 2022, s vydaním MadCity: Kapitola 2, sa členovia rozdelili a Umelá Elita sa nakoniec rozpadla.",
         community_neo: "Nová Elitná Organizácia (N.E.O)",
         desc_neo: "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
-        clan_ipf_title: "[MIPF⚡] InterPolishForces",
-        clan_ipf_description: "Som členom MIPF, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Som členom IPF, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
     },
     de: { // Niemiecki
         // Index.html
@@ -328,8 +328,8 @@ const translations = {
         desc_elita: "Ich bin ein ehemaliges Mitglied der Künstlichen Elite – einer Gruppe, die 2020 gegründet wurde, aber nie einen offiziellen Besitzer hatte. Sie dominierte in Spielen wie MM2 (Murder Mystery 2) und MadCity. Nach zwei Jahren, im Jahr 2022, nach der Veröffentlichung von MadCity: Kapitel 2, trennten sich die Mitglieder, und die Künstliche Elite löste sich endgültig auf.",
         community_neo: "Neue Elitäre Organisation (N.E.O)",
         desc_neo: "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
-        clan_ipf_title: "[MIPF⚡] InterPolishForces",
-        clan_ipf_description: "Ich bin Mitglied der MIPF, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Ich bin Mitglied der IPF, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
     }
 };
 
