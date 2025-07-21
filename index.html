@@ -22,6 +22,9 @@
                 <li><a href="fav-games.html" data-i18n="nav_fav_games">Ulubione Gry</a></li>
                 <li><a href="projects.html" data-i18n="nav_projects">Projekty</a></li>
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
+                <li class="language-restricted-item" data-lang-restricted="pl">
+                <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
+            </li>
             </ul>
         </nav>
         <div class="header-widgets">
@@ -45,6 +48,10 @@
                 <img src="obrazy/pfp1.png" alt="Awatar ERR0RKA" class="avatar" id="avatar-image">
                 <h1 class="nickname" data-i18n="home_greeting">Cześć, nazywam się <span>ERR0R/Macio</span></h1>
                 <p class="dynamic-text"></p>
+                <div class="quote-container">
+                    <p class="quote-text"></p>
+                    <span class="quote-author"></span>
+                </div>
 
                 <div class="social-discord-container">
                     <div class="social-icons">
@@ -173,6 +180,8 @@
             if (dynamicTextElement) {
                 startDynamicTextInterval();
             }
+            // Nowa funkcja dla cytatów - uruchomimy ją w translate.js lub bezpośrednio tutaj
+            startDynamicQuoteInterval(); 
         });
 
         // --- Obsługa Dropdowna Języka ---
@@ -197,11 +206,15 @@
             updateDropbtnText(currentLang);
         });
 
+        let quoteIndex = 0; // Zmienna do indeksowania cytatów
+
         // Nasłuchiwanie na niestandardowe zdarzenie zmiany języka (z translate.js)
         document.addEventListener('languageChanged', (event) => {
             currentLang = event.detail.lang;
             phraseIndex = 0; // Zresetuj indeks frazy przy zmianie języka dla dynamicznego tekstu
+            quoteIndex = 0; // Zresetuj indeks cytatu przy zmianie języka
             startDynamicTextInterval(); // Uruchom ponownie interwał dynamicznego tekstu
+            startDynamicQuoteInterval(); // Uruchom ponownie interwał cytatów
             updateDropbtnText(currentLang); // Aktualizuj tekst przycisku języka
         });
 
@@ -286,6 +299,112 @@
         }
 
         setInterval(changePfp, 5000);
+
+        // --- Kod dla zmieniających się cytatów (NOWOŚĆ i ZAKTUALIZOWANE!) ---
+        const quoteTextElement = document.querySelector('.quote-text');
+        const quoteAuthorElement = document.querySelector('.quote-author');
+        const historicalQuotes = {
+            pl: [
+                { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
+                { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
+                { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
+                { quote: "Nie chciejcie ojczyzny, która was nic nie kosztuje.", author: "Jan Paweł II" },
+                { quote: "Polska potrzebuje ludzi sumienia, ludzi prawego serca.", author: "Jan Paweł II" },
+                { quote: "Człowiek nie może siebie sam zrozumieć bez Chrystusa – ani Polska.", author: "Jan Paweł II" },
+                { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
+                { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
+                { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" }
+            ],
+            en: [
+                { quote: "A nation that loses its memory ceases to be a Nation – it becomes merely a collection of people temporarily occupying a given territory.", author: "Józef Piłsudski" },
+                { quote: "To be defeated and not surrender – that is victory.", author: "Józef Piłsudski" },
+                { quote: "He who was not a rebel in his youth will be a swine in old age.", author: "Józef Piłsudski" },
+                { quote: "Do not desire a homeland that costs you nothing.", author: "John Paul II" },
+                { quote: "Poland needs people of conscience, people with a righteous heart.", author: "John Paul II" },
+                { quote: "Man cannot understand himself without Christ – nor can Poland.", author: "John Paul II" },
+                { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
+                { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
+                { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" }
+            ],
+            cs: [
+                { quote: "Národ, který ztrácí paměť, přestává být Národem – stává se pouze souborem lidí, dočasně obývajících dané území.", author: "Józef Piłsudski" },
+                { quote: "Být poražen a nepodlehnout – to je vítězství.", author: "Józef Piłsudski" },
+                { quote: "Kdo nebyl za mlada rebel, bude ve stáří prase.", author: "Józef Piłsudski" },
+                { quote: "Nechtějte vlast, která vás nic nestojí.", author: "Jan Pavel II" },
+                { quote: "Polsko potřebuje lidi svědomí, lidi s pravým srdcem.", author: "Jan Pavel II" },
+                { quote: "Člověk nemůže sám sebe pochopit bez Krista – ani Polsko.", author: "Jan Pavel II" },
+                { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
+                { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
+                { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" }
+            ],
+            sk: [
+                { quote: "Národ, ktorý stráca pamäť, prestáva byť Národom – stáva sa len zbierkou ľudí, dočasne obývajúcich dané územie.", author: "Józef Piłsudski" },
+                { quote: "Byť porazený a nepodľahnúť – to je víťazstvo.", author: "Józef Piłsudski" },
+                { quote: "Kto nebol za mlada rebel, ten bude v starobe sviňa.", author: "Józef Piłsudski" },
+                { quote: "Nechcite vlasť, ktorá vás nič nestojí.", author: "Ján Pavol II" },
+                { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
+                { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
+                { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
+                { quote: "Nestojím na ničí milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
+                { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" }
+            ],
+            de: [
+                { quote: "Eine Nation, die ihr Gedächtnis verliert, hört auf, eine Nation zu sein – sie wird lediglich zu einer Ansammlung von Menschen, die vorübergehend ein bestimmtes Territorium besetzen.", author: "Józef Piłsudski" },
+                { quote: "Besiegt zu werden und nicht zu unterliegen – das ist der Sieg.", author: "Józef Piłsudski" },
+                { quote: "Wer in seiner Jugend kein Rebell war, wird im Alter ein Schwein sein.", author: "Józef Piłsudski" },
+                { quote: "Wünscht euch kein Vaterland, das euch nichts kostet.", author: "Johannes Paul II" },
+                { quote: "Polen braucht Menschen mit Gewissen, Menschen mit einem aufrichtigen Herzen.", author: "Johannes Paul II" },
+                { quote: "Der Mensch kann sich ohne Christus – und auch Polen nicht – selbst verstehen.", author: "Johannes Paul II" },
+                { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
+                { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
+                { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" }
+            ]
+        };
+        let quoteInterval; // Zmienna do przechowywania ID interwału
+
+        function updateDynamicQuote() {
+            const quotes = historicalQuotes[currentLang];
+            if (!quotes || quotes.length === 0) {
+                // Ukryj elementy cytatu, jeśli brak tłumaczeń dla danego języka
+                quoteTextElement.style.opacity = '0';
+                quoteAuthorElement.style.opacity = '0';
+                return; // Zatrzymaj funkcję, jeśli brak cytatów
+            }
+
+            // Upewnij się, że elementy są widoczne przed animacją, jeśli wcześniej były ukryte
+            quoteTextElement.style.opacity = '1';
+            quoteAuthorElement.style.opacity = '1';
+
+            // Dodajemy klasę do animacji zanikania do obu elementów
+            quoteTextElement.classList.add('fade-out-text');
+            quoteAuthorElement.classList.add('fade-out-text');
+
+            setTimeout(() => {
+                quoteTextElement.innerText = `„${quotes[quoteIndex].quote}”`;
+                quoteAuthorElement.innerText = `- ${quotes[quoteIndex].author}`;
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+
+                // Usuwamy klasę zanikania i dodajemy klasę pojawiania się
+                quoteTextElement.classList.remove('fade-out-text');
+                quoteAuthorElement.classList.remove('fade-out-text');
+                quoteTextElement.classList.add('fade-in-text');
+                quoteAuthorElement.classList.add('fade-in-text');
+
+                // Usuwamy klasę pojawiania się po zakończeniu animacji
+                setTimeout(() => {
+                    quoteTextElement.classList.remove('fade-in-text');
+                    quoteAuthorElement.classList.remove('fade-in-text');
+                }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-in-text
+            }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-out-text
+        }
+
+        function startDynamicQuoteInterval() {
+            if (quoteInterval) {
+                clearInterval(quoteInterval); // Wyczyść poprzedni interwał, jeśli istnieje
+            }
+            updateDynamicQuote(); // Wyświetl pierwszy cytat od razu
+            quoteInterval = setInterval(updateDynamicQuote, 7000); // Zmieniaj cytat co 7 sekund
+        }
     </script>
 </body>
 </html>

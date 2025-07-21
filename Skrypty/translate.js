@@ -59,13 +59,14 @@ const translations = {
         community_lockedup: "LockedUp Community",
         desc_lockedup: "I have been a member of the LockedUp community since August 2023. I was most active in 2023–2024, but in August 2024, after the release of LockedUp, I left the community. Later I returned, but I am not as active as before.",
         community_wanted: "Wanted Community",
-        desc_wanted: "I have been a member of the Wanted community since August 2024, when I left the LockedUp community after the game's release. I am moderately active in this community and still participate.",
+        desc_wanted: "I am a member of the Wanted community since August 2024, when I left the LockedUp community after the game's release. I am moderately active in this community and still participate.",
         community_elita: "Artificial Elite",
         desc_elita: "I am a former member of the Artificial Elite – a group formed in 2020, although it never had an official owner. It dominated games like MM2 (Murder Mystery 2) and MadCity. After two years, in 2022, with the release of MadCity: Chapter 2, the members parted ways, and the Artificial Elite ultimately disbanded.",
         community_neo: "N.E.O (New Elite Organization)",
         desc_neo: "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
         clan_ipf_title: "[IPF⚡] InterPolishForces",
         clan_ipf_description: "I am a member of IPF, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
+        // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     pl: {
         // Index.html
@@ -75,6 +76,8 @@ const translations = {
         nav_projects: "Projekty",
         nav_membership: "Członkostwo",
         nav_history: "Moja Historia",
+        // Poniżej dodany nowy klucz dla zakładki nawigacyjnej
+        nav_neo_docs: "NEO Dokumentacja",
         lang_label: "Język:",
         home_greeting: "Cześć, nazywam się <span>ERR0R/Macio</span>",
         info_heading: "Podstawowe informacje",
@@ -130,6 +133,8 @@ const translations = {
         desc_elita: "Jestem byłym członkiem Sztucznej Elity – grupy, która powstała w 2020 roku, choć nigdy nie miała oficjalnego właściciela. Dominowała w takich grach jak MM2 (Murder Mystery 2) i MadCity. Po dwóch latach, w 2022 roku, wraz z premierą MadCity: Chapter 2, członkowie się rozstali, a Sztuczna Elita ostatecznie się rozpadła.",
         community_neo: "N.E.O (Nowa Elitarna Organizacja)",
         desc_neo: "Jestem właścicielem Nowej Elitarnej Organizacji (N.E.O), która jest kontynuacją dawnej Sztucznej Elity. N.E.O narodziła się w grudniu 2023 roku, czyli rok po premierze MadCity: Chapter 2. Początkowo nosiła nazwę „Nowa Elita”, jednak z czasem przekształciłem ją w organizację.",
+        // Poniżej dodany nowy klucz dla przycisku na stronie członkostwa
+        button_neo_docs: "Przejdź do Dokumentacji NEO",
         clan_ipf_title: "[IPF⚡] InterPolishForces",
         clan_ipf_description: "Jestem członkiem IPF który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
     },
@@ -198,6 +203,7 @@ const translations = {
         desc_neo: "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
         clan_ipf_title: "[IPF⚡] InterPolishForces",
         clan_ipf_description: "Jsem členem IPF, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
+        // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     sk: { // Słowacki
         // Index.html
@@ -264,6 +270,7 @@ const translations = {
         desc_neo: "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
         clan_ipf_title: "[IPF⚡] InterPolishForces",
         clan_ipf_description: "Som členom IPF, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
+        // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     de: { // Niemiecki
         // Index.html
@@ -330,10 +337,13 @@ const translations = {
         desc_neo: "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
         clan_ipf_title: "[IPF⚡] InterPolishForces",
         clan_ipf_description: "Ich bin Mitglied der IPF, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
+        // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     }
 };
 
+// Funkcja translatePage jest globalna, aby mogła być wywołana z innych skryptów lub stron
 function translatePage(lang) {
+    // Tłumaczenie elementów z data-i18n
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         // Sprawdź, czy element nie jest dynamicznym tekstem, który ma być obsługiwany przez własną logikę
@@ -341,10 +351,10 @@ function translatePage(lang) {
             return;
         }
 
-        if (translations[lang] && translations[lang][key]) {
+        // Sprawdzamy, czy klucz tłumaczenia istnieje dla danego języka
+        if (translations[lang] && translations[lang][key] !== undefined) {
             // Użyj innerHTML dla kluczy, które mogą zawierać HTML (np. strong, span)
             // lub textContent dla prostego tekstu
-            // Rozszerzono warunek o klucze z membership.html, które mogą mieć HTML
             if (key.startsWith('nick_') || key.includes('home_greeting') || key === 'clan_ipf_title') {
                 el.innerHTML = translations[lang][key];
             } else {
@@ -353,7 +363,7 @@ function translatePage(lang) {
         }
     });
 
-    // Ustaw tytuł strony
+    // Ustaw tytuł strony (jeśli istnieje element <title data-i18n>)
     const pageTitleElement = document.querySelector('title[data-i18n]');
     if (pageTitleElement) {
         const key = pageTitleElement.getAttribute('data-i18n');
@@ -362,33 +372,46 @@ function translatePage(lang) {
         }
     }
 
+    // LOGIKA: Obsługa elementów ograniczonych językowo
+    // Wyszukuje wszystkie elementy z klasą 'language-restricted-item'
+    const restrictedItems = document.querySelectorAll('.language-restricted-item');
+    restrictedItems.forEach(item => {
+        const restrictedLangs = item.getAttribute('data-lang-restricted');
+        // Sprawdza, czy bieżący język znajduje się na liście języków dozwolonych dla tego elementu
+        if (restrictedLangs && restrictedLangs.split(',').includes(lang)) {
+            item.style.display = ''; // Pokaż element (ustawia domyślny 'display' przeglądarki)
+        } else {
+            item.style.display = 'none'; // Ukryj element
+        }
+    });
+
+
     // Po zmianie języka, upewnij się, że dynamiczny tekst zostanie zaktualizowany
     if (typeof updateDynamicText === 'function') {
         updateDynamicText();
     }
+    // Upewnij się, że cytaty również się odświeżą
+    if (typeof startDynamicQuoteInterval === 'function') {
+        startDynamicQuoteInterval();
+    }
+
+    // Dispatch custom event to notify other scripts about language change
+    // Przekazuje aktualny język jako detal zdarzenia
+    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: lang } }));
 }
 
-
-// Nasłuchiwanie na niestandardowe zdarzenie 'languageChanged' (jeśli translatePage
-// jest wywoływane w translate.js, a nie bezpośrednio w index.html po kliknięciu)
-document.addEventListener('languageChanged', (event) => {
-    const newLang = event.detail.lang;
-    if (typeof updateDynamicText === 'function') {
-        updateDynamicText();
-    }
-});
 
 // Wczytaj preferowany język z localStorage po załadowaniu strony
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('selectedLanguage') || 'pl';
-    
+
     // Inicjalizacja Select2 i obsługa zmiany języka dla selectora
     const languageSelect = document.getElementById("language-select");
-    
+
     if (languageSelect) { // Upewnij się, że element istnieje (dla stron używających select)
         // Inicjalizacja Select2
         // Sprawdź, czy Select2 nie został już zainicjowany, aby uniknąć błędów
-        if (!$(languageSelect).data('select2')) {
+        if (typeof jQuery !== 'undefined' && !$(languageSelect).data('select2')) { // Dodano sprawdzenie jQuery
             $(languageSelect).select2({
                 minimumResultsForSearch: Infinity // Ukrywa pole wyszukiwania
             });
@@ -396,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ustawienie początkowego języka na podstawie localStorage
         $(languageSelect).val(savedLang).trigger('change.select2');
-        
+
         // Obsługa zmiany języka przez Select2
         // Użyj 'select2:select' zamiast 'change' dla Select2, aby mieć pewność
         // że to zdarzenie wywoływane przez Select2, a nie ogólna zmiana
@@ -404,6 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedLang = $(this).val();
             localStorage.setItem("selectedLanguage", selectedLang);
             translatePage(selectedLang);
+            // Ponieważ Select2 ma własną logikę, nie dispatchujemy 'languageChanged' stąd
+            // translatePage już to robi.
         });
         // Ważne: Wywołaj translatePage po inicjalizacji Select2 i ustawieniu wartości
         // aby upewnić się, że strona jest przetłumaczona na domyślny język po załadowaniu
@@ -434,4 +459,46 @@ document.addEventListener('DOMContentLoaded', () => {
         // Wywołaj translatePage dla stron bez selectora Select2
         translatePage(savedLang);
     }
+});
+
+// Nasłuchiwanie na niestandardowe zdarzenie 'languageChanged' (przeniesione z index.html)
+// Dzięki temu ta logika jest centralna i wywoływana niezależnie od tego,
+// czy język zmieniono przez Select2 czy przez customowy dropdown.
+document.addEventListener('languageChanged', (event) => {
+    const newLang = event.detail.lang;
+    // Aktualizuj obecny język w zmiennej globalnej, jeśli istnieje,
+    // aby dynamiczne teksty i cytaty mogły działać poprawnie.
+    if (typeof currentLang !== 'undefined') {
+        currentLang = newLang;
+    }
+
+    // Wywołaj funkcje odpowiedzialne za dynamiczne treści, które zależą od języka
+    if (typeof updateDynamicText === 'function') {
+        updateDynamicText();
+    }
+    if (typeof startDynamicQuoteInterval === 'function') {
+        startDynamicQuoteInterval();
+    }
+
+    // Dodatkowo, jeśli używasz dropbtn na stronie, zaktualizuj jego tekst
+    const dropbtn = document.getElementById('current-language');
+    const langTextMap = {
+        pl: 'PL',
+        en: 'EN',
+        cs: 'CS',
+        sk: 'SK',
+        de: 'DE'
+    };
+    if (dropbtn) {
+        dropbtn.innerHTML = `${langTextMap[newLang]} <i class="fas fa-caret-down"></i>`;
+    }
+
+    // Zaktualizuj aktywne klasy dla opcji w drop-downie, jeśli istnieje
+    document.querySelectorAll('.lang-option').forEach(option => {
+        if (option.dataset.lang === newLang) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
 });

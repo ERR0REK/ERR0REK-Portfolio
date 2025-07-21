@@ -1578,3 +1578,133 @@ footer {
     from { text-shadow: 0 0 15px var(--border-color), 0 0 30px rgba(0, 255, 76, 0.7); }
     to { text-shadow: 0 0 25px var(--border-color), 0 0 50px rgba(0, 255, 76, 0.9); }
 }
+
+/* Styl dla kontenera cytatów */
+.quote-container {
+    margin-top: 15px; /* Odstęp od dynamicznego tekstu */
+    text-align: center;
+    min-height: 80px; /* Zapewnia miejsce dla dłuższych cytatów, zapobiega skakaniu layoutu */
+    display: flex; /* Użyj flexboxa do centrowania */
+    flex-direction: column; /* Ułożenie cytatu i autora pionowo */
+    justify-content: center; /* Wyśrodkowanie w pionie */
+    align-items: center; /* Wyśrodkowanie w poziomie */
+    color: rgba(255, 255, 255, 0.8); /* Jasny kolor tekstu */
+}
+
+.quote-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 5px;
+    opacity: 0; /* Początkowo ukryj dla animacji */
+    transition: opacity 0.5s ease-in-out; /* Animacja zanikania/pojawiania się */
+}
+
+.quote-author {
+    font-family: 'Share Tech Mono', monospace; /* Lekko inny font dla autora */
+    font-size: 2.5em;
+    font-weight: 300;
+    opacity: 0; /* Początkowo ukryj dla animacji */
+    transition: opacity 0.5s ease-in-out; /* Animacja zanikania/pojawiania się */
+}
+
+/* Animacje, które już masz, ale upewnij się, że są odpowiednie */
+/* Jeśli ich nie masz, dodaj poniższe */
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutText {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+.fade-in-text {
+    animation: fadeInText 0.5s forwards;
+}
+
+.fade-out-text {
+    animation: fadeOutText 0.5s forwards;
+}
+
+/* Opcjonalnie: dostosowanie dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 1em;
+    }
+    .quote-author {
+        font-size: 0.8em;
+    }
+}
+
+/* Styl dla kontenera przycisku, który zapewnia wyśrodkowanie */
+.neo-docs-button-container {
+    margin-top: 25px; /* Odstęp od tekstu powyżej */
+    text-align: left; /* WAŻNE: Wyśrodkowanie zawartości liniowej w tym kontenerze */
+}
+
+/* Podstawowe style dla przycisku/linku stylizowanego na przycisk */
+.button-link {
+    display: inline-block; /* WAŻNE: Dzięki temu text-align: center na rodzicu zadziała */
+    background: linear-gradient(45deg, #5a2b82, #8e44ad); /* Subtelny gradient fioletu */
+    color: #e0f7fa; /* Jasny, "neonowy" kolor tekstu */
+    padding: 14px 30px; /* Nieco większy padding dla lepszej klikalności */
+    border-radius: 6px; /* Lekko mniej zaokrąglone rogi dla ostrzejszego wyglądu */
+    text-decoration: none; /* Usuń podkreślenie linku */
+    font-family: 'Michroma', sans-serif; /* Font dla przycisków */
+    font-size: 1em; /* Lekko większy rozmiar czcionki */
+    font-weight: 600; /* Mocniejsza waga czcionki */
+    letter-spacing: 0.05em; /* Lekki odstęp między literami */
+    text-transform: uppercase; /* Wielkie litery dla lepszego efektu cyberpunka */
+    cursor: pointer; /* Wyraźny kursor wskazujący, że to klikalne */
+
+    /* Efekty przejścia */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Płynniejsze przejścia */
+
+    /* Ramka neonowa */
+    border: 1px solid rgba(142, 68, 173, 0.6); /* Ramka w kolorze gradientu */
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.5), /* Fioletowy blask */
+                0 0 5px rgba(255, 255, 255, 0.2) inset; /* Delikatny wewnętrzny blask */
+    position: relative; /* Potrzebne dla pseudo-elementów lub bardziej zaawansowanych efektów */
+    overflow: hidden; /* Ukrywa zawartość wychodzącą poza granice przycisku */
+}
+
+.button-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Delikatny, migoczący blask */
+    transform: skewX(-20deg);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.button-link:hover::before {
+    left: 100%; /* Efekt "swipe" po najechaniu */
+}
+
+.button-link:hover {
+    background: linear-gradient(45deg, #7a3ec5, #a35dd6); /* Jaśniejszy gradient po najechaniu */
+    transform: translateY(-3px) scale(1.02); /* Lekkie uniesienie i powiększenie */
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.8), /* Intensywniejszy blask */
+                0 0 10px rgba(255, 255, 255, 0.3) inset;
+    border-color: rgba(163, 93, 214, 0.8); /* Jaśniejsza ramka */
+}
+
+.button-link:active {
+    transform: translateY(0) scale(1); /* Powrót do pierwotnej pozycji przy kliknięciu */
+    background: #5a2b82; /* Ciemniejszy fiolet przy kliknięciu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border-color: rgba(142, 68, 173, 0.4);
+}
+
+/* Dla responsywności przycisku */
+@media (max-width: 600px) {
+    .button-link {
+        padding: 10px 20px;
+        font-size: 0.85em; /* Nieco mniejszy font na małych ekranach */
+    }
+}
