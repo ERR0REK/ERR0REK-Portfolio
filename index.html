@@ -10,7 +10,7 @@
 </head>
 <body>
     <video autoplay muted loop id="background-video">
-        <source src="obrazy/cyberpunk.mp4" type="video/mp4">
+        <source src="obrazy/nwm.mp4" type="video/mp4">
         Twój przeglądarka nie obsługuje tagu wideo.
     </video>
 
@@ -99,6 +99,9 @@
                     </div>
                     <div class="info-item full-width">
                         <p data-i18n="politics_view">Jestem narodowcem, konserwatystą i patriotą.</p>
+                    </div>
+                    <div class="info-item full-width"> 
+                        <p data-i18n="info_member_ipf">Jestem członkiem frakcji <strong>[IPF] InterPolishForces</strong> w war tycoonie od 1 czerwca 2025.</p>
                     </div>
                 </div>
             </section>
@@ -305,59 +308,89 @@
         const quoteAuthorElement = document.querySelector('.quote-author');
         const historicalQuotes = {
             pl: [
-                { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
-                { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
-                { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
-                { quote: "Nie chciejcie ojczyzny, która was nic nie kosztuje.", author: "Jan Paweł II" },
-                { quote: "Polska potrzebuje ludzi sumienia, ludzi prawego serca.", author: "Jan Paweł II" },
-                { quote: "Człowiek nie może siebie sam zrozumieć bez Chrystusa – ani Polska.", author: "Jan Paweł II" },
-                { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
-                { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
-                { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" }
-            ],
-            en: [
-                { quote: "A nation that loses its memory ceases to be a Nation – it becomes merely a collection of people temporarily occupying a given territory.", author: "Józef Piłsudski" },
-                { quote: "To be defeated and not surrender – that is victory.", author: "Józef Piłsudski" },
-                { quote: "He who was not a rebel in his youth will be a swine in old age.", author: "Józef Piłsudski" },
-                { quote: "Do not desire a homeland that costs you nothing.", author: "John Paul II" },
-                { quote: "Poland needs people of conscience, people with a righteous heart.", author: "John Paul II" },
-                { quote: "Man cannot understand himself without Christ – nor can Poland.", author: "John Paul II" },
-                { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
-                { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
-                { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" }
-            ],
-            cs: [
-                { quote: "Národ, který ztrácí paměť, přestává být Národem – stává se pouze souborem lidí, dočasně obývajících dané území.", author: "Józef Piłsudski" },
-                { quote: "Být poražen a nepodlehnout – to je vítězství.", author: "Józef Piłsudski" },
-                { quote: "Kdo nebyl za mlada rebel, bude ve stáří prase.", author: "Józef Piłsudski" },
-                { quote: "Nechtějte vlast, která vás nic nestojí.", author: "Jan Pavel II" },
-                { quote: "Polsko potřebuje lidi svědomí, lidi s pravým srdcem.", author: "Jan Pavel II" },
-                { quote: "Člověk nemůže sám sebe pochopit bez Krista – ani Polsko.", author: "Jan Pavel II" },
-                { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
-                { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
-                { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" }
-            ],
-            sk: [
-                { quote: "Národ, ktorý stráca pamäť, prestáva byť Národom – stáva sa len zbierkou ľudí, dočasne obývajúcich dané územie.", author: "Józef Piłsudski" },
-                { quote: "Byť porazený a nepodľahnúť – to je víťazstvo.", author: "Józef Piłsudski" },
-                { quote: "Kto nebol za mlada rebel, ten bude v starobe sviňa.", author: "Józef Piłsudski" },
-                { quote: "Nechcite vlasť, ktorá vás nič nestojí.", author: "Ján Pavol II" },
-                { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
-                { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
-                { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
-                { quote: "Nestojím na ničí milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
-                { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" }
-            ],
-            de: [
-                { quote: "Eine Nation, die ihr Gedächtnis verliert, hört auf, eine Nation zu sein – sie wird lediglich zu einer Ansammlung von Menschen, die vorübergehend ein bestimmtes Territorium besetzen.", author: "Józef Piłsudski" },
-                { quote: "Besiegt zu werden und nicht zu unterliegen – das ist der Sieg.", author: "Józef Piłsudski" },
-                { quote: "Wer in seiner Jugend kein Rebell war, wird im Alter ein Schwein sein.", author: "Józef Piłsudski" },
-                { quote: "Wünscht euch kein Vaterland, das euch nichts kostet.", author: "Johannes Paul II" },
-                { quote: "Polen braucht Menschen mit Gewissen, Menschen mit einem aufrichtigen Herzen.", author: "Johannes Paul II" },
-                { quote: "Der Mensch kann sich ohne Christus – und auch Polen nicht – selbst verstehen.", author: "Johannes Paul II" },
-                { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
-                { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
-                { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" }
+            { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
+            { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
+            { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
+            { quote: "Nie chciejcie ojczyzny, która was nic nie kosztuje.", author: "Jan Paweł II" },
+            { quote: "Polska potrzebuje ludzi sumienia, ludzi prawego serca.", author: "Jan Paweł II" },
+            { quote: "Człowiek nie może siebie sam zrozumieć bez Chrystusa – ani Polska.", author: "Jan Paweł II" },
+            { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
+            { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
+            { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" },
+            // Twoje nowe cytaty
+            { quote: "Nie ufajcie globalistom, lewakom ani liberałom, którzy zabierają nam: suwerenność państwa, wolność słowa, tradycyjne wartości, rodzinę i wiarę.", author: "ERR0REK" },
+            { quote: "Polska to nie tylko kraj, to nasza dusza, nasza historia i nasza przyszłość.", author: "ERR0REK" },
+            { quote: "Wolność nie jest dana raz na zawsze, trzeba o nią walczyć każdego dnia.", author: "ERR0REK" },
+            { quote: "Nie ma wolności bez odpowiedzialności.", author: "ERR0REK" },
+            { quote: "Prawdziwa siła narodu tkwi w jego jedności i determinacji.", author: "ERR0REK" }
+        ],
+        en: [
+            { quote: "A nation that loses its memory ceases to be a Nation – it becomes merely a collection of people temporarily occupying a given territory.", author: "Józef Piłsudski" },
+            { quote: "To be defeated and not surrender – that is victory.", author: "Józef Piłsudski" },
+            { quote: "He who was not a rebel in his youth will be a swine in old age.", author: "Józef Piłsudski" },
+            { quote: "Do not desire a homeland that costs you nothing.", author: "John Paul II" },
+            { quote: "Poland needs people of conscience, people with a righteous heart.", author: "John Paul II" },
+            { quote: "Man cannot understand himself without Christ – nor can Poland.", author: "John Paul II" },
+            { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
+            { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
+            { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" },
+            // Twoje nowe cytaty
+            { quote: "Do not trust globalists, leftists, or liberals who take away our state sovereignty, freedom of speech, traditional values, family, and faith.", author: "ERR0REK" },
+            { quote: "Poland is not just a country, it is our soul, our history, and our future.", author: "ERR0REK" },
+            { quote: "Freedom is not given once and for all; you have to fight for it every day.", author: "ERR0REK" },
+            { quote: "There is no freedom without responsibility.", author: "ERR0REK" },
+            { quote: "The true strength of a nation lies in its unity and determination.", author: "ERR0REK" }
+        ],
+        cs: [
+            { quote: "Národ, který ztrácí paměť, přestává být Národem – stává se pouze souborem lidí, dočasně obývajících dané území.", author: "Józef Piłsudski" },
+            { quote: "Být poražen a nepodlehnout – to je vítězství.", author: "Józef Piłsudski" },
+            { quote: "Kdo nebyl za mlada rebel, bude ve stáří prase.", author: "Józef Piłsudski" },
+            { quote: "Nechtějte vlast, která vás nic nestojí.", author: "Jan Pavel II" },
+            { quote: "Polsko potřebuje lidi svědomí, lidi s pravým srdcem.", author: "Jan Pavel II" },
+            { quote: "Člověk nemůže sám sebe pochopit bez Krista – ani Polsko.", author: "Jan Pavel II" },
+            { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
+            { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
+            { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" },
+            // Twoje nowe cytaty
+            { quote: "Nedůvěřujte globalistům, levičákům ani liberálům, kteří nám berou: suverenitu státu, svobodu slova, tradiční hodnoty, rodinu a víru.", author: "ERR0REK" },
+            { quote: "Polsko není jen země, je to naše duše, naše historie a naše budoucnost.", author: "ERR0REK" },
+            { quote: "Svoboda není dána jednou provždy, musíte za ni bojovat každý den.", author: "ERR0REK" },
+            { quote: "Bez odpovědnosti není svoboda.", author: "ERR0REK" },
+            { quote: "Skutečná síla národa spočívá v jeho jednotě a odhodlání.", author: "ERR0REK" }
+        ],
+        sk: [
+            { quote: "Národ, ktorý stráca pamäť, prestáva byť Národom – stáva sa len zbierkou ľudí, dočasne obývajúcich dané územie.", author: "Józef Piłsudski" },
+            { quote: "Byť porazený a nepodľahnúť – to je víťazstvo.", author: "Józef Piłsudski" },
+            { quote: "Kto nebol za mlada rebel, ten bude v starobe sviňa.", author: "Józef Piłsudski" },
+            { quote: "Nechcite vlasť, ktorá vás nič nestojí.", author: "Ján Pavol II" },
+            { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
+            { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
+            { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
+            { quote: "Nestojím na ničí milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
+            { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" },
+            // Twoje nowe cytaty
+            { quote: "Nedôverujte globalistom, ľavičiarom ani liberálom, ktorí nám berú: suverenitu štátu, slobodu slova, tradičné hodnoty, rodinu a vieru.", author: "ERR0REK" },
+            { quote: "Poľsko nie je len krajina, je to naša duša, naša história a naša budúcnosť.", author: "ERR0REK" },
+            { quote: "Sloboda nie je daná raz a navždy, treba za ňu bojovať každý deň.", author: "ERR0REK" },
+            { quote: "Bez zodpovednosti nie je sloboda.", author: "ERR0REK" },
+            { quote: "Skutočná sila národa spočíva v jeho jednote a odhodlaní.", author: "ERR0REK" }
+        ],
+        de: [
+            { quote: "Eine Nation, die ihr Gedächtnis verliert, hört auf, eine Nation zu sein – sie wird lediglich zu einer Ansammlung von Menschen, die vorübergehend ein bestimmtes Territorium besetzen.", author: "Józef Piłsudski" },
+            { quote: "Besiegt zu werden und nicht zu unterliegen – das ist der Sieg.", author: "Józef Piłsudski" },
+            { quote: "Wer in seiner Jugend kein Rebell war, wird im Alter ein Schwein sein.", author: "Józef Piłsudski" },
+            { quote: "Wünscht euch kein Vaterland, das euch nichts kostet.", author: "Johannes Paul II" },
+            { quote: "Polen braucht Menschen mit Gewissen, Menschen mit einem aufrichtigen Herzen.", author: "Johannes Paul II" },
+            { quote: "Der Mensch kann sich ohne Christus – und auch Polen nicht – selbst verstehen.", author: "Johannes Paul II" },
+            { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
+            { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
+            { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" },
+            // Twoje nowe cytaty
+            { quote: "Vertrauen Sie keinen Globalisten, Linken oder Liberalen, die uns Folgendes wegnehmen: staatliche Souveränität, Meinungsfreiheit, traditionelle Werte, Familie und Glauben.", author: "ERR0REK" },
+            { quote: "Polen ist nicht nur ein Land, es ist unsere Seele, unsere Geschichte und unsere Zukunft.", author: "ERR0REK" },
+            { quote: "Freiheit wird nicht ein für alle Mal gegeben, man muss jeden Tag dafür kämpfen.", author: "ERR0REK" },
+            { quote: "Es gibt keine Freiheit ohne Verantwortung.", author: "ERR0REK" },
+            { quote: "Die wahre Stärke einer Nation liegt in ihrer Einheit und Entschlossenheit.", author: "ERR0REK" }
             ]
         };
         let quoteInterval; // Zmienna do przechowywania ID interwału

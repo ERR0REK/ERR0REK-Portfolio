@@ -25,6 +25,7 @@ const translations = {
         timezone_info: "Timezone: Loading...",
         current_time: "Current time: Loading...",
         all_rights_reserved: "All rights reserved.",
+        info_member_ipf: "I have been a member of the [IPF] InterPolishForces faction in War Tycoon since June 1, 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Favorite Games",
@@ -94,6 +95,7 @@ const translations = {
         timezone_info: "Strefa czasowa: Ładowanie...",
         current_time: "Aktualna godzina: Ładowanie...",
         all_rights_reserved: "Wszystkie prawa zastrzeżone.",
+        info_member_ipf: "Jestem członkiem frakcji [IPF] InterPolishForces w war tycoonie od 1 czerwca 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Ulubione Gry",
@@ -162,6 +164,7 @@ const translations = {
         timezone_info: "Časové pásmo: Načítání...",
         current_time: "Aktuální čas: Načítání...",
         all_rights_reserved: "Všechna práva vyhrazena.",
+        info_member_ipf: "Jsem členem frakce [IPF] InterPolishForces ve hře War Tycoon od 1. června 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Oblíbené Hry",
@@ -229,6 +232,7 @@ const translations = {
         timezone_info: "Časové pásmo: Načítava sa...",
         current_time: "Aktuálny čas: Načítava sa...",
         all_rights_reserved: "Všetky práva vyhradené.",
+        info_member_ipf: "Som členom frakcie [IPF] InterPolishForces v hre War Tycoon od 1. júna 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Obľúbené Hry",
@@ -296,6 +300,7 @@ const translations = {
         timezone_info: "Zeitzone: Lädt...",
         current_time: "Aktuelle Uhrzeit: Lädt...",
         all_rights_reserved: "Alle Rechte vorbehalten.",
+        info_member_ipf: "Ich bin seit dem 1. Juni 2025 Mitglied der Fraktion [IPF] InterPolishForces in War Tycoon.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Lieblingsspiele",
