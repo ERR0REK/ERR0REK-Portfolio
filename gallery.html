@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria wspomnień z gier</title>
+    <link rel="stylesheet" href="Style/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">ERR0REK</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="fav-games.html">Ulubione Gry</a></li>
+                <li><a href="projects.html">Projekty</a></li>
+                <li><a href="membership.html">Członkostwo</a></li>
+                <li><a href="gallery.html" class="active">Galeria</a></li>
+                <li class="language-restricted-item" data-lang-restricted="pl">
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-widgets">
+            <div id="current-time" class="time-widget"></div>
+            <div class="language-dropdown">
+                <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#" data-lang="pl" class="lang-option active">Polski</a>
+                    <a href="#" data-lang="en" class="lang-option">English</a>
+                    <a href="#" data-lang="cs" class="lang-option">Čeština</a>
+                    <a href="#" data-lang="sk" class="lang-option">Slovenčina</a>
+                    <a href="#" data-lang="de" class="lang-option">Deutsch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section id="gallery-section">
+            <h2 class="gallery-title">Galeria wspomnień z gier</h2>
+            <div class="gallery-folders">
+                <!-- Przykładowe foldery/wydarzenia z miniaturką, opisem i licznikiem -->
+                <div class="gallery-folder" data-folder="madcity-podejrzane">
+                    <div class="folder-thumb" style="background-image:url('Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png')"></div>
+                    <div class="folder-info">
+                        <span class="folder-name">MadCity - Podejrzane Rzeczy</span>
+                        <span class="folder-year">2023</span>
+                    </div>
+                    <div class="folder-desc">Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2</div>
+                    <div class="folder-count">6 zdjęć</div>
+                    <button class="open-folder-btn">Zobacz zdjęcia</button>
+                </div>
+            </div>
+            <!-- Podgaleria zdjęć (po kliknięciu w folder) -->
+            <div class="subgallery-modal" id="subgallery-modal" style="display:none;">
+                <div class="subgallery-content">
+                    <span class="subgallery-close" id="subgallery-close">&times;</span>
+                    <h3 id="subgallery-title"></h3>
+                    <div class="subgallery-images" id="subgallery-images"></div>
+                    <div class="img-lightbox" id="img-lightbox" style="display:none;">
+                        <span class="img-lightbox-close" id="img-lightbox-close">&times;</span>
+                        <span class="img-lightbox-arrow" id="img-lightbox-prev">&#8592;</span>
+                        <img id="img-lightbox-img" src="" alt="Podgląd" />
+                        <span class="img-lightbox-arrow" id="img-lightbox-next">&#8594;</span>
+                        <div class="img-lightbox-caption" id="img-lightbox-caption"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; ERR0REK. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script>
+    // Prosty system folderów w galerii
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obsługa folderów
+        const folders = {
+            'madcity-podejrzane': {
+                title: 'MadCity - Podejrzane Rzeczy (2023)',
+                images: [
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png'},
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211858060.png'},
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212000867.png'},
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212034843.png'},
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212414816.png'},
+                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/Zrzut_ekranu_2023-07-14_212310.png'}
+                ],
+                sort: 'date' // domyślne sortowanie
+            },
+        };
+        const openBtns = document.querySelectorAll('.open-folder-btn');
+        const modal = document.getElementById('subgallery-modal');
+        const modalTitle = document.getElementById('subgallery-title');
+        const modalImages = document.getElementById('subgallery-images');
+        const modalClose = document.getElementById('subgallery-close');
+        const imgLightbox = document.getElementById('img-lightbox');
+        const imgLightboxImg = document.getElementById('img-lightbox-img');
+        const imgLightboxClose = document.getElementById('img-lightbox-close');
+        let currentFolder = null;
+        let currentImgIndex = 0;
+        function renderSubgallery(folderKey) {
+            const folder = folders[folderKey];
+            if (!folder) return;
+            modalTitle.textContent = folder.title;
+            modalImages.innerHTML = '';
+            // sortowanie zdjęć
+            let images = [...folder.images];
+            if (folder.sort === 'date') {
+                images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+            } else if (folder.sort === 'name') {
+                images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
+            }
+            images.forEach((img, idx) => {
+                const el = document.createElement('img');
+                el.src = img.src;
+                el.alt = img.alt;
+                el.className = 'subgallery-img';
+                el.style.cursor = 'zoom-in';
+                el.addEventListener('click', function() {
+                    openLightbox(folderKey, idx, images);
+                });
+                // Dodaj tagi jako tooltip
+                if (img.tags) {
+                    el.title = img.tags.join(' ');
+                }
+                modalImages.appendChild(el);
+            });
+        }
+        function openLightbox(folderKey, idx, imagesArr) {
+            currentFolder = folderKey;
+            currentImgIndex = idx;
+            const folder = folders[folderKey];
+            let images = imagesArr || folder.images;
+            if (folder.sort === 'date') {
+                images = [...images].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+            } else if (folder.sort === 'name') {
+                images = [...images].sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
+            }
+            const img = images[idx];
+            imgLightboxImg.src = img.src;
+            imgLightboxImg.alt = img.alt;
+            document.getElementById('img-lightbox-caption').textContent = img.caption || '';
+            imgLightboxImg.setAttribute('data-tags', img.tags ? img.tags.join(' ') : '');
+            imgLightbox.style.display = 'flex';
+        }
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const folderKey = this.parentElement.getAttribute('data-folder');
+                renderSubgallery(folderKey);
+                modal.style.display = 'flex';
+            });
+        });
+        imgLightboxClose.addEventListener('click', function() {
+            imgLightbox.style.display = 'none';
+        });
+        imgLightbox.addEventListener('click', function(e) {
+            if (e.target === imgLightbox) imgLightbox.style.display = 'none';
+        });
+        // Nawigacja strzałkami
+        document.getElementById('img-lightbox-prev').addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (currentFolder !== null) {
+                const folder = folders[currentFolder];
+                let images = [...folder.images];
+                if (folder.sort === 'date') {
+                    images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                } else if (folder.sort === 'name') {
+                    images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
+                }
+                currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
+                openLightbox(currentFolder, currentImgIndex, images);
+            }
+        });
+        document.getElementById('img-lightbox-next').addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (currentFolder !== null) {
+                const folder = folders[currentFolder];
+                let images = [...folder.images];
+                if (folder.sort === 'date') {
+                    images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+                } else if (folder.sort === 'name') {
+                    images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
+                }
+                currentImgIndex = (currentImgIndex + 1) % images.length;
+                openLightbox(currentFolder, currentImgIndex, images);
+            }
+        });
+        modalClose.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+        // Przykład sortowania i tagowania (UI do wyboru sortowania/tagów można dodać później)
+
+        // Zegar i dropdown języka (jak poprzednio)
+        function updateClock() {
+            const now = new Date();
+            const options = {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                timeZone: 'Europe/Warsaw'
+            };
+            const timeString = now.toLocaleTimeString('pl-PL', options);
+            const timezoneOffset = now.getTimezoneOffset();
+            const isCEST = (timezoneOffset === -120);
+            const timezoneAbbr = isCEST ? 'CEST' : 'CET';
+            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Dropdown języka (pełna obsługa)
+        const dropbtn = document.getElementById('current-language');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const langOptions = document.querySelectorAll('.lang-option');
+        let currentLang = localStorage.getItem('lang') || 'pl';
+        function updateDropbtnText(lang) {
+            const langTextMap = {
+                pl: 'PL',
+                en: 'EN',
+                cs: 'CS',
+                sk: 'SK',
+                de: 'DE'
+            };
+            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            currentLang = localStorage.getItem('lang') || 'pl';
+            updateDropbtnText(currentLang);
+        });
+        document.addEventListener('languageChanged', (event) => {
+            currentLang = event.detail.lang;
+            updateDropbtnText(currentLang);
+        });
+        dropbtn.addEventListener('click', (event) => {
+            dropdownContent.classList.toggle('show');
+            event.stopPropagation();
+        });
+        langOptions.forEach(option => {
+            option.addEventListener('click', (event) => {
+                event.preventDefault();
+                const newLang = option.dataset.lang;
+                if (newLang !== currentLang) {
+                    currentLang = newLang;
+                    localStorage.setItem('lang', newLang);
+                    langOptions.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    if (typeof translatePage === 'function') {
+                        translatePage(newLang);
+                    } else {
+                        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
+                    }
+                    updateDropbtnText(newLang);
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+        window.addEventListener('click', (event) => {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
+                if (dropdownContent.classList.contains('show')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>

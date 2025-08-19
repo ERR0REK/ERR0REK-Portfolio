@@ -9,22 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <video autoplay muted loop id="background-video">
+
+
+    <video autoplay muted loop id="background-video" poster="obrazy/pfp1.png">
         <source src="obrazy/nwm.mp4" type="video/mp4">
-        Twój przeglądarka nie obsługuje tagu wideo.
+        Twoja przeglądarka nie obsługuje tagu wideo.
     </video>
 
     <header>
-        <a href="#" class="logo">ERR0REK</a>
+        <a href="index.html" class="logo">ERR0REK</a>
         <nav>
             <ul>
                 <li><a href="index.html" class="active" data-i18n="nav_home">Strona Główna</a></li>
                 <li><a href="fav-games.html" data-i18n="nav_fav_games">Ulubione Gry</a></li>
                 <li><a href="projects.html" data-i18n="nav_projects">Projekty</a></li>
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
+                <li><a href="gallery.html" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
-                <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
-            </li>
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
+                </li>
             </ul>
         </nav>
         <div class="header-widgets">
@@ -45,7 +48,7 @@
     <main class="container">
         <section id="hero-section">
             <div class="hero-content">
-                <img src="obrazy/pfp1.png" alt="Awatar ERR0RKA" class="avatar" id="avatar-image">
+                <img src="obrazy/pfp1.png" alt="Awatar ERR0REK - Macio" class="avatar" id="avatar-image">
                 <h1 class="nickname" data-i18n="home_greeting">Cześć, nazywam się <span>ERR0R/Macio</span></h1>
                 <p class="dynamic-text"></p>
                 <div class="quote-container">
@@ -115,6 +118,7 @@
     </footer>
 
     <script src="Skrypty/translate.js"></script>
+    <script src="Skrypty/birthday.js"></script>
     <script>
         // Dynamiczny tekst na stronie głównej
         const dynamicTextElement = document.querySelector('.dynamic-text');
