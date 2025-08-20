@@ -69,7 +69,7 @@ const translations = {
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "I am a member of DSX, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
     // gallery.html
-    ,gallery_title: "Gallery of Game Memories"
+    ,gallery_title: "Gallery of memories (and strange ones) from games"
     ,gallery_folder_madcity: "MadCity - Suspicious Things"
     ,gallery_folder_madcity_desc: "Suspicious things captured during the boss fight in Season 2 Ch2"
     ,gallery_folder_count: "6 photos"
@@ -148,7 +148,7 @@ const translations = {
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Jestem członkiem DSX który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
     // gallery.html
-    ,gallery_title: "Galeria wspomnień z gier"
+    ,gallery_title: "Galeria wspomnień (i dziwnych) z gier"
     ,gallery_folder_madcity: "MadCity - Podejrzane Rzeczy"
     ,gallery_folder_madcity_desc: "Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2"
     ,gallery_folder_count: "6 zdjęć"
@@ -222,7 +222,7 @@ const translations = {
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Jsem členem DSX, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
     // gallery.html
-    ,gallery_title: "Galerie herních vzpomínek"
+    ,gallery_title: "Galerie vzpomínek (a podivných) ze her"
     ,gallery_folder_madcity: "MadCity - Podezřelé věci"
     ,gallery_folder_madcity_desc: "Podezřelé věci zachycené během souboje s bossem v sezóně 2 ch2"
     ,gallery_folder_count: "6 fotek"
@@ -297,7 +297,7 @@ const translations = {
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Som členom DSX, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
     // gallery.html
-    ,gallery_title: "Galéria herných spomienok"
+    ,gallery_title: "Galéria spomienok (a zvláštnych) z hier"
     ,gallery_folder_madcity: "MadCity - Podozrivé Veci"
     ,gallery_folder_madcity_desc: "Podozrivé veci zachytené počas boss fightu v sezóne 2 ch2"
     ,gallery_folder_count: "6 fotiek"
@@ -372,7 +372,7 @@ const translations = {
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Ich bin Mitglied der DSX, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
     // gallery.html
-    ,gallery_title: "Galerie der Spiel-Erinnerungen"
+    ,gallery_title: "Galerie der Erinnerungen (und seltsamen) aus Spielen"
     ,gallery_folder_madcity: "MadCity - Verdächtige Dinge"
     ,gallery_folder_madcity_desc: "Verdächtige Dinge, die während des Bosskampfs in Staffel 2 Ch2 aufgenommen wurden"
     ,gallery_folder_count: "6 Fotos"
