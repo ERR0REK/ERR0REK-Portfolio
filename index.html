@@ -120,198 +120,83 @@
     <script src="Skrypty/translate.js"></script>
     <script src="Skrypty/birthday.js"></script>
     <script>
-        // Dynamiczny tekst na stronie głównej
-        const dynamicTextElement = document.querySelector('.dynamic-text');
-        const dynamicPhrases = {
-            pl: [
-                "Jestem... Liderem N.E.O.",
-                "Jestem... Weteranem MadCity.",
-                "Jestem... patriotą i konserwatystą."
-            ],
-            en: [
-                "I am... the Leader of N.E.O.",
-                "I am... a MadCity Veteran.",
-                "I am... a patriot and conservative."
-            ],
-            cs: [
-                "Jsem... Lídr N.E.O.",
-                "Jsem... Veterán MadCity.",
-                "Jsem... vlastenec a konzervativec."
-            ],
-            sk: [
-                "Som... Líder N.E.O.",
-                "Som... Veterán MadCity.",
-                "Som... vlastenec a konzervatívec."
-            ],
-            de: [
-                "Ich bin... der Anführer von N.E.O.",
-                "Ich bin... ein MadCity-Veteran.",
-                "Ich bin... ein Patriot und Konservativer."
-            ]
+    // --- ZEGAR ---
+    function updateClock() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'Europe/Warsaw'
         };
-        let phraseIndex = 0;
-        let currentLang = localStorage.getItem('lang') || 'pl';
-        let dynamicTextInterval; // Zmienna do przechowywania ID interwału
+        const timeString = now.toLocaleTimeString('pl-PL', options);
+        const timezoneOffset = now.getTimezoneOffset();
+        const isCEST = (timezoneOffset === -120);
+        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
+        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
 
-        function updateDynamicText() {
-            const phrases = dynamicPhrases[currentLang];
-            if (!phrases || phrases.length === 0) return;
-
-            // Dodajemy klasę do animacji zanikania
-            dynamicTextElement.classList.add('fade-out-text');
-
+    // --- DYNAMICZNY TEKST ---
+    const dynamicTextElement = document.querySelector('.dynamic-text');
+    const dynamicPhrases = {
+        pl: [
+            "Jestem... Liderem N.E.O.",
+            "Jestem... Weteranem MadCity.",
+            "Jestem... patriotą i konserwatystą."
+        ],
+        en: [
+            "I am... the Leader of N.E.O.",
+            "I am... a MadCity Veteran.",
+            "I am... a patriot and conservative."
+        ],
+        cs: [
+            "Jsem... Lídr N.E.O.",
+            "Jsem... Veterán MadCity.",
+            "Jsem... vlastenec a konzervativec."
+        ],
+        sk: [
+            "Som... Líder N.E.O.",
+            "Som... Veterán MadCity.",
+            "Som... vlastenec a konzervatívec."
+        ],
+        de: [
+            "Ich bin... der Anführer von N.E.O.",
+            "Ich bin... ein MadCity-Veteran.",
+            "Ich bin... ein Patriot und Konservativer."
+        ]
+    };
+    let phraseIndex = 0;
+    let dynamicTextInterval;
+    function updateDynamicText() {
+        const lang = localStorage.getItem('selectedLanguage') || 'pl';
+        const phrases = dynamicPhrases[lang];
+        if (!phrases || phrases.length === 0) return;
+        dynamicTextElement.classList.add('fade-out-text');
+        setTimeout(() => {
+            dynamicTextElement.innerText = phrases[phraseIndex];
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            dynamicTextElement.classList.remove('fade-out-text');
+            dynamicTextElement.classList.add('fade-in-text');
             setTimeout(() => {
-                dynamicTextElement.innerText = phrases[phraseIndex];
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                // Usuwamy klasę zanikania i dodajemy klasę pojawiania się
-                dynamicTextElement.classList.remove('fade-out-text');
-                dynamicTextElement.classList.add('fade-in-text');
+                dynamicTextElement.classList.remove('fade-in-text');
+            }, 500);
+        }, 500);
+    }
+    function startDynamicTextInterval() {
+        if (dynamicTextInterval) clearInterval(dynamicTextInterval);
+        updateDynamicText();
+        dynamicTextInterval = setInterval(updateDynamicText, 3000);
+    }
+    if (dynamicTextElement) startDynamicTextInterval();
 
-                // Usuwamy klasę pojawiania się po zakończeniu animacji, aby mogła być ponownie aktywowana
-                setTimeout(() => {
-                    dynamicTextElement.classList.remove('fade-in-text');
-                }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-in-text
-            }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-out-text
-        }
-
-        function startDynamicTextInterval() {
-            if (dynamicTextInterval) {
-                clearInterval(dynamicTextInterval); // Wyczyść poprzedni interwał, jeśli istnieje
-            }
-            updateDynamicText(); // Wyświetl pierwszy tekst od razu
-            dynamicTextInterval = setInterval(updateDynamicText, 3000); // Uruchom interwał
-        }
-
-        // Uruchomienie dynamicznego tekstu po załadowaniu DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            if (dynamicTextElement) {
-                startDynamicTextInterval();
-            }
-            // Nowa funkcja dla cytatów - uruchomimy ją w translate.js lub bezpośrednio tutaj
-            startDynamicQuoteInterval(); 
-        });
-
-        // --- Obsługa Dropdowna Języka ---
-        const dropbtn = document.getElementById('current-language');
-        const dropdownContent = document.querySelector('.dropdown-content');
-        const langOptions = document.querySelectorAll('.lang-option');
-
-        function updateDropbtnText(lang) {
-            const langTextMap = {
-                pl: 'PL',
-                en: 'EN',
-                cs: 'CS',
-                sk: 'SK',
-                de: 'DE'
-            };
-            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
-        }
-
-        // Aktualizacja tekstu przycisku języka po załadowaniu DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            currentLang = localStorage.getItem('lang') || 'pl';
-            updateDropbtnText(currentLang);
-        });
-
-        let quoteIndex = 0; // Zmienna do indeksowania cytatów
-
-        // Nasłuchiwanie na niestandardowe zdarzenie zmiany języka (z translate.js)
-        document.addEventListener('languageChanged', (event) => {
-            currentLang = event.detail.lang;
-            phraseIndex = 0; // Zresetuj indeks frazy przy zmianie języka dla dynamicznego tekstu
-            quoteIndex = 0; // Zresetuj indeks cytatu przy zmianie języka
-            startDynamicTextInterval(); // Uruchom ponownie interwał dynamicznego tekstu
-            startDynamicQuoteInterval(); // Uruchom ponownie interwał cytatów
-            updateDropbtnText(currentLang); // Aktualizuj tekst przycisku języka
-        });
-
-        dropbtn.addEventListener('click', (event) => {
-            dropdownContent.classList.toggle('show');
-            event.stopPropagation();
-        });
-
-        langOptions.forEach(option => {
-            option.addEventListener('click', (event) => {
-                event.preventDefault();
-                const newLang = option.dataset.lang;
-                if (newLang !== currentLang) {
-                    currentLang = newLang;
-                    localStorage.setItem('lang', newLang);
-                    langOptions.forEach(opt => opt.classList.remove('active'));
-                    option.classList.add('active');
-
-                    if (typeof translatePage === 'function') {
-                        translatePage(newLang);
-                    } else {
-                        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
-                    }
-                    updateDropbtnText(newLang);
-                    dropdownContent.classList.remove('show');
-                }
-            });
-        });
-
-        window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
-                if (dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                }
-            }
-        });
-
-        // Obsługa zegara
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-                timeZone: 'Europe/Warsaw'
-            };
-            const timeString = now.toLocaleTimeString('pl-PL', options);
-
-            const timezoneOffset = now.getTimezoneOffset();
-            const isCEST = (timezoneOffset === -120);
-            const timezoneAbbr = isCEST ? 'CEST' : 'CET';
-
-            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-
-        // --- Kod dla zmieniającego się PFP ---
-        const avatarImage = document.getElementById('avatar-image');
-        const pfpImages = [
-            "Obrazy/ZdjęciaPfp/pfp1.png",
-            "Obrazy/ZdjęciaPfp/pfp2.png",
-            "Obrazy/ZdjęciaPfp/pfp3.png"
-        ];
-        let currentPfpIndex = 0;
-
-        function changePfp() {
-            avatarImage.classList.add('fade-out');
-
-            setTimeout(() => {
-                currentPfpIndex = (currentPfpIndex + 1) % pfpImages.length;
-                avatarImage.src = pfpImages[currentPfpIndex];
-                avatarImage.classList.remove('fade-out');
-                avatarImage.classList.add('fade-in');
-
-                setTimeout(() => {
-                    avatarImage.classList.remove('fade-in');
-                }, 500); // Czas musi być równy lub dłuższy niż czas trwania animacji fade-in
-            }, 500); // Czas musi być równy czasowi trwania animacji fade-out
-        }
-
-        setInterval(changePfp, 5000);
-
-        // --- Kod dla zmieniających się cytatów (NOWOŚĆ i ZAKTUALIZOWANE!) ---
-        const quoteTextElement = document.querySelector('.quote-text');
-        const quoteAuthorElement = document.querySelector('.quote-author');
-        const historicalQuotes = {
-            pl: [
+    // --- CYTATY ---
+    const quoteTextElement = document.querySelector('.quote-text');
+    const quoteAuthorElement = document.querySelector('.quote-author');
+    const historicalQuotes = {
+        pl: [
             { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
             { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
             { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
@@ -321,7 +206,6 @@
             { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
             { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
             { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" },
-            // Twoje nowe cytaty
             { quote: "Nie ufajcie globalistom, lewakom ani liberałom, którzy zabierają nam: suwerenność państwa, wolność słowa, tradycyjne wartości, rodzinę i wiarę.", author: "ERR0REK" },
             { quote: "Polska to nie tylko kraj, to nasza dusza, nasza historia i nasza przyszłość.", author: "ERR0REK" },
             { quote: "Wolność nie jest dana raz na zawsze, trzeba o nią walczyć każdego dnia.", author: "ERR0REK" },
@@ -338,7 +222,6 @@
             { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
             { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
             { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" },
-            // Twoje nowe cytaty
             { quote: "Do not trust globalists, leftists, or liberals who take away our state sovereignty, freedom of speech, traditional values, family, and faith.", author: "ERR0REK" },
             { quote: "Poland is not just a country, it is our soul, our history, and our future.", author: "ERR0REK" },
             { quote: "Freedom is not given once and for all; you have to fight for it every day.", author: "ERR0REK" },
@@ -355,9 +238,8 @@
             { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
             { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
             { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" },
-            // Twoje nowe cytaty
-            { quote: "Nedůvěřujte globalistům, levičákům ani liberálům, kteří nám berou: suverenitu státu, svobodu slova, tradiční hodnoty, rodinu a víru.", author: "ERR0REK" },
-            { quote: "Polsko není jen země, je to naše duše, naše historie a naše budoucnost.", author: "ERR0REK" },
+            { quote: "Nedůvěřujte globalistům, levičákům ani liberálům, kteří nám berou: suverenitu státu, svobodu slova, tradiční wartości, rodinu a víru.", author: "ERR0REK" },
+            { quote: "Polsko není jen země, je to naše duše, naše historia i przyszłość.", author: "ERR0REK" },
             { quote: "Svoboda není dána jednou provždy, musíte za ni bojovat každý den.", author: "ERR0REK" },
             { quote: "Bez odpovědnosti není svoboda.", author: "ERR0REK" },
             { quote: "Skutečná síla národa spočívá v jeho jednotě a odhodlání.", author: "ERR0REK" }
@@ -370,9 +252,8 @@
             { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
             { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
             { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
-            { quote: "Nestojím na ničí milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
+            { quote: "Nestojím na ničej milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
             { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" },
-            // Twoje nowe cytaty
             { quote: "Nedôverujte globalistom, ľavičiarom ani liberálom, ktorí nám berú: suverenitu štátu, slobodu slova, tradičné hodnoty, rodinu a vieru.", author: "ERR0REK" },
             { quote: "Poľsko nie je len krajina, je to naša duša, naša história a naša budúcnosť.", author: "ERR0REK" },
             { quote: "Sloboda nie je daná raz a navždy, treba za ňu bojovať každý deň.", author: "ERR0REK" },
@@ -389,59 +270,130 @@
             { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
             { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
             { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" },
-            // Twoje nowe cytaty
             { quote: "Vertrauen Sie keinen Globalisten, Linken oder Liberalen, die uns Folgendes wegnehmen: staatliche Souveränität, Meinungsfreiheit, traditionelle Werte, Familie und Glauben.", author: "ERR0REK" },
             { quote: "Polen ist nicht nur ein Land, es ist unsere Seele, unsere Geschichte und unsere Zukunft.", author: "ERR0REK" },
             { quote: "Freiheit wird nicht ein für alle Mal gegeben, man muss jeden Tag dafür kämpfen.", author: "ERR0REK" },
             { quote: "Es gibt keine Freiheit ohne Verantwortung.", author: "ERR0REK" },
             { quote: "Die wahre Stärke einer Nation liegt in ihrer Einheit und Entschlossenheit.", author: "ERR0REK" }
-            ]
-        };
-        let quoteInterval; // Zmienna do przechowywania ID interwału
-
-        function updateDynamicQuote() {
-            const quotes = historicalQuotes[currentLang];
-            if (!quotes || quotes.length === 0) {
-                // Ukryj elementy cytatu, jeśli brak tłumaczeń dla danego języka
-                quoteTextElement.style.opacity = '0';
-                quoteAuthorElement.style.opacity = '0';
-                return; // Zatrzymaj funkcję, jeśli brak cytatów
-            }
-
-            // Upewnij się, że elementy są widoczne przed animacją, jeśli wcześniej były ukryte
-            quoteTextElement.style.opacity = '1';
-            quoteAuthorElement.style.opacity = '1';
-
-            // Dodajemy klasę do animacji zanikania do obu elementów
-            quoteTextElement.classList.add('fade-out-text');
-            quoteAuthorElement.classList.add('fade-out-text');
-
+        ]
+    };
+    let quoteIndex = 0;
+    let quoteInterval;
+    function updateDynamicQuote() {
+        const lang = localStorage.getItem('selectedLanguage') || 'pl';
+        const quotes = historicalQuotes[lang];
+        if (!quotes || quotes.length === 0) {
+            quoteTextElement.style.opacity = '0';
+            quoteAuthorElement.style.opacity = '0';
+            return;
+        }
+        quoteTextElement.style.opacity = '1';
+        quoteAuthorElement.style.opacity = '1';
+        quoteTextElement.classList.add('fade-out-text');
+        quoteAuthorElement.classList.add('fade-out-text');
+        setTimeout(() => {
+            quoteTextElement.innerText = `„${quotes[quoteIndex].quote}”`;
+            quoteAuthorElement.innerText = `- ${quotes[quoteIndex].author}`;
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            quoteTextElement.classList.remove('fade-out-text');
+            quoteAuthorElement.classList.remove('fade-out-text');
+            quoteTextElement.classList.add('fade-in-text');
+            quoteAuthorElement.classList.add('fade-in-text');
             setTimeout(() => {
-                quoteTextElement.innerText = `„${quotes[quoteIndex].quote}”`;
-                quoteAuthorElement.innerText = `- ${quotes[quoteIndex].author}`;
-                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteTextElement.classList.remove('fade-in-text');
+                quoteAuthorElement.classList.remove('fade-in-text');
+            }, 500);
+        }, 500);
+    }
+    function startDynamicQuoteInterval() {
+        if (quoteInterval) clearInterval(quoteInterval);
+        updateDynamicQuote();
+        quoteInterval = setInterval(updateDynamicQuote, 7000);
+    }
+    if (quoteTextElement && quoteAuthorElement) startDynamicQuoteInterval();
 
-                // Usuwamy klasę zanikania i dodajemy klasę pojawiania się
-                quoteTextElement.classList.remove('fade-out-text');
-                quoteAuthorElement.classList.remove('fade-out-text');
-                quoteTextElement.classList.add('fade-in-text');
-                quoteAuthorElement.classList.add('fade-in-text');
+    // --- ZMIENIAJĄCE SIĘ PFP ---
+    const avatarImage = document.getElementById('avatar-image');
+    const pfpImages = [
+        "Obrazy/ZdjęciaPfp/pfp1.png",
+        "Obrazy/ZdjęciaPfp/pfp2.png",
+        "Obrazy/ZdjęciaPfp/pfp3.png"
+    ];
+    let currentPfpIndex = 0;
+    function changePfp() {
+        avatarImage.classList.add('fade-out');
+        setTimeout(() => {
+            currentPfpIndex = (currentPfpIndex + 1) % pfpImages.length;
+            avatarImage.src = pfpImages[currentPfpIndex];
+            avatarImage.classList.remove('fade-out');
+            avatarImage.classList.add('fade-in');
+            setTimeout(() => {
+                avatarImage.classList.remove('fade-in');
+            }, 500);
+        }, 500);
+    }
+    setInterval(changePfp, 5000);
 
-                // Usuwamy klasę pojawiania się po zakończeniu animacji
-                setTimeout(() => {
-                    quoteTextElement.classList.remove('fade-in-text');
-                    quoteAuthorElement.classList.remove('fade-in-text');
-                }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-in-text
-            }, 500); // Ten czas powinien być równy czasowi trwania animacji fade-out-text
-        }
-
-        function startDynamicQuoteInterval() {
-            if (quoteInterval) {
-                clearInterval(quoteInterval); // Wyczyść poprzedni interwał, jeśli istnieje
+    // --- Synchronizacja po zmianie języka ---
+    document.addEventListener('languageChanged', (event) => {
+        phraseIndex = 0;
+        quoteIndex = 0;
+        startDynamicTextInterval();
+        startDynamicQuoteInterval();
+    });
+    </script>
+    <script src="Skrypty/birthday.js"></script>
+    <!-- Uniwersalny kod dropdowna języka i dynamicznych treści -->
+    <script>
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const langOptions = document.querySelectorAll('.dropdown-content a');
+    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
+    function updateDropbtnText(lang) {
+        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
+        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
+    }
+    updateDropbtnText(currentLang);
+    langOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.lang === currentLang);
+    });
+    dropbtn.addEventListener('click', (event) => {
+        dropdownContent.classList.toggle('show');
+        event.stopPropagation();
+    });
+    langOptions.forEach(option => {
+        option.addEventListener('click', (event) => {
+            event.preventDefault();
+            const newLang = option.dataset.lang;
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                localStorage.setItem('selectedLanguage', newLang);
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                if (typeof translatePage === 'function') {
+                    translatePage(newLang);
+                }
+                updateDropbtnText(newLang);
+                dropdownContent.classList.remove('show');
             }
-            updateDynamicQuote(); // Wyświetl pierwszy cytat od razu
-            quoteInterval = setInterval(updateDynamicQuote, 7000); // Zmieniaj cytat co 7 sekund
+        });
+    });
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+            dropdownContent.classList.remove('show');
         }
+    });
+    document.addEventListener('languageChanged', (event) => {
+        currentLang = event.detail.lang;
+        updateDropbtnText(currentLang);
+        langOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === currentLang);
+        });
+        if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+        if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
+    });
+    if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+    if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
     </script>
 </body>
 </html>

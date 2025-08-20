@@ -88,96 +88,76 @@
 
     <script src="Skrypty/translate.js"></script>
     <script>
-        // Obsługa zegara (przeniesiona z index.html dla spójności)
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-                timeZone: 'Europe/Warsaw'
-            };
-            const timeString = now.toLocaleTimeString('pl-PL', options);
-
-            const timezoneOffset = now.getTimezoneOffset();
-            const isCEST = (timezoneOffset === -120); // Sprawdza, czy offset to -120 minut (czyli +2 godziny, dla CEST)
-            const timezoneAbbr = isCEST ? 'CEST' : 'CET'; // Przyjmuje CET poza okresem letnim
-
-            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-
-        // --- Obsługa Dropdowna Języka (przeniesiona z index.html dla spójności) ---
-        const dropbtn = document.getElementById('current-language');
-        const dropdownContent = document.querySelector('.dropdown-content');
-        const langOptions = document.querySelectorAll('.lang-option');
-        let currentLang = localStorage.getItem('lang') || 'pl'; // Domyślny język to PL
-
-        function updateDropbtnText(lang) {
-            const langTextMap = {
-                pl: 'PL',
-                en: 'EN',
-                cs: 'CS', // Dodano
-                sk: 'SK', // Dodano
-                de: 'DE'  // Dodano
-            };
-            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
-        }
-
-        // Ustaw aktywną klasę na odpowiednim języku po załadowaniu
-        document.addEventListener('DOMContentLoaded', () => {
-            const storedLang = localStorage.getItem('lang') || 'pl';
-            langOptions.forEach(option => {
-                if (option.dataset.lang === storedLang) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
+    // ZEGAR
+    function updateClock() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'Europe/Warsaw'
+        };
+        const timeString = now.toLocaleTimeString('pl-PL', options);
+        const timezoneOffset = now.getTimezoneOffset();
+        const isCEST = (timezoneOffset === -120);
+        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
+        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+    </script>
+    <!-- Uniwersalny kod dropdowna języka i dynamicznych treści -->
+    <script>
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const langOptions = document.querySelectorAll('.dropdown-content a');
+    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
+    function updateDropbtnText(lang) {
+        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
+        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
+    }
+    updateDropbtnText(currentLang);
+    langOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.lang === currentLang);
+    });
+    dropbtn.addEventListener('click', (event) => {
+        dropdownContent.classList.toggle('show');
+        event.stopPropagation();
+    });
+    langOptions.forEach(option => {
+        option.addEventListener('click', (event) => {
+            event.preventDefault();
+            const newLang = option.dataset.lang;
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                localStorage.setItem('selectedLanguage', newLang);
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                if (typeof translatePage === 'function') {
+                    translatePage(newLang);
                 }
-            });
-            updateDropbtnText(storedLang); // Ustaw tekst przycisku
-             // Wywołaj translatePage z translate.js po załadowaniu DOM i ustawieniu języka
-            if (typeof translatePage === 'function') {
-                translatePage(storedLang);
+                updateDropbtnText(newLang);
+                dropdownContent.classList.remove('show');
             }
         });
-
-
-        dropbtn.addEventListener('click', (event) => {
-            dropdownContent.classList.toggle('show');
-            event.stopPropagation();
-        });
-
+    });
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+            dropdownContent.classList.remove('show');
+        }
+    });
+    document.addEventListener('languageChanged', (event) => {
+        currentLang = event.detail.lang;
+        updateDropbtnText(currentLang);
         langOptions.forEach(option => {
-            option.addEventListener('click', (event) => {
-                event.preventDefault();
-                const newLang = option.dataset.lang;
-                if (newLang !== currentLang) {
-                    currentLang = newLang;
-                    localStorage.setItem('lang', newLang);
-                    langOptions.forEach(opt => opt.classList.remove('active'));
-                    option.classList.add('active');
-
-                    // Wywołaj translatePage z translate.js
-                    if (typeof translatePage === 'function') {
-                        translatePage(newLang);
-                    }
-                    updateDropbtnText(newLang);
-                    dropdownContent.classList.remove('show');
-                }
-            });
+            option.classList.toggle('active', option.dataset.lang === currentLang);
         });
-
-        window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
-                if (dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                }
-            }
-        });
-
+        if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+        if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
+    });
+    if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+    if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
     </script>
 </body>
 </html>

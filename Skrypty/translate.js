@@ -8,6 +8,7 @@ const translations = {
         nav_fav_games: "Favorite Games",
         nav_projects: "Projects",
         nav_membership: "Membership",
+    nav_gallery: "Gallery",
         nav_history: "My History",
         lang_label: "Language:",
         home_greeting: "Hi, my name is <span>ERR0R/Macio</span>",
@@ -67,6 +68,12 @@ const translations = {
         desc_neo: "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "I am a member of DSX, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
+    // gallery.html
+    ,gallery_title: "Gallery of Game Memories"
+    ,gallery_folder_madcity: "MadCity - Suspicious Things"
+    ,gallery_folder_madcity_desc: "Suspicious things captured during the boss fight in Season 2 Ch2"
+    ,gallery_folder_count: "6 photos"
+    ,gallery_open_btn: "View photos"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     pl: {
@@ -76,6 +83,7 @@ const translations = {
         nav_fav_games: "Ulubione Gry",
         nav_projects: "Projekty",
         nav_membership: "Członkostwo",
+    nav_gallery: "Galeria",
         nav_history: "Moja Historia",
         // Poniżej dodany nowy klucz dla zakładki nawigacyjnej
         nav_neo_docs: "NEO Dokumentacja",
@@ -139,6 +147,12 @@ const translations = {
         button_neo_docs: "Przejdź do Dokumentacji NEO",
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Jestem członkiem DSX który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
+    // gallery.html
+    ,gallery_title: "Galeria wspomnień z gier"
+    ,gallery_folder_madcity: "MadCity - Podejrzane Rzeczy"
+    ,gallery_folder_madcity_desc: "Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2"
+    ,gallery_folder_count: "6 zdjęć"
+    ,gallery_open_btn: "Zobacz zdjęcia"
     },
     cs: { // Czeski
         // Index.html
@@ -147,6 +161,7 @@ const translations = {
         nav_fav_games: "Oblíbené Hry",
         nav_projects: "Projekty",
         nav_membership: "Členství",
+    nav_gallery: "Galerie",
         nav_history: "Moje Historie",
         lang_label: "Jazyk:",
         home_greeting: "Ahoj, jmenuji se <span>ERR0R/Macio</span>",
@@ -206,6 +221,12 @@ const translations = {
         desc_neo: "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Jsem členem DSX, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
+    // gallery.html
+    ,gallery_title: "Galerie herních vzpomínek"
+    ,gallery_folder_madcity: "MadCity - Podezřelé věci"
+    ,gallery_folder_madcity_desc: "Podezřelé věci zachycené během souboje s bossem v sezóně 2 ch2"
+    ,gallery_folder_count: "6 fotek"
+    ,gallery_open_btn: "Zobrazit fotky"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     sk: { // Słowacki
@@ -215,6 +236,7 @@ const translations = {
         nav_fav_games: "Obľúbené Hry",
         nav_projects: "Projekty",
         nav_membership: "Členstvo",
+    nav_gallery: "Galéria",
         nav_history: "Moja História",
         lang_label: "Jazyk:",
         home_greeting: "Ahoj, volám sa <span>ERR0R/Macio</span>",
@@ -274,6 +296,12 @@ const translations = {
         desc_neo: "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Som členom DSX, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
+    // gallery.html
+    ,gallery_title: "Galéria herných spomienok"
+    ,gallery_folder_madcity: "MadCity - Podozrivé Veci"
+    ,gallery_folder_madcity_desc: "Podozrivé veci zachytené počas boss fightu v sezóne 2 ch2"
+    ,gallery_folder_count: "6 fotiek"
+    ,gallery_open_btn: "Zobraziť fotky"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     de: { // Niemiecki
@@ -283,6 +311,7 @@ const translations = {
         nav_fav_games: "Lieblingsspiele",
         nav_projects: "Projekte",
         nav_membership: "Mitgliedschaft",
+        nav_gallery: "Galerie",
         nav_history: "Meine Geschichte",
         lang_label: "Sprache:",
         home_greeting: "Hallo, mein Name ist <span>ERR0R/Macio</span>",
@@ -342,6 +371,12 @@ const translations = {
         desc_neo: "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
         clan_ipf_title: "[DSX⭐] Death Squadron X",
         clan_ipf_description: "Ich bin Mitglied der DSX, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
+    // gallery.html
+    ,gallery_title: "Galerie der Spiel-Erinnerungen"
+    ,gallery_folder_madcity: "MadCity - Verdächtige Dinge"
+    ,gallery_folder_madcity_desc: "Verdächtige Dinge, die während des Bosskampfs in Staffel 2 Ch2 aufgenommen wurden"
+    ,gallery_folder_count: "6 Fotos"
+    ,gallery_open_btn: "Fotos ansehen"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     }
 };

@@ -125,93 +125,78 @@
 
     <script src="Skrypty/translate.js"></script>
     <script>
-        // Inicjalizacja currentLang przed użyciem
-        let currentLang = localStorage.getItem('lang') || 'pl';
-
+    // Uniwersalny dropdown języka i synchronizacja dynamicznych treści
+    document.addEventListener('DOMContentLoaded', () => {
+        // Dropdown języka
         const dropbtn = document.getElementById('current-language');
         const dropdownContent = document.querySelector('.dropdown-content');
         const langOptions = document.querySelectorAll('.lang-option');
-
         function updateDropbtnText(lang) {
-            const langTextMap = {
-                pl: 'PL',
-                en: 'EN',
-                cs: 'CS',
-                sk: 'SK',
-                de: 'DE'
-            };
+            const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
             dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Ustaw aktywną klasę na odpowiednim języku po załadowaniu
-            langOptions.forEach(option => {
-                if (option.dataset.lang === currentLang) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
-                }
-            });
-            updateDropbtnText(currentLang);
-            if (typeof translatePage === 'function') {
-                translatePage(currentLang);
-            }
+        let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
+        updateDropbtnText(currentLang);
+        langOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === currentLang);
         });
-
         dropbtn.addEventListener('click', (event) => {
             dropdownContent.classList.toggle('show');
             event.stopPropagation();
         });
-
         langOptions.forEach(option => {
             option.addEventListener('click', (event) => {
                 event.preventDefault();
                 const newLang = option.dataset.lang;
                 if (newLang !== currentLang) {
                     currentLang = newLang;
-                    localStorage.setItem('lang', newLang);
+                    localStorage.setItem('selectedLanguage', newLang);
                     langOptions.forEach(opt => opt.classList.remove('active'));
                     option.classList.add('active');
-
                     if (typeof translatePage === 'function') {
                         translatePage(newLang);
-                    } else {
-                        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
                     }
                     updateDropbtnText(newLang);
                     dropdownContent.classList.remove('show');
                 }
             });
         });
-
         window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
-                if (dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                }
+            if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+                dropdownContent.classList.remove('show');
             }
         });
-
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-                timeZone: 'Europe/Warsaw'
-            };
-            const timeString = now.toLocaleTimeString('pl-PL', options);
-
-            const timezoneOffset = now.getTimezoneOffset();
-            const isCEST = (timezoneOffset === -120); // Sprawdza, czy offset to -120 minut (czyli +2 godziny, dla CEST)
-            const timezoneAbbr = isCEST ? 'CEST' : 'CET'; // Przyjmuje CET poza okresem letnim
-
-            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
+        document.addEventListener('languageChanged', (event) => {
+            currentLang = event.detail.lang;
+            updateDropbtnText(currentLang);
+            langOptions.forEach(option => {
+                option.classList.toggle('active', option.dataset.lang === currentLang);
+            });
+            if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+            if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
+        });
+        // Synchronizacja dynamicText i cytatów na starcie
+        if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
+        if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
+    });
+    // Zegar (pozostaje tylko ta część)
+    function updateClock() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'Europe/Warsaw'
+        };
+        const timeString = now.toLocaleTimeString('pl-PL', options);
+        const timezoneOffset = now.getTimezoneOffset();
+        const isCEST = (timezoneOffset === -120);
+        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
+        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
     </script>
 </body>
 

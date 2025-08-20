@@ -1,3 +1,14 @@
+.discord-tag-widget .discord-logo-icon {
+    font-size: 2.2rem !important;
+    margin-right: 1.0rem;
+}
+.discord-tag-widget .discord-username {
+    font-size: 1.6rem !important;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    color: #00ff41 !important;
+    text-shadow: 0 0 10px #00ff41cc, 0 0 2px #fff2;
+}
 /* --- Cyberpunkowe foldery galerii --- */
 .gallery-folders {
     display: flex;
@@ -903,6 +914,16 @@ section {
     margin-bottom: 4rem;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+/* Wyraźna ramka dla Discord tag widget */
+.discord-tag-widget {
+    border: 4px solid #00ff41 !important;
+    box-shadow: 0 0 22px #00ff41cc, 0 0 12px #00ff41aa;
+    background: rgba(20, 20, 30, 0.92);
+    border-radius: 2.2em !important;
+    padding: 1.1em 2.8em !important;
 }
 
 /* Stylizacja ikon social media w social-discord-container */

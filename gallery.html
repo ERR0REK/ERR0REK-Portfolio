@@ -9,15 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <video autoplay muted loop id="background-video" poster="obrazy/pfp1.png">
+        <source src="obrazy/nwm.mp4" type="video/mp4">
+        Twoja przeglądarka nie obsługuje tagu wideo.
+    </video>
     <header>
         <a href="index.html" class="logo">ERR0REK</a>
         <nav>
             <ul>
-                <li><a href="index.html">Strona Główna</a></li>
-                <li><a href="fav-games.html">Ulubione Gry</a></li>
-                <li><a href="projects.html">Projekty</a></li>
-                <li><a href="membership.html">Członkostwo</a></li>
-                <li><a href="gallery.html" class="active">Galeria</a></li>
+                <li><a href="index.html"data-i18n="nav_home">Strona Główna</a></li>
+                <li><a href="fav-games.html" data-i18n="nav_fav_games">Ulubione Gry</a></li>
+                <li><a href="projects.html" data-i18n="nav_projects">Projekty</a></li>
+                <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
+                <li><a href="gallery.html" class="active" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
                     <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
                 </li>
@@ -39,18 +43,18 @@
     </header>
     <main class="container">
         <section id="gallery-section">
-            <h2 class="gallery-title">Galeria wspomnień z gier</h2>
+            <h2 class="gallery-title" data-i18n="gallery_title">Galeria wspomnień z gier</h2>
             <div class="gallery-folders">
                 <!-- Przykładowe foldery/wydarzenia z miniaturką, opisem i licznikiem -->
                 <div class="gallery-folder" data-folder="madcity-podejrzane">
                     <div class="folder-thumb" style="background-image:url('Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png')"></div>
                     <div class="folder-info">
-                        <span class="folder-name">MadCity - Podejrzane Rzeczy</span>
-                        <span class="folder-year">2023</span>
+                        <span class="folder-name" data-i18n="gallery_folder_madcity">MadCity - Podejrzane Rzeczy</span>
+                        <span class="folder-year">2022</span>
                     </div>
-                    <div class="folder-desc">Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2</div>
-                    <div class="folder-count">6 zdjęć</div>
-                    <button class="open-folder-btn">Zobacz zdjęcia</button>
+                    <div class="folder-desc" data-i18n="gallery_folder_madcity_desc">Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2</div>
+                    <div class="folder-count"><span data-i18n="gallery_folder_count">6 zdjęć</span></div>
+                    <button class="open-folder-btn" data-i18n="gallery_open_btn">Zobacz zdjęcia</button>
                 </div>
             </div>
             <!-- Podgaleria zdjęć (po kliknięciu w folder) -->
@@ -75,13 +79,32 @@
             <p>&copy; ERR0REK. Wszystkie prawa zastrzeżone.</p>
         </div>
     </footer>
+    <script src="Skrypty/translate.js"></script>
     <script>
-    // Prosty system folderów w galerii
+    // --- ZEGAR ---
+    function updateClock() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'Europe/Warsaw'
+        };
+        const timeString = now.toLocaleTimeString('pl-PL', options);
+        const timezoneOffset = now.getTimezoneOffset();
+        const isCEST = (timezoneOffset === -120);
+        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
+        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // --- GALERIA/FOLDERY ---
     document.addEventListener('DOMContentLoaded', function() {
-        // Obsługa folderów
         const folders = {
             'madcity-podejrzane': {
-                title: 'MadCity - Podejrzane Rzeczy (2023)',
+                title: 'MadCity - Podejrzane Rzeczy (2022)',
                 images: [
                     {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png'},
                     {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211858060.png'},
@@ -90,7 +113,7 @@
                     {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212414816.png'},
                     {src: 'Obrazy/Madcity - Podejrzane rzeczy/Zrzut_ekranu_2023-07-14_212310.png'}
                 ],
-                sort: 'date' // domyślne sortowanie
+                sort: 'date'
             },
         };
         const openBtns = document.querySelectorAll('.open-folder-btn');
@@ -108,7 +131,6 @@
             if (!folder) return;
             modalTitle.textContent = folder.title;
             modalImages.innerHTML = '';
-            // sortowanie zdjęć
             let images = [...folder.images];
             if (folder.sort === 'date') {
                 images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
@@ -118,13 +140,12 @@
             images.forEach((img, idx) => {
                 const el = document.createElement('img');
                 el.src = img.src;
-                el.alt = img.alt;
+                el.alt = img.alt || '';
                 el.className = 'subgallery-img';
                 el.style.cursor = 'zoom-in';
                 el.addEventListener('click', function() {
                     openLightbox(folderKey, idx, images);
                 });
-                // Dodaj tagi jako tooltip
                 if (img.tags) {
                     el.title = img.tags.join(' ');
                 }
@@ -143,7 +164,7 @@
             }
             const img = images[idx];
             imgLightboxImg.src = img.src;
-            imgLightboxImg.alt = img.alt;
+            imgLightboxImg.alt = img.alt || '';
             document.getElementById('img-lightbox-caption').textContent = img.caption || '';
             imgLightboxImg.setAttribute('data-tags', img.tags ? img.tags.join(' ') : '');
             imgLightbox.style.display = 'flex';
@@ -161,7 +182,6 @@
         imgLightbox.addEventListener('click', function(e) {
             if (e.target === imgLightbox) imgLightbox.style.display = 'none';
         });
-        // Nawigacja strzałkami
         document.getElementById('img-lightbox-prev').addEventListener('click', function(e) {
             e.stopPropagation();
             if (currentFolder !== null) {
@@ -196,81 +216,61 @@
         modal.addEventListener('click', function(e) {
             if (e.target === modal) modal.style.display = 'none';
         });
-        // Przykład sortowania i tagowania (UI do wyboru sortowania/tagów można dodać później)
-
-        // Zegar i dropdown języka (jak poprzednio)
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-                timeZone: 'Europe/Warsaw'
-            };
-            const timeString = now.toLocaleTimeString('pl-PL', options);
-            const timezoneOffset = now.getTimezoneOffset();
-            const isCEST = (timezoneOffset === -120);
-            const timezoneAbbr = isCEST ? 'CEST' : 'CET';
-            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-        }
-        updateClock();
-        setInterval(updateClock, 1000);
-
-        // Dropdown języka (pełna obsługa)
-        const dropbtn = document.getElementById('current-language');
-        const dropdownContent = document.querySelector('.dropdown-content');
-        const langOptions = document.querySelectorAll('.lang-option');
-        let currentLang = localStorage.getItem('lang') || 'pl';
-        function updateDropbtnText(lang) {
-            const langTextMap = {
-                pl: 'PL',
-                en: 'EN',
-                cs: 'CS',
-                sk: 'SK',
-                de: 'DE'
-            };
-            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            currentLang = localStorage.getItem('lang') || 'pl';
-            updateDropbtnText(currentLang);
-        });
-        document.addEventListener('languageChanged', (event) => {
-            currentLang = event.detail.lang;
-            updateDropbtnText(currentLang);
-        });
-        dropbtn.addEventListener('click', (event) => {
-            dropdownContent.classList.toggle('show');
-            event.stopPropagation();
-        });
-        langOptions.forEach(option => {
-            option.addEventListener('click', (event) => {
-                event.preventDefault();
-                const newLang = option.dataset.lang;
-                if (newLang !== currentLang) {
-                    currentLang = newLang;
-                    localStorage.setItem('lang', newLang);
-                    langOptions.forEach(opt => opt.classList.remove('active'));
-                    option.classList.add('active');
-                    if (typeof translatePage === 'function') {
-                        translatePage(newLang);
-                    } else {
-                        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
-                    }
-                    updateDropbtnText(newLang);
-                    dropdownContent.classList.remove('show');
+    });
+    </script>
+    <script>
+    // Uniwersalny dropdown języka (identyczny jak w index.html)
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const langOptions = document.querySelectorAll('.dropdown-content a');
+    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
+    function updateDropbtnText(lang) {
+        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
+        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
+    }
+    updateDropbtnText(currentLang);
+    langOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.lang === currentLang);
+    });
+    dropbtn.addEventListener('click', (event) => {
+        dropdownContent.classList.toggle('show');
+        event.stopPropagation();
+    });
+    langOptions.forEach(option => {
+        option.addEventListener('click', (event) => {
+            event.preventDefault();
+            const newLang = option.dataset.lang;
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                localStorage.setItem('selectedLanguage', newLang);
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                if (typeof translatePage === 'function') {
+                    translatePage(newLang);
                 }
-            });
-        });
-        window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
-                if (dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                }
+                updateDropbtnText(newLang);
+                dropdownContent.classList.remove('show');
             }
         });
     });
+    window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+            dropdownContent.classList.remove('show');
+        }
+    });
+    document.addEventListener('languageChanged', (event) => {
+        currentLang = event.detail.lang;
+        updateDropbtnText(currentLang);
+        langOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === currentLang);
+        });
+    });
+    // Tłumaczenie po wejściu na stronę
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof translatePage === 'function') {
+            translatePage(currentLang);
+        }
+    });
     </script>
-</body>
 </html>
+</body>

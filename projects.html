@@ -167,52 +167,30 @@
         const dropbtn = document.getElementById('current-language');
         const dropdownContent = document.querySelector('.dropdown-content');
         const langOptions = document.querySelectorAll('.lang-option');
-        let currentLang = localStorage.getItem('lang') || 'pl'; // Domyślny język to PL
+    // ...
 
+        let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
         function updateDropbtnText(lang) {
-            const langTextMap = {
-                pl: 'PL',
-                en: 'EN',
-                cs: 'CS', // Dodano
-                sk: 'SK', // Dodano
-                de: 'DE'  // Dodano
-            };
-            dropbtn.innerHTML = `${langTextMap[lang]} <i class="fas fa-caret-down"></i>`;
+            const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
+            dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
         }
-
-        // Ustaw aktywną klasę na odpowiednim języku po załadowaniu
-        document.addEventListener('DOMContentLoaded', () => {
-            const storedLang = localStorage.getItem('lang') || 'pl';
-            langOptions.forEach(option => {
-                if (option.dataset.lang === storedLang) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
-                }
-            });
-            updateDropbtnText(storedLang); // Ustaw tekst przycisku
-            // Wywołaj translatePage z translate.js po załadowaniu DOM i ustawieniu języka
-            if (typeof translatePage === 'function') {
-                translatePage(storedLang);
-            }
+        updateDropbtnText(currentLang);
+        langOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === currentLang);
         });
-
         dropbtn.addEventListener('click', (event) => {
             dropdownContent.classList.toggle('show');
             event.stopPropagation();
         });
-
         langOptions.forEach(option => {
             option.addEventListener('click', (event) => {
                 event.preventDefault();
                 const newLang = option.dataset.lang;
                 if (newLang !== currentLang) {
                     currentLang = newLang;
-                    localStorage.setItem('lang', newLang);
+                    localStorage.setItem('selectedLanguage', newLang);
                     langOptions.forEach(opt => opt.classList.remove('active'));
                     option.classList.add('active');
-
-                    // Wywołaj translatePage z translate.js
                     if (typeof translatePage === 'function') {
                         translatePage(newLang);
                     }
@@ -221,13 +199,17 @@
                 }
             });
         });
-
         window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.matches('.dropdown-content') && !event.target.closest('.dropdown-content')) {
-                if (dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                }
+            if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+                dropdownContent.classList.remove('show');
             }
+        });
+        document.addEventListener('languageChanged', (event) => {
+            currentLang = event.detail.lang;
+            updateDropbtnText(currentLang);
+            langOptions.forEach(option => {
+                option.classList.toggle('active', option.dataset.lang === currentLang);
+            });
         });
 
         // =====================================
