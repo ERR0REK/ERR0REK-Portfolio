@@ -323,7 +323,6 @@
     align-items: center;
     z-index: 99999;
 }
-.lightbox-img {
 /* Lightbox modal */
 .img-lightbox {
     position: fixed;
@@ -405,7 +404,6 @@
         right: 5px !important;
     }
 }
-}
 /* --- Animacja urodzinowa --- */
 #birthday-animation {
     position: fixed;
@@ -462,7 +460,6 @@
     100% { transform: translateY(105vh) rotate(360deg); }
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap');
-@import url('discord.css');
 
 /* --- Zmienne CSS dla militarnego motywu --- */
 :root {
@@ -845,6 +842,7 @@ section {
     background: rgba(20, 20, 30, 0.92);
     border-radius: 2.2em !important;
     padding: 1.1em 2.8em !important;
+    font-size: 1.6rem;
 }
 
 /* Stylizacja ikon social media w social-discord-container */
@@ -2181,3 +2179,5 @@ footer {
         font-size: 0.85em; /* Nieco mniejszy font na małych ekranach */
     }
 }
+
+/* --- Style discord --- */

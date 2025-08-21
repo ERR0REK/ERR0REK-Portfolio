@@ -73,7 +73,10 @@ const translations = {
     ,gallery_folder_madcity: "MadCity - Suspicious Things"
     ,gallery_folder_madcity_desc: "Suspicious things captured during the boss fight in Season 2 Ch2"
     ,gallery_folder_count: "6 photos"
-    ,gallery_open_btn: "View photos"
+    ,gallery_open_btn: "View photos",
+    gallery_folder_madcity_archive: "MadCity - Archive",
+    gallery_folder_madcity_archive_desc: "Archived photos from MadCity",
+    gallery_folder_count2: "24 photos",
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     pl: {
@@ -152,7 +155,10 @@ const translations = {
     ,gallery_folder_madcity: "MadCity - Podejrzane Rzeczy"
     ,gallery_folder_madcity_desc: "Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2"
     ,gallery_folder_count: "6 zdjęć"
-    ,gallery_open_btn: "Zobacz zdjęcia"
+    ,gallery_open_btn: "Zobacz zdjęcia",
+    gallery_folder_madcity_archive: "MadCity - Archiwum",
+    gallery_folder_madcity_archive_desc: "Archiwalne zdjęcia z MadCity",
+    gallery_folder_count2: "24 zdjęć"
     },
     cs: { // Czeski
         // Index.html
@@ -226,7 +232,10 @@ const translations = {
     ,gallery_folder_madcity: "MadCity - Podezřelé věci"
     ,gallery_folder_madcity_desc: "Podezřelé věci zachycené během souboje s bossem v sezóně 2 ch2"
     ,gallery_folder_count: "6 fotek"
-    ,gallery_open_btn: "Zobrazit fotky"
+    ,gallery_open_btn: "Zobrazit fotky",
+    gallery_folder_madcity_archive: "MadCity - Archiv",
+    gallery_folder_madcity_archive_desc: "Archivované fotky z MadCity",
+    gallery_folder_count2: "24 fotek"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     sk: { // Słowacki
@@ -301,7 +310,10 @@ const translations = {
     ,gallery_folder_madcity: "MadCity - Podozrivé Veci"
     ,gallery_folder_madcity_desc: "Podozrivé veci zachytené počas boss fightu v sezóne 2 ch2"
     ,gallery_folder_count: "6 fotiek"
-    ,gallery_open_btn: "Zobraziť fotky"
+    ,gallery_open_btn: "Zobraziť fotky",
+    gallery_folder_madcity_archive: "MadCity - Archív",
+    gallery_folder_madcity_archive_desc: "Archivované fotky z MadCity",
+    gallery_folder_count2: "24 fotiek"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     },
     de: { // Niemiecki
@@ -376,7 +388,10 @@ const translations = {
     ,gallery_folder_madcity: "MadCity - Verdächtige Dinge"
     ,gallery_folder_madcity_desc: "Verdächtige Dinge, die während des Bosskampfs in Staffel 2 Ch2 aufgenommen wurden"
     ,gallery_folder_count: "6 Fotos"
-    ,gallery_open_btn: "Fotos ansehen"
+    ,gallery_open_btn: "Fotos ansehen",
+    gallery_folder_madcity_archive: "MadCity - Archiv",
+    gallery_folder_madcity_archive_desc: "Archivierte Fotos aus MadCity",
+    gallery_folder_count2: "24 Fotos"
         // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
     }
 };
