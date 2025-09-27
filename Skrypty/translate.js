@@ -26,7 +26,7 @@ const translations = {
         timezone_info: "Timezone: Loading...",
         current_time: "Current time: Loading...",
         all_rights_reserved: "All rights reserved.",
-        info_member_ipf: "I have been a member of the [DSX] Death Squadron X faction in War Tycoon since June 1, 2025.",
+        info_member_ipf: "I have been a member of the [IPF] InterPolishForces faction in War Tycoon since June 1, 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Favorite Games",
@@ -66,8 +66,8 @@ const translations = {
         desc_elita: "I am a former member of the Artificial Elite – a group formed in 2020, although it never had an official owner. It dominated games like MM2 (Murder Mystery 2) and MadCity. After two years, in 2022, with the release of MadCity: Chapter 2, the members parted ways, and the Artificial Elite ultimately disbanded.",
         community_neo: "N.E.O (New Elite Organization)",
         desc_neo: "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
-        clan_ipf_title: "[DSX⭐] Death Squadron X",
-        clan_ipf_description: "I am a member of DSX, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "I am a member of IPF, which is in the top 1 leaderboard in War Tycoon (and arguably the strongest faction)."
     // gallery.html
     ,gallery_title: "Gallery of memories (and strange ones) from games"
     ,gallery_folder_madcity: "MadCity - Suspicious Things"
@@ -106,7 +106,7 @@ const translations = {
         timezone_info: "Strefa czasowa: Ładowanie...",
         current_time: "Aktualna godzina: Ładowanie...",
         all_rights_reserved: "Wszystkie prawa zastrzeżone.",
-        info_member_ipf: "Jestem członkiem frakcji [DSX] Death Squadron X w war tycoonie od 1 czerwca 2025.",
+        info_member_ipf: "Jestem członkiem frakcji [IPF] InterPolishForces w war tycoonie od 1 czerwca 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Ulubione Gry",
@@ -148,8 +148,8 @@ const translations = {
         desc_neo: "Jestem właścicielem Nowej Elitarnej Organizacji (N.E.O), która jest kontynuacją dawnej Sztucznej Elity. N.E.O narodziła się w grudniu 2023 roku, czyli rok po premierze MadCity: Chapter 2. Początkowo nosiła nazwę „Nowa Elita”, jednak z czasem przekształciłem ją w organizację.",
         // Poniżej dodany nowy klucz dla przycisku na stronie członkostwa
         button_neo_docs: "Przejdź do Dokumentacji NEO",
-        clan_ipf_title: "[DSX⭐] Death Squadron X",
-        clan_ipf_description: "Jestem członkiem DSX który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Jestem członkiem IPF który jest w top 1 leaderboardzie w War Tycoonie (I może i też miarę najsilniejszej frakcji)"
     // gallery.html
     ,gallery_title: "Galeria wspomnień (i dziwnych) z gier"
     ,gallery_folder_madcity: "MadCity - Podejrzane Rzeczy"
@@ -185,7 +185,7 @@ const translations = {
         timezone_info: "Časové pásmo: Načítání...",
         current_time: "Aktuální čas: Načítání...",
         all_rights_reserved: "Všechna práva vyhrazena.",
-        info_member_ipf: "Jsem členem frakce [DSX] Death Squadron X ve hře War Tycoon od 1. června 2025.",
+        info_member_ipf: "Jsem členem frakce [IPF] InterPolishForces ve hře War Tycoon od 1. června 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Oblíbené Hry",
@@ -225,8 +225,8 @@ const translations = {
         desc_elita: "Jsem bývalým členem Umělé Elity – skupiny, která vznikla v roce 2020, i když nikdy neměla oficiálního vlastníka. Dominovala ve hrách jako MM2 (Murder Mystery 2) i MadCity. Po dvou letech, v roce 2022, s vydáním MadCity: Kapitola 2, se členové rozešli a Umělá Elita se nakonec rozpadla.",
         community_neo: "Nová Elitní Organizace (N.E.O)",
         desc_neo: "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
-        clan_ipf_title: "[DSX⭐] Death Squadron X",
-        clan_ipf_description: "Jsem členem DSX, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Jsem členem IPF, která je v top 1 žebříčku v War Tycoonu (a možná i nejsilnější frakcí)."
     // gallery.html
     ,gallery_title: "Galerie vzpomínek (a podivných) ze her"
     ,gallery_folder_madcity: "MadCity - Podezřelé věci"
@@ -263,7 +263,7 @@ const translations = {
         timezone_info: "Časové pásmo: Načítava sa...",
         current_time: "Aktuálny čas: Načítava sa...",
         all_rights_reserved: "Všetky práva vyhradené.",
-        info_member_ipf: "Som členom frakcie [DSX] Death Squadron X v hre War Tycoon od 1. júna 2025.",
+        info_member_ipf: "Som členom frakcie [IPF] InterPolishForces v hre War Tycoon od 1. júna 2025.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Obľúbené Hry",
@@ -303,8 +303,8 @@ const translations = {
         desc_elita: "Som bývalým členom Umelej Elity – skupiny, ktorá vznikla v roku 2020, aj keď nikdy nemala oficiálneho vlastníka. Dominovala v hrách ako MM2 (Murder Mystery 2) i MadCity. Po dvoch rokoch, v roku 2022, s vydaním MadCity: Kapitola 2, sa členovia rozdelili a Umelá Elita sa nakoniec rozpadla.",
         community_neo: "Nová Elitná Organizácia (N.E.O)",
         desc_neo: "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
-        clan_ipf_title: "[DSX⭐] Death Squadron X",
-        clan_ipf_description: "Som členom DSX, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Som členom IPF, ktorá je v top 1 rebríčku vo War Tycoone (a možno aj najsilnejšou frakciou)."
     // gallery.html
     ,gallery_title: "Galéria spomienok (a zvláštnych) z hier"
     ,gallery_folder_madcity: "MadCity - Podozrivé Veci"
@@ -341,7 +341,7 @@ const translations = {
         timezone_info: "Zeitzone: Lädt...",
         current_time: "Aktuelle Uhrzeit: Lädt...",
         all_rights_reserved: "Alle Rechte vorbehalten.",
-        info_member_ipf: "Ich bin seit dem 1. Juni 2025 Mitglied der Fraktion [DSX] Death Squadron X in War Tycoon.",
+        info_member_ipf: "Ich bin seit dem 1. Juni 2025 Mitglied der Fraktion [IPF] InterPolishForces in War Tycoon.",
 
         // fav-games.html
         page_title_fav_games: "ERR0REK - Lieblingsspiele",
@@ -381,8 +381,8 @@ const translations = {
         desc_elita: "Ich bin ein ehemaliges Mitglied der Künstlichen Elite – einer Gruppe, die 2020 gegründet wurde, aber nie einen offiziellen Besitzer hatte. Sie dominierte in Spielen wie MM2 (Murder Mystery 2) und MadCity. Nach zwei Jahren, im Jahr 2022, nach der Veröffentlichung von MadCity: Kapitel 2, trennten sich die Mitglieder, und die Künstliche Elite löste sich endgültig auf.",
         community_neo: "Neue Elitäre Organisation (N.E.O)",
         desc_neo: "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
-        clan_ipf_title: "[DSX⭐] Death Squadron X",
-        clan_ipf_description: "Ich bin Mitglied der DSX, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
+        clan_ipf_title: "[IPF⚡] InterPolishForces",
+        clan_ipf_description: "Ich bin Mitglied der IPF, die in den Top 1 der Rangliste in War Tycoon steht (und möglicherweise auch die stärkste Fraktion)."
     // gallery.html
     ,gallery_title: "Galerie der Erinnerungen (und seltsamen) aus Spielen"
     ,gallery_folder_madcity: "MadCity - Verdächtige Dinge"

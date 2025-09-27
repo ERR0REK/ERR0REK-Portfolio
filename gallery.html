@@ -68,6 +68,17 @@
                     <button class="open-folder-btn" data-i18n="gallery_open_btn">Zobacz zdjęcia</button>
                 </div>
 
+                <div class="gallery-folder" data-folder="pojebane-i-itd-akcje-w-war-tycoon">
+                    <div class="folder-thumb" style="background-image:url('Obrazy/War Tycoon - Pojebane akcje itd/')"></div>
+                    <div class="folder-info">
+                        <span class="folder-name" data-i18n="gallery_folder_war_tycoon">War tycoon pojebane akcje i itd</span>
+                        <span class="folder-year">2025</span>
+                    </div>
+                    <div class="folder-desc" data-i18n="gallery_folder_war_tycoon_desc">Pojebane akcje i itd w war tycoonie</div>
+                    <div class="folder-count"><span data-i18n="gallery_folder_count3">0 zdjęć</span></div>
+                    <button class="open-folder-media-btn" data-i18n="gallery_open_media_btn">Zobacz zdjęcia i filmy</button>
+                </div>
+
 
 
             </div>
@@ -83,6 +94,12 @@
                         <img id="img-lightbox-img" src="" alt="Podgląd" />
                         <span class="img-lightbox-arrow" id="img-lightbox-next">&#8594;</span>
                         <div class="img-lightbox-caption" id="img-lightbox-caption"></div>
+                    </div>
+                    <div class="video-lightbox" id="video-lightbox" style="display:none;">
+                        <span class="video-lightbox-close" id="video-lightbox-close">&times;</span>
+                        <video id="video-lightbox-video" class="video-lightbox-player" controls></video>
+                        <button class="video-lightbox-fullscreen" id="video-lightbox-fullscreen" title="Pełny ekran"><i class="fas fa-expand"></i></button>
+                        <div class="video-lightbox-caption" id="video-lightbox-caption"></div>
                     </div>
                 </div>
             </div>
@@ -159,9 +176,16 @@
                 ],
                 sort: 'date'
             },
+            'pojebane-i-itd-akcje-w-war-tycoon': {
+                title: 'War tycoon pojebane akcje i itd (2025)',
+                images: [
+                    // brak
+                ]
+            }
         };
-        const openBtns = document.querySelectorAll('.open-folder-btn');
-        const modal = document.getElementById('subgallery-modal');
+    const openBtns = document.querySelectorAll('.open-folder-btn');
+    const mediaBtns = document.querySelectorAll('.open-folder-media-btn');
+    const modal = document.getElementById('subgallery-modal');
         const modalTitle = document.getElementById('subgallery-title');
         const modalImages = document.getElementById('subgallery-images');
         const modalClose = document.getElementById('subgallery-close');
@@ -181,20 +205,80 @@
             } else if (folder.sort === 'name') {
                 images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
             }
-            images.forEach((img, idx) => {
-                const el = document.createElement('img');
-                el.src = img.src;
-                el.alt = img.alt || '';
-                el.className = 'subgallery-img';
-                el.style.cursor = 'zoom-in';
-                el.addEventListener('click', function() {
-                    openLightbox(folderKey, idx, images);
-                });
-                if (img.tags) {
-                    el.title = img.tags.join(' ');
+            images.forEach((media, idx) => {
+                let el;
+                if (media.video) {
+                    el = document.createElement('video');
+                    el.src = media.video;
+                    el.className = 'subgallery-video';
+                    el.controls = true;
+                    el.alt = media.alt || '';
+                    el.title = media.alt || '';
+                    el.style.cursor = 'pointer';
+                    el.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openVideoLightbox(folderKey, idx, images);
+                    });
+                } else if (media.src) {
+                    el = document.createElement('img');
+                    el.src = media.src;
+                    el.alt = media.alt || '';
+                    el.className = 'subgallery-img';
+                    el.style.cursor = 'zoom-in';
+                    el.addEventListener('click', function() {
+                        openLightbox(folderKey, idx, images);
+                    });
+                    if (media.tags) {
+                        el.title = media.tags.join(' ');
+                    }
                 }
                 modalImages.appendChild(el);
             });
+        // --- VIDEO LIGHTBOX ---
+        const videoLightbox = document.getElementById('video-lightbox');
+        const videoLightboxVideo = document.getElementById('video-lightbox-video');
+        const videoLightboxClose = document.getElementById('video-lightbox-close');
+        const videoLightboxCaption = document.getElementById('video-lightbox-caption');
+        const videoLightboxFullscreen = document.getElementById('video-lightbox-fullscreen');
+        let currentVideoIdx = 0;
+        let currentVideoFolder = null;
+        let currentVideoList = [];
+
+        function openVideoLightbox(folderKey, idx, videosArr) {
+            currentVideoFolder = folderKey;
+            currentVideoIdx = idx;
+            currentVideoList = videosArr;
+            const videoObj = videosArr[idx];
+            videoLightboxVideo.src = videoObj.video;
+            videoLightboxVideo.currentTime = 0;
+            videoLightboxVideo.play();
+            videoLightboxCaption.textContent = videoObj.alt || '';
+            videoLightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        videoLightboxClose.addEventListener('click', function() {
+            videoLightbox.style.display = 'none';
+            videoLightboxVideo.pause();
+            videoLightboxVideo.src = '';
+            document.body.style.overflow = '';
+        });
+        videoLightbox.addEventListener('click', function(e) {
+            if (e.target === videoLightbox) {
+                videoLightbox.style.display = 'none';
+                videoLightboxVideo.pause();
+                videoLightboxVideo.src = '';
+                document.body.style.overflow = '';
+            }
+        });
+        videoLightboxFullscreen.addEventListener('click', function() {
+            if (videoLightboxVideo.requestFullscreen) {
+                videoLightboxVideo.requestFullscreen();
+            } else if (videoLightboxVideo.webkitRequestFullscreen) {
+                videoLightboxVideo.webkitRequestFullscreen();
+            } else if (videoLightboxVideo.msRequestFullscreen) {
+                videoLightboxVideo.msRequestFullscreen();
+            }
+        });
         }
         function openLightbox(folderKey, idx, imagesArr) {
             currentFolder = folderKey;
@@ -212,6 +296,8 @@
             document.getElementById('img-lightbox-caption').textContent = img.caption || '';
             imgLightboxImg.setAttribute('data-tags', img.tags ? img.tags.join(' ') : '');
             imgLightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(()=>{imgLightboxClose.focus();}, 100);
         }
         openBtns.forEach(btn => {
             btn.addEventListener('click', function() {
@@ -220,11 +306,41 @@
                 modal.style.display = 'flex';
             });
         });
+        mediaBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const folderKey = this.parentElement.getAttribute('data-folder');
+                renderSubgallery(folderKey);
+                modal.style.display = 'flex';
+            });
+        });
         imgLightboxClose.addEventListener('click', function() {
             imgLightbox.style.display = 'none';
+            document.body.style.overflow = '';
         });
         imgLightbox.addEventListener('click', function(e) {
-            if (e.target === imgLightbox) imgLightbox.style.display = 'none';
+            if (e.target === imgLightbox) {
+                imgLightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        // QOL: Zamknięcie modali ESC, focus, zatrzymanie filmu
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (imgLightbox.style.display === 'flex') {
+                    imgLightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+                if (videoLightbox.style.display === 'flex') {
+                    videoLightbox.style.display = 'none';
+                    videoLightboxVideo.pause();
+                    videoLightboxVideo.src = '';
+                    document.body.style.overflow = '';
+                }
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
         });
         document.getElementById('img-lightbox-prev').addEventListener('click', function(e) {
             e.stopPropagation();
