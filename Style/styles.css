@@ -1,3 +1,81 @@
+/* --- Meta informacje o członkostwie (membership.html) --- */
+.community-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.2rem 2.8rem;
+    margin: 1.5rem 0 2.2rem 0;
+    padding: 1.3rem 2.2rem;
+    background: rgba(10, 20, 30, 0.92);
+    border: 2px solid #00ffea;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 18px 2px #00ffea80, 0 0 0 2px #00ffea44 inset;
+    align-items: center;
+    justify-content: flex-start;
+}
+.join-date-label, .status-label {
+    color: #00ffea;
+    font-family: 'Michroma', 'Poppins', monospace;
+    font-size: 1.25rem;
+    letter-spacing: 1.1px;
+    margin-right: 0.7rem;
+    text-shadow: 0 0 8px #00ffea, 0 0 2px #0ff;
+    font-weight: 600;
+}
+.join-date-value {
+    color: #00ff41;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.25rem;
+    background: rgba(0,0,0,0.7);
+    border: 1.5px solid #00ff41;
+    border-radius: 0.8rem;
+    padding: 0.3rem 1.2rem;
+    box-shadow: 0 0 10px #00ff41a0;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    margin-right: 2.2rem;
+}
+.status-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.25rem;
+    border-radius: 0.8rem;
+    padding: 0.3rem 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    margin-right: 2.2rem;
+    box-shadow: 0 0 10px #00ffea80;
+    border: 1.5px solid #00ffea;
+    background: rgba(0,0,0,0.7);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.status-value.status-current {
+    color: #00ff41;
+    border-color: #00ff41;
+    box-shadow: 0 0 14px #00ff41a0;
+    background: rgba(0, 32, 0, 0.7);
+}
+.status-value.status-former {
+    color: #ff0055;
+    border-color: #ff0055;
+    box-shadow: 0 0 14px #ff0055a0;
+    background: rgba(32, 0, 16, 0.7);
+}
+.status-value.status-returned {
+    color: #00bfff;
+    border-color: #00bfff;
+    box-shadow: 0 0 14px #00bfffa0;
+    background: rgba(0, 16, 32, 0.7);
+}
+@media (max-width: 700px) {
+    .community-meta {
+        flex-direction: column;
+        gap: 1.2rem 0;
+        padding: 1rem 0.7rem;
+    }
+    .join-date-label, .status-label, .join-date-value, .status-value {
+        font-size: 1.05rem;
+        padding: 0.2rem 0.7rem;
+    }
+}
 /* --- Futurystyczny modal video-lightbox --- */
 .video-lightbox {
     display: none;
