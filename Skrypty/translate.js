@@ -30,8 +30,8 @@ const translations = {
     current_time: "Current time: Loading...",
     all_rights_reserved: "All rights reserved.",
     info_member_ipf:
-      "I am a former member of the [IPF] InterPolishForces faction in a war tycoon since June 1, 2025.",
-    info_member_gk: "I am a member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025.",
+      "I am a member of the [IPF] InterPolishForces faction in a war tycoon since June 1, 2025.",
+    info_member_gk: "	I am a former member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025. (Yes, I was a GK member for just 1 day lol)",
 
     // fav-games.html
     page_title_fav_games: "ERR0REK - Favorite Games",
@@ -88,9 +88,8 @@ const translations = {
       "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
     clan_ipf_title: "[IPF⚡] InterPolishForces",
     clan_ipf_description:
-        "I am a former member of IPF; I left because the og_jai favored a person in promotions without any evidence.",
-    clan_gk_title: "[GK🔱] Glorious Kingdom",
-    clan_gk_description: "Description in the making",
+        "I am a member of IPF, the Polish faction in a war tycoon :>",
+
      
     
       // gallery.html
@@ -141,8 +140,8 @@ const translations = {
     current_time: "Aktualna godzina: Ładowanie...",
     all_rights_reserved: "Wszystkie prawa zastrzeżone.",
     info_member_ipf:
-      "Jestem byłym członkiem frakcji [IPF] InterPolishForces w war tycoonie od 1 czerwca 2025.",
-    info_member_gk: "Jestem członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025.",
+      "Jestem członkiem frakcji [IPF] InterPolishForces w war tycoonie od 1 czerwca 2025.",
+    info_member_gk: "Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)",
 
     // fav-games.html
     page_title_fav_games: "ERR0REK - Ulubione Gry",
@@ -201,9 +200,7 @@ const translations = {
     button_neo_docs: "Przejdź do Dokumentacji NEO",
     clan_ipf_title: "[IPF⚡] InterPolishForces",
     clan_ipf_description:
-      "Jestem byłym członkiem IPF, opuściłem ze względu na to że og_jai faworyzuje osobę bez żadnych dowodów w promocjach.",
-    clan_gk_title: "[GK🔱] Glorious Kingdom",
-    clan_gk_description: "Opis w trakcie robienia",
+      "Jestem członkiem IPF, Polska frakcja w war tycoonie :>",
     
       // gallery.html
     gallery_title: "Galeria wspomnień (i dziwnych) z gier",
@@ -250,8 +247,9 @@ const translations = {
     current_time: "Aktuální čas: Načítání...",
     all_rights_reserved: "Všechna práva vyhrazena.",
     info_member_ipf:
-      "Jsem bývalý člen frakce [IPF] InterPolishForces ve válečném tycoonu od 1. června 2025.",
+  "Jsem členem frakce [IPF] InterPolishForces ve war tycoonu od 1. června 2025.",
     info_member_gk: "Jsem členem frakce [GK] Glorious Kingdom ve válečném tycoonu od 27. září 2025.",
+  info_member_gk: "Jsem bývalým členem frakce [GK] Glorious Kingdom ve war tycoonu od 27. září 2025. (Ano, byl jsem členem GK jen 1 den lol)",
 
     // fav-games.html
     page_title_fav_games: "ERR0REK - Oblíbené Hry",
@@ -308,9 +306,7 @@ const translations = {
       "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
     clan_ipf_title: "[IPF⚡] InterPolishForces",
     clan_ipf_description:
-      "Jsem bývalý člen IPF; odešel jsem, protože og_jai upřednostňovali osobu v povýšeních bez jakýchkoli důkazů.",
-    clan_gk_title: "[GK🔱] Glorious Kingdom",
-    clan_gk_description: "Popis se připravuje",
+  "Jsem členem IPF, polská frakce ve war tycoonu :>",
     
       // gallery.html
     gallery_title: "Galerie vzpomínek (a podivných) ze her",
@@ -358,8 +354,9 @@ const translations = {
     current_time: "Aktuálny čas: Načítava sa...",
     all_rights_reserved: "Všetky práva vyhradené.",
     info_member_ipf:
-      "Som bývalý člen frakcie [IPF] InterPolishForces vo war tycoone od 1. júna 2025.",
+  "Som členom frakcie [IPF] InterPolishForces vo war tycoone od 1. júna 2025.",
     info_member_gk: "Som členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025.",
+  info_member_gk: "Som bývalým členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025. (Áno, bol som členom GK len 1 deň lol)",
 
     // fav-games.html
     page_title_fav_games: "ERR0REK - Obľúbené Hry",
@@ -416,9 +413,7 @@ const translations = {
       "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
     clan_ipf_title: "[IPF⚡] InterPolishForces",
     clan_ipf_description:
-      "	Som bývalý člen IPF; odišiel som, pretože og_jai uprednostňovali osobu v povýšeniach bez akýchkoľvek dôkazov.",
-    clan_gk_title: "[GK🔱] Glorious Kingdom",
-    clan_gk_description: "Popis se připravuje",
+  "Som členom IPF, poľská frakcia vo war tycoone :>",
     
       // gallery.html
     gallery_title: "Galéria spomienok (a zvláštnych) z hier",
@@ -467,8 +462,9 @@ const translations = {
     current_time: "Aktuelle Uhrzeit: Lädt...",
     all_rights_reserved: "Alle Rechte vorbehalten.",
     info_member_ipf:
-      "Ich bin ein ehemaliges Mitglied der [IPF] InterPolishForces Fraktion in einem War Tycoon seit dem 1. Juni 2025.",
+  "Ich bin Mitglied der Fraktion [IPF] InterPolishForces in War Tycoon seit dem 1. Juni 2025.",
     info_member_gk: "Ich bin ein Mitglied der [GK] Glorious Kingdom Fraktion in einem War Tycoon seit dem 27. September 2025.",
+  info_member_gk: "Ich bin ein ehemaliges Mitglied der Fraktion [GK] Glorious Kingdom in War Tycoon seit dem 27. September 2025. (Ja, ich war nur 1 Tag lang Mitglied bei GK lol)",
 
     // fav-games.html
     page_title_fav_games: "ERR0REK - Lieblingsspiele",
@@ -526,9 +522,8 @@ const translations = {
       "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
     clan_ipf_title: "[IPF⚡] InterPolishForces",
     clan_ipf_description:
-      "Ich bin ein ehemaliges Mitglied der IPF; ich bin ausgetreten, weil die og_jai eine Person bei Beförderungen ohne jegliche Beweise bevorzugten.",
-    clan_gk_title: "[GK🔱] Glorious Kingdom",
-    clan_gk_description: "Beschreibung in Arbeit",
+  "Ich bin Mitglied der IPF, polnische Fraktion in War Tycoon :>",
+ 
     
       // gallery.html
     gallery_title: "Galerie der Erinnerungen (und seltsamen) aus Spielen",
