@@ -29,8 +29,8 @@ const translations = {
     timezone_info: "Timezone: Loading...",
     current_time: "Current time: Loading...",
     all_rights_reserved: "All rights reserved.",
-    info_member_ipf:
-      "I am a member of the [IPF] InterPolishForces faction in a war tycoon since June 1, 2025.",
+    info_member_DSX:
+      "I am a member of the [DSX🔱] Death Squadron X faction in a war tycoon since June 1, 2025.",
     info_member_gk: "	I am a former member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025. (Yes, I was a GK member for just 1 day lol)",
 
     // fav-games.html
@@ -86,9 +86,9 @@ const translations = {
     community_neo: "N.E.O (New Elite Organization)",
     desc_neo:
       "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
-    clan_ipf_title: "[IPF⚡] InterPolishForces",
-    clan_ipf_description:
-        "I am a member of IPF, the Polish faction in a war tycoon :>",
+    clan_DSX_title: "[DSX🔱] Death Squadron X",
+    clan_DSX_description:
+        "I am a member of DSX, the Polish faction in a war tycoon :>",
 
      
     
@@ -139,8 +139,8 @@ const translations = {
     timezone_info: "Strefa czasowa: Ładowanie...",
     current_time: "Aktualna godzina: Ładowanie...",
     all_rights_reserved: "Wszystkie prawa zastrzeżone.",
-    info_member_ipf:
-      "Jestem członkiem frakcji [IPF] InterPolishForces w war tycoonie od 1 czerwca 2025.",
+    info_member_DSX:
+      "Jestem członkiem frakcji [DSX🔱] Death Squadron X w war tycoonie od 1 czerwca 2025.",
     info_member_gk: "Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)",
 
     // fav-games.html
@@ -198,9 +198,9 @@ const translations = {
       "Jestem właścicielem Nowej Elitarnej Organizacji (N.E.O), która jest kontynuacją dawnej Sztucznej Elity. N.E.O narodziła się w grudniu 2023 roku, czyli rok po premierze MadCity: Chapter 2. Początkowo nosiła nazwę „Nowa Elita”, jednak z czasem przekształciłem ją w organizację.",
     // Poniżej dodany nowy klucz dla przycisku na stronie członkostwa
     button_neo_docs: "Przejdź do Dokumentacji NEO",
-    clan_ipf_title: "[IPF⚡] InterPolishForces",
-    clan_ipf_description:
-      "Jestem członkiem IPF, Polska frakcja w war tycoonie :>",
+    clan_DSX_title: "[DSX🔱] Death Squadron X",
+    clan_DSX_description:
+      "Jestem członkiem DSX, Polska frakcja w war tycoonie :>",
     
       // gallery.html
     gallery_title: "Galeria wspomnień (i dziwnych) z gier",
@@ -246,8 +246,8 @@ const translations = {
     timezone_info: "Časové pásmo: Načítání...",
     current_time: "Aktuální čas: Načítání...",
     all_rights_reserved: "Všechna práva vyhrazena.",
-    info_member_ipf:
-  "Jsem členem frakce [IPF] InterPolishForces ve war tycoonu od 1. června 2025.",
+    info_member_DSX:
+  "Jsem členem frakce [DSX🔱] Death Squadron X ve war tycoonu od 1. června 2025.",
     info_member_gk: "Jsem členem frakce [GK] Glorious Kingdom ve válečném tycoonu od 27. září 2025.",
   info_member_gk: "Jsem bývalým členem frakce [GK] Glorious Kingdom ve war tycoonu od 27. září 2025. (Ano, byl jsem členem GK jen 1 den lol)",
 
@@ -304,9 +304,9 @@ const translations = {
     community_neo: "Nová Elitní Organizace (N.E.O)",
     desc_neo:
       "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
-    clan_ipf_title: "[IPF⚡] InterPolishForces",
-    clan_ipf_description:
-  "Jsem členem IPF, polská frakce ve war tycoonu :>",
+    clan_DSX_title: "[DSX🔱] Death Squadron X",
+    clan_DSX_description:
+  "Jsem členem DSX, polská frakce ve war tycoonu :>",
     
       // gallery.html
     gallery_title: "Galerie vzpomínek (a podivných) ze her",
@@ -353,8 +353,8 @@ const translations = {
     timezone_info: "Časové pásmo: Načítava sa...",
     current_time: "Aktuálny čas: Načítava sa...",
     all_rights_reserved: "Všetky práva vyhradené.",
-    info_member_ipf:
-  "Som členom frakcie [IPF] InterPolishForces vo war tycoone od 1. júna 2025.",
+    info_member_DSX:
+  "Som členom frakcie [DSX🔱] Death Squadron X vo war tycoone od 1. júna 2025.",
     info_member_gk: "Som členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025.",
   info_member_gk: "Som bývalým členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025. (Áno, bol som členom GK len 1 deň lol)",
 
@@ -411,9 +411,9 @@ const translations = {
     community_neo: "Nová Elitná Organizácia (N.E.O)",
     desc_neo:
       "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
-    clan_ipf_title: "[IPF⚡] InterPolishForces",
-    clan_ipf_description:
-  "Som členom IPF, poľská frakcia vo war tycoone :>",
+    clan_DSX_title: "[DSX🔱] Death Squadron X",
+    clan_DSX_description:
+  "Som členom DSX, poľská frakcia vo war tycoone :>",
     
       // gallery.html
     gallery_title: "Galéria spomienok (a zvláštnych) z hier",
@@ -461,8 +461,8 @@ const translations = {
     timezone_info: "Zeitzone: Lädt...",
     current_time: "Aktuelle Uhrzeit: Lädt...",
     all_rights_reserved: "Alle Rechte vorbehalten.",
-    info_member_ipf:
-  "Ich bin Mitglied der Fraktion [IPF] InterPolishForces in War Tycoon seit dem 1. Juni 2025.",
+    info_member_DSX:
+  "Ich bin Mitglied der Fraktion [DSX🔱] Death Squadron X in War Tycoon seit dem 1. Juni 2025.",
     info_member_gk: "Ich bin ein Mitglied der [GK] Glorious Kingdom Fraktion in einem War Tycoon seit dem 27. September 2025.",
   info_member_gk: "Ich bin ein ehemaliges Mitglied der Fraktion [GK] Glorious Kingdom in War Tycoon seit dem 27. September 2025. (Ja, ich war nur 1 Tag lang Mitglied bei GK lol)",
 
@@ -520,9 +520,9 @@ const translations = {
     community_neo: "Neue Elitäre Organisation (N.E.O)",
     desc_neo:
       "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
-    clan_ipf_title: "[IPF⚡] InterPolishForces",
-    clan_ipf_description:
-  "Ich bin Mitglied der IPF, polnische Fraktion in War Tycoon :>",
+    clan_DSX_title: "[DSX🔱] Death Squadron X",
+    clan_DSX_description:
+  "Ich bin Mitglied der DSX, polnische Fraktion in War Tycoon :>",
  
     
       // gallery.html
@@ -561,7 +561,7 @@ function translatePage(lang) {
       if (
         key.startsWith("nick_") ||
         key.includes("home_greeting") ||
-        key === "clan_ipf_title"
+        key === "clan_DSX_title"
       ) {
         el.innerHTML = translations[lang][key];
       } else {
