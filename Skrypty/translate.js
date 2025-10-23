@@ -23,14 +23,15 @@ const translations = {
     additional_info: "Additional Information",
     info_owner_neo:
       "I am the owner / creator of N.E.O (New Elite Organization)",
-    info_roblox: "I started playing Roblox in 2019...",
-    info_technology: "I am also interested in modern technology.",
-    politics_view: "I am a nationalist, conservative, and patriot.",
+  info_roblox: "I started playing Roblox in 2019... (fun fact: my oldest Roblox account dates back to December 2018 but I don't remember anything from that account)",
+  info_technology: "I am also interested in modern technology.",
+  politics_view: "I am a nationalist, conservative, and patriot. I also sometimes shift my views — for example, from the right to the far right and back.",
     timezone_info: "Timezone: Loading...",
     current_time: "Current time: Loading...",
     all_rights_reserved: "All rights reserved.",
     info_member_DSX:
       "I am a member of the [DSX🔱] Death Squadron X faction in a war tycoon since June 1, 2025.",
+  info_co_leader_dsx: "I am responsible for the complete rebuild of the DSX faction (Death Squadron X), acting as the temporary (server) owner of DSX on Discord. I am also responsible for introducing new systems to the DSX faction's server :>",
     info_member_gk: "	I am a former member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025. (Yes, I was a GK member for just 1 day lol)",
 
     // fav-games.html
@@ -74,6 +75,11 @@ const translations = {
     status_former: "Former",
     status_returned: "Returned",
     status_dissolved: "Dissolved",
+  status_inactive: "Inactive",
+  status_banned: "Banned",
+  status_founder: "Founder",
+  status_leader: "Leader",
+  status_honorary: "Honorary",
     community_lockedup: "LockedUp Community",
     desc_lockedup:
       "I have been a member of the LockedUp community since August 2023. I was most active in 2023–2024, but in August 2024, after the release of LockedUp, I left the community. Later I returned, but I am not as active as before.",
@@ -89,6 +95,11 @@ const translations = {
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
         "I am a member of DSX, the Polish faction in a war tycoon :>",
+  dsx_show_more: "Show more",
+  dsx_modal_title: "[DSX🔱] Death Squadron X — Details",
+
+  dsx_modal_content: "This is a Polish Faction (in fact, it's international but the majority are Poles) in War Tycoon, and this faction has won many wars (including big ones), such as: [GK] Glorious Kingdom and [CRC] Command Raid Conquer. I have been a member of DSX since June 1, 2025, and I was a temporary (server) owner of DSX on Discord. I am also responsible for the entire rebuild of the DSX faction and the implementation of new systems on the DSX faction server :>",
+  modal_close_label: "Close",
 
      
     
@@ -133,14 +144,15 @@ const translations = {
     additional_info: "Dodatkowe Informacje",
     info_owner_neo:
       "Jestem właścicielem / twórcą N.E.O (Nowa Elitarna Organizacja)",
-    info_roblox: "Zacząłem grać w Robloxa w 2019 roku...",
-    info_technology: "Interesuję się również nowoczesną technologią.",
-    politics_view: "Jestem narodowcem, konserwatystą i patriotą.",
+  info_roblox: "Zacząłem grać w Robloxa w 2019 roku... (fun fact jest taki że moje najstarsze konto na robloxie pochodziło z grudnia 2018 ale nie pamiętam nic z tego konta)",
+  info_technology: "Interesuję się również nowoczesną technologią.",
+  politics_view: "Jestem narodowcem, konserwatystą i patriotą. Trochę też zmieniam poglądy czyli: prawicę na skrajną prawicę i odwrotnie.",
     timezone_info: "Strefa czasowa: Ładowanie...",
     current_time: "Aktualna godzina: Ładowanie...",
     all_rights_reserved: "Wszystkie prawa zastrzeżone.",
     info_member_DSX:
       "Jestem członkiem frakcji [DSX🔱] Death Squadron X w war tycoonie od 1 czerwca 2025.",
+    info_co_leader_dsx: "Jestem odpowiedzialny za cały rebuild frakcji DSX'u (Death Squadron X), jako chwilowy właściciel (serwerowy) DSX na discordzie. Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji DSX :>",
     info_member_gk: "Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)",
 
     // fav-games.html
@@ -184,6 +196,11 @@ const translations = {
     status_former: "Były",
     status_returned: "Powracający",
   status_dissolved: "Rozwiązana",
+    status_inactive: "Nieaktywny",
+    status_banned: "Zbanowany",
+    status_founder: "Założyciel",
+    status_leader: "Lider",
+    status_honorary: "Honorowy",
     community_lockedup: "LockedUp Community",
     desc_lockedup:
       "Jestem członkiem społeczności LockedUp od sierpnia 2023 roku. Najbardziej aktywny byłem w latach 2023–2024, jednak w sierpniu 2024, po premierze LockedUp, opuściłem społeczność. Później do niej wróciłem, ale nie jestem już tak aktywny jak wcześniej.",
@@ -201,6 +218,9 @@ const translations = {
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
       "Jestem członkiem DSX, Polska frakcja w war tycoonie :>",
+    dsx_show_more: "Pokaż więcej",
+    dsx_modal_title: "[DSX🔱] Death Squadron X — Szczegóły",
+    dsx_modal_content: "To Polska Frakcja (wsumie i też międzynarodowa ale większość stanowią polacy) w war tycoonie, i ta frakcja wiele wojen wygrało (także duże) między innymi: [GK] Glorious Kingdom i [CRC] Command Raid Conquer. Jestem członkiem DSX'u od 1 czerwca 2025 roku oraz byłem chwilowym właścicielem (serwerowym) DSX'a na discordzie. Oraz jestem odpowiedzialny za cały rebuild frakcji DSX'u oraz wprowadzenie nowych systemów na serwerze frakcji DSX :>",
     
       // gallery.html
     gallery_title: "Galeria wspomnień (i dziwnych) z gier",
@@ -240,14 +260,15 @@ const translations = {
       "Zajímám se také o programování (trochu znám C++ a JavaScript).",
     additional_info: "Další Informace",
     info_owner_neo: "Jsem majitel / tvůrce N.E.O (Nová Elitní Organizace)",
-    info_roblox: "Začal jsem hrát Roblox v roce 2019...",
-    info_technology: "Zajímám se také o moderní technologie.",
-    politics_view: "Jsem nacionalista, konzervativec a vlastenec.",
+  info_roblox: "Začal jsem hrát Roblox v roce 2019... (fun fact: můj nejstarší účet na Roblox pochází z prosince 2018, ale nic si z něj nepamatuji)",
+  info_technology: "Zajímám se také o moderní technologie.",
+  politics_view: "Jsem nacionalista, konzervativec a vlastenec. Trochu také měním názory — například z pravice na krajní pravici a zpět.",
     timezone_info: "Časové pásmo: Načítání...",
     current_time: "Aktuální čas: Načítání...",
     all_rights_reserved: "Všechna práva vyhrazena.",
     info_member_DSX:
   "Jsem členem frakce [DSX🔱] Death Squadron X ve war tycoonu od 1. června 2025.",
+  info_co_leader_dsx: "Jsem zodpovědný za kompletní rebuild frakce DSX (Death Squadron X) jako dočasný (serverový) vlastník DSX na Discordu. Také mám na starosti zavedení nových systémů na server frakce DSX :>",
     info_member_gk: "Jsem členem frakce [GK] Glorious Kingdom ve válečném tycoonu od 27. září 2025.",
   info_member_gk: "Jsem bývalým členem frakce [GK] Glorious Kingdom ve war tycoonu od 27. září 2025. (Ano, byl jsem členem GK jen 1 den lol)",
 
@@ -292,6 +313,11 @@ const translations = {
     status_former: "Bývalý",
     status_returned: "Navrácený",
   status_dissolved: "Rozpuštěna",
+    status_inactive: "Neaktivní",
+    status_banned: "Zabanovaný",
+    status_founder: "Zakladatel",
+    status_leader: "Lídr",
+    status_honorary: "Čestný",
     community_lockedup: "Komunita LockedUp",
     desc_lockedup:
       "Jsem členem komunity LockedUp od srpna 2023. Nejaktivnější jsem byl v letech 2023–2024, ale v srpnu 2024, po vydání hry LockedUp, jsem komunitu opustil. Později jsem se vrátil, ale už nejsem tak aktivní jako dříve.",
@@ -307,6 +333,9 @@ const translations = {
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
   "Jsem členem DSX, polská frakce ve war tycoonu :>",
+  dsx_show_more: "Zobrazit více",
+  dsx_modal_title: "[DSX🔱] Death Squadron X — Detaily",
+  dsx_modal_content: "Toto je polská frakce (vlastně i mezinárodní, ale většinu tvoří Poláci) ve War Tycoonu, a tato frakce vyhrála mnoho válek (včetně velkých), mimo jiné proti: [GK] Glorious Kingdom a [CRC] Command Raid Conquer. Jsem členem DSX od 1. června 2025 a byl jsem dočasným (serverovým) majitelem DSX na Discordu. Jsem také zodpovědný za celou přestavbu frakce DSX a zavedení nových systémů na serveru frakce DSX :>",
     
       // gallery.html
     gallery_title: "Galerie vzpomínek (a podivných) ze her",
@@ -347,14 +376,15 @@ const translations = {
       "Zaujímam sa aj o programovanie (trochu ovládam C++ a JavaScript).",
     additional_info: "Ďalšie Informácie",
     info_owner_neo: "Som vlastník / tvorca N.E.O (Nová Elitná Organizácia)",
-    info_roblox: "Začal som hrať Roblox v roku 2019...",
-    info_technology: "Zaujímam sa aj o moderné technológie.",
-    politics_view: "Som nacionalista, konzervatívec a vlastenec.",
+  info_roblox: "Začal som hrať Roblox v roku 2019... (fun fact: môj najstarší účet na Roblox je z decembra 2018, ale nič z neho si nepamätám)",
+  info_technology: "Zaujímam sa aj o moderné technológie.",
+  politics_view: "Som nacionalista, konzervatívec a vlastenec. Trochu tiež mením názory — napríklad z pravice na extrémnu pravicu a späť.",
     timezone_info: "Časové pásmo: Načítava sa...",
     current_time: "Aktuálny čas: Načítava sa...",
     all_rights_reserved: "Všetky práva vyhradené.",
     info_member_DSX:
   "Som členom frakcie [DSX🔱] Death Squadron X vo war tycoone od 1. júna 2025.",
+  info_co_leader_dsx: "Som zodpovedný za kompletný rebuild frakcie DSX (Death Squadron X) ako dočasný (serverový) vlastník DSX na Discorde. Tiež som zodpovedný za zavedenie nových systémov na server frakcie DSX :>",
     info_member_gk: "Som členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025.",
   info_member_gk: "Som bývalým členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025. (Áno, bol som členom GK len 1 deň lol)",
 
@@ -399,6 +429,11 @@ const translations = {
     status_former: "Bývalý",
     status_returned: "Navrátený",
   status_dissolved: "Rozpustená",
+    status_inactive: "Neaktívny",
+    status_banned: "Zabanovaný",
+    status_founder: "Zakladateľ",
+    status_leader: "Líder",
+    status_honorary: "Čestný",
     community_lockedup: "Komunita LockedUp",
     desc_lockedup:
       "Som členom komunity LockedUp od augusta 2023. Najaktívnejší som bol v rokoch 2023–2024, ale v auguste 2024, po vydaní hry LockedUp, som komunitu opustil. Neskôr som sa vrátil, ale už nie som taký aktívny ako predtým.",
@@ -414,6 +449,9 @@ const translations = {
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
   "Som členom DSX, poľská frakcia vo war tycoone :>",
+  dsx_show_more: "Zobraziť viac",
+  dsx_modal_title: "[DSX🔱] Death Squadron X — Detaily",
+  dsx_modal_content: "Toto je Poľská Frakcia (v podstate aj medzinárodná, ale väčšinu tvoria Poliaci) vo War Tycoone, a táto frakcia vyhrala mnoho vojen (aj veľkých), okrem iného proti: [GK] Glorious Kingdom a [CRC] Command Raid Conquer. Som členom DSX od 1. júna 2025 a bol som dočasným (serverovým) majiteľom DSX na Discorde. Taktiež som zodpovedný za celú prestavbu frakcie DSX a zavedenie nových systémov na serveri frakcie DSX :>",
     
       // gallery.html
     gallery_title: "Galéria spomienok (a zvláštnych) z hier",
@@ -455,14 +493,15 @@ const translations = {
     additional_info: "Zusätzliche Informationen",
     info_owner_neo:
       "Ich bin der Besitzer / Schöpfer von N.E.O (New Elite Organization)",
-    info_roblox: "Ich habe 2019 angefangen, Roblox zu spielen...",
-    info_technology: "Ich interessiere mich auch für moderne Technologie.",
-    politics_view: "Ich bin Nationalist, Konservativer und Patriot.",
+  info_roblox: "Ich habe 2019 angefangen, Roblox zu spielen... (Fun Fact: Mein ältester Roblox-Account stammt aus Dezember 2018, aber ich erinnere mich an nichts davon)",
+  info_technology: "Ich interessiere mich auch für moderne Technologie.",
+  politics_view: "Ich bin Nationalist, Konservativer und Patriot. Manchmal ändere ich auch meine Ansichten — zum Beispiel von der Rechten zur extremen Rechten und wieder zurück.",
     timezone_info: "Zeitzone: Lädt...",
     current_time: "Aktuelle Uhrzeit: Lädt...",
     all_rights_reserved: "Alle Rechte vorbehalten.",
     info_member_DSX:
   "Ich bin Mitglied der Fraktion [DSX🔱] Death Squadron X in War Tycoon seit dem 1. Juni 2025.",
+  info_co_leader_dsx: "Ich bin verantwortlich für den kompletten Wiederaufbau der Fraktion DSX (Death Squadron X) und fungiere als vorübergehender (Server-)Inhaber von DSX auf Discord. Außerdem bin ich dafür verantwortlich, neue Systeme auf dem DSX-Server einzuführen :>",
     info_member_gk: "Ich bin ein Mitglied der [GK] Glorious Kingdom Fraktion in einem War Tycoon seit dem 27. September 2025.",
   info_member_gk: "Ich bin ein ehemaliges Mitglied der Fraktion [GK] Glorious Kingdom in War Tycoon seit dem 27. September 2025. (Ja, ich war nur 1 Tag lang Mitglied bei GK lol)",
 
@@ -507,6 +546,11 @@ const translations = {
     status_former: "Ehemalig",
     status_returned: "Zurückgekehrt",
   status_dissolved: "Aufgelöst",
+    status_inactive: "Inaktiv",
+    status_banned: "Gesperrt",
+    status_founder: "Gründer",
+    status_leader: "Anführer",
+    status_honorary: "Ehrenmitglied",
   status_dissolved: "Dissolved",
     community_lockedup: "LockedUp Community",
     desc_lockedup:
@@ -523,6 +567,9 @@ const translations = {
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
   "Ich bin Mitglied der DSX, polnische Fraktion in War Tycoon :>",
+dsx_show_more: "Mehr anzeigen",
+dsx_modal_title: "[DSX🔱] Death Squadron X — Details",
+  dsx_modal_content: "Das ist eine polnische Fraktion (eigentlich auch international, aber die Mehrheit sind Polen) in War Tycoon, und diese Fraktion hat viele Kriege (auch große) gewonnen, unter anderem gegen: [GK] Glorious Kingdom und [CRC] Command Raid Conquer. Ich bin seit dem 1. Juni 2025 Mitglied von DSX und war ein vorübergehender (Server-)Besitzer von DSX auf Discord. Ich bin auch verantwortlich für den gesamten Wiederaufbau der DSX-Fraktion und die Einführung neuer Systeme auf dem DSX-Fraktionsserver :>",
  
     
       // gallery.html
@@ -543,6 +590,41 @@ const translations = {
     // UWAGA: nav_neo_docs I button_neo_docs NIE MAJĄ BYĆ W TYM JĘZYKU!
   },
 };
+
+// Formatowanie dat z atrybutu datetime zgodnie z lokalizacją
+function formatDateForLang(lang, datetime) {
+  try {
+    const date = new Date(datetime);
+    // Mapujemy języki na locale strings
+    const localeMap = {
+      pl: 'pl-PL',
+      en: 'en-GB',
+      cs: 'cs-CZ',
+      sk: 'sk-SK',
+      de: 'de-DE'
+    };
+    const locale = localeMap[lang] || 'pl-PL';
+    // Wybieramy format: jeśli string zawiera tylko rok, pokaż tylko rok
+    if (/^\d{4}$/.test(datetime)) {
+      return new Intl.DateTimeFormat(locale, { year: 'numeric' }).format(date);
+    }
+    // jeśli format YYYY-MM
+    if (/^\d{4}-\d{2}$/.test(datetime)) {
+      return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long' }).format(date);
+    }
+    // fallback do pełnej daty
+    return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
+  } catch (e) {
+    return datetime;
+  }
+}
+
+function formatAllDates(lang) {
+  document.querySelectorAll('time[datetime]').forEach(t => {
+    const dt = t.getAttribute('datetime');
+    t.textContent = formatDateForLang(lang, dt);
+  });
+}
 
 // Funkcja translatePage jest globalna, aby mogła być wywołana z innych skryptów lub stron
 function translatePage(lang) {
@@ -601,6 +683,11 @@ function translatePage(lang) {
   // Upewnij się, że cytaty również się odświeżą
   if (typeof startDynamicQuoteInterval === "function") {
     startDynamicQuoteInterval();
+  }
+
+  // Formatowanie wszystkich <time datetime=> zgodnie z wybranym językiem
+  if (typeof formatAllDates === "function") {
+    formatAllDates(lang);
   }
 
   // Dispatch custom event to notify other scripts about language change

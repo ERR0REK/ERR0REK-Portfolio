@@ -65,6 +65,111 @@
     box-shadow: 0 0 14px #00bfffa0;
     background: rgba(0, 16, 32, 0.7);
 }
+.status-value.status-dissolved {
+    color: #ffd700;
+    border-color: #ffd700;
+    box-shadow: 0 0 14px #ffd70080;
+    background: rgba(32, 24, 0, 0.7);
+}
+.status-value:focus {
+    outline: 3px solid rgba(255,255,255,0.06);
+    outline-offset: 3px;
+    box-shadow: 0 0 18px #00ffeaaa, 0 0 6px #ffd70066;
+}
+
+.status-value i {
+    margin-right: 0.6rem;
+    font-size: 1.05rem;
+    vertical-align: middle;
+}
+.status-text { vertical-align: middle; }
+
+.status-value.status-inactive {
+    color: #9aa0a6;
+    border-color: #9aa0a6;
+    box-shadow: 0 0 10px #9aa0a620;
+    background: rgba(20,20,20,0.6);
+}
+.status-value.status-banned {
+    color: #ff2e2e;
+    border-color: #ff2e2e;
+    box-shadow: 0 0 14px #ff2e2e66;
+    background: rgba(40,0,0,0.6);
+}
+.status-value.status-founder {
+    color: #ff9f00;
+    border-color: #ff9f00;
+    box-shadow: 0 0 12px #ff9f0044;
+    background: rgba(48,30,0,0.6);
+}
+.status-value.status-leader {
+    color: #7cfc00;
+    border-color: #7cfc00;
+    box-shadow: 0 0 12px #7cfc0044;
+    background: rgba(10,30,10,0.6);
+}
+.status-value.status-honorary {
+    color: #c9a6ff;
+    border-color: #c9a6ff;
+    box-shadow: 0 0 12px #c9a6ff44;
+    background: rgba(18,8,30,0.6);
+}
+
+/* --- Modal (DSX 'Pokaż więcej') --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+.modal[aria-hidden="false"] {
+    display: flex;
+}
+.modal-backdrop {
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(5,5,10,0.85);
+}
+.modal-content {
+    position: relative;
+    background: #0f0f12;
+    border: 2px solid #00ffea;
+    box-shadow: 0 0 30px #00ffea88;
+    padding: 1.8rem 2rem;
+    border-radius: 1rem;
+    max-width: 720px;
+    width: calc(100% - 48px);
+    z-index: 3001;
+}
+.modal[aria-hidden="false"] .modal-content {
+    animation: modalIn 220ms ease-out;
+}
+.modal[aria-hidden="true"] .modal-content {
+    animation: modalOut 180ms ease-in forwards;
+}
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.96) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes modalOut {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to { opacity: 0; transform: scale(0.98) translateY(8px); }
+}
+.modal-close {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: transparent;
+    border: 0;
+    color: #00ffea;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+.community-actions { margin-top: 0.8rem; }
+.btn { cursor: pointer; }
+.btn-secondary {
+    background: #181818; color: #00ffea; border: 1.8px solid #00ffea; padding: 0.5rem 1rem; border-radius: 0.7rem; box-shadow: 0 0 10px #00ffea66;
+}
 @media (max-width: 700px) {
     .community-meta {
         flex-direction: column;
@@ -213,6 +318,18 @@
     background: rgba(20, 20, 20, 0.95);
     border: 2.5px solid #00ff41;
     border-radius: 1.5rem;
+
+/* YouTube thumbnail items */
+.subgallery-video-item { display: inline-block; margin: 0.4rem; }
+.subgallery-video-item img.subgallery-img { width: 220px; height: 150px; object-fit: cover; border-radius: 1.1rem; border: 2px solid #00ffea; box-shadow: 0 0 16px #00ffea99; cursor: pointer; }
+.subgallery-video-item img.subgallery-img:hover { box-shadow: 0 0 24px #00ff41cc; border-color: #00ff41; }
+
+/* iframe video wrapper in modal */
+.video-iframe-container { display: none; position: relative; width: 85vw; max-width: 1200px; height: 65vh; }
+.video-iframe-wrapper { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; border: 3px solid #00ffea; box-shadow: 0 0 30px #00ffea8c; background: #000; }
+.video-iframe-wrapper iframe { width: 100%; height: 100%; display: block; }
+.video-lightbox-close-iframe { position: absolute; top: 10px; right: 10px; z-index: 1005; font-size: 2rem; color: #00ffea; background: transparent; border: none; cursor: pointer; }
+.video-lightbox-close-iframe:hover { color: #f0f; }
     box-shadow: 0 0 18px 2px #00ff41a0, 0 0 0 2px #0f0 inset;
     padding: 2.2rem 2.5rem 1.5rem 2.5rem;
     min-width: 300px;
