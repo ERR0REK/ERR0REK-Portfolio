@@ -2523,3 +2523,198 @@ footer {
 }
 
 /* --- Style discord --- */
+
+/* --- Mobile & Tablet responsive tweaks (added) --- */
+/* Minimal, non-invasive adjustments for better usability on phones/tablets.
+   Preserves existing animations. */
+
+/* Tablet landscape and small laptops */
+@media (max-width: 1024px) {
+    header {
+        padding: 14px 18px;
+    }
+    header .logo {
+        font-size: 1.35rem;
+    }
+    nav ul {
+        gap: 0.6rem;
+    }
+    .header-widgets {
+        gap: 1rem;
+    }
+    .language-dropdown .dropbtn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 900px) {
+    /* Make header widgets slightly smaller and allow wrapping */
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    nav {
+        order: 3;
+        width: 100%;
+    }
+    nav ul {
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .header-widgets {
+        order: 2;
+        margin-left: auto;
+        gap: 0.6rem;
+    }
+    .language-dropdown .dropdown-content {
+        min-width: 140px;
+    }
+    .avatar {
+        max-width: 160px;
+        width: 28vw;
+        height: auto;
+    }
+    .social-icons .social-icon {
+        font-size: 1.1rem;
+        padding: 0.4rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 700px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 12px 14px;
+    }
+    header .logo {
+        text-align: center;
+        width: 100%;
+        font-size: 1.25rem;
+    }
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+    }
+    nav ul li a {
+        display: block;
+        padding: 0.9rem 1rem;
+        text-align: center;
+        border-radius: 0.6rem;
+    }
+    .header-widgets {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        order: 2;
+        width: 100%;
+    }
+    .language-dropdown {
+        display: inline-block;
+        width: auto;
+    }
+    .language-dropdown .dropbtn {
+        padding: 0.6rem 0.9rem;
+        font-size: 1rem;
+    }
+    /* Larger, easier touch targets */
+    .social-icons .social-icon {
+        font-size: 1.25rem;
+        padding: 0.6rem;
+    }
+    .discord-tag-widget {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        font-size: 0.95rem;
+    }
+    .hero-content {
+        padding: 1rem 1rem 2rem 1rem;
+    }
+    .avatar {
+        width: 40vw;
+        max-width: 140px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+    .nickname { font-size: 1.1rem; }
+    .dynamic-text { font-size: 0.95rem; }
+    .quote-text { font-size: 0.95rem; }
+    .info-grid { gap: 0.6rem; }
+    .open-folder-btn, .open-folder-media-btn { padding: 0.6rem 1rem; font-size: 1rem; }
+    /* Make dropdown content span most of the viewport on very small screens */
+    .language-dropdown .dropdown-content {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 28px) !important;
+        box-sizing: border-box;
+    }
+}
+
+/* --- Mobile video fallback & gallery/modal tweaks --- */
+@media (max-width: 700px) {
+    /* Hide heavy background video on small screens for performance */
+    #background-video {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+
+    /* tighten hero area when video removed */
+    #hero-section {
+        padding-top: 1rem;
+        padding-bottom: 1.2rem;
+    }
+
+    /* Gallery cards and thumbnails scale better on phones */
+    .gallery-folders { gap: 1rem; }
+    .gallery-folder { padding: 1.1rem; min-width: auto; max-width: 92%; }
+    .folder-thumb { height: 120px; }
+    .subgallery-img, .subgallery-video, .subgallery-video-item img.subgallery-img {
+        width: 46vw;
+        max-width: 200px;
+        height: calc(46vw * 0.68);
+        max-height: 140px;
+    }
+
+    /* Modal content fits smaller viewports */
+    .subgallery-content {
+        padding: 1.4rem;
+        max-height: 75vh;
+        min-width: auto;
+    }
+    .subgallery-images { gap: 0.9rem; }
+
+    /* iframe/video lightbox sizing */
+    .video-iframe-container { width: 96vw; height: 58vh; }
+    .video-lightbox-player { max-height: 50vh; max-width: 96vw; }
+
+    /* Buttons slightly larger for touch */
+    .open-folder-btn, .open-folder-media-btn { padding: 0.7rem 1.25rem; font-size: 1rem; }
+}
+
+/* Extra polish for very narrow screens */
+@media (max-width: 360px) {
+    .subgallery-img, .subgallery-video, .subgallery-video-item img.subgallery-img {
+        width: 72vw;
+        height: calc(72vw * 0.6);
+        max-width: none;
+        max-height: none;
+    }
+    nav ul li a { padding: 0.7rem 0.6rem; }
+}

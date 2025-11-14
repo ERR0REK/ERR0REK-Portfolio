@@ -30,8 +30,8 @@ const translations = {
     current_time: "Current time: Loading...",
     all_rights_reserved: "All rights reserved.",
     info_member_DSX:
-      "I am a member of the [DSX🔱] Death Squadron X faction in a war tycoon since June 1, 2025.",
-  info_co_leader_dsx: "I am responsible for the complete rebuild of the DSX faction (Death Squadron X), acting as the temporary (server) owner of DSX on Discord. I am also responsible for introducing new systems to the DSX faction's server :>",
+      "I am a member of the [303🔱] 303 Squadron faction in a war tycoon since June 1, 2025.",
+  info_co_leader_dsx: "I am responsible for the full rebuild of the 303 faction (303 Squadron). I served as a temporary (server) owner of 303; I currently hold the rank of Lieutenant Colonel (Elder). I am also responsible for introducing new systems to the 303 faction's server :>",
     info_member_gk: "	I am a former member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025. (Yes, I was a GK member for just 1 day lol)",
 
     // fav-games.html
@@ -92,13 +92,13 @@ const translations = {
     community_neo: "N.E.O (New Elite Organization)",
     desc_neo:
       "I am the owner of the New Elite Organization (N.E.O), which is a continuation of the former Artificial Elite. N.E.O was born in December 2023, a year after the release of MadCity: Chapter 2. Initially, it was called 'New Elite', but over time I transformed it into an organization.",
-    clan_DSX_title: "[DSX🔱] Death Squadron X",
-    clan_DSX_description:
-        "I am a member of DSX, the Polish faction in a war tycoon :>",
+  clan_DSX_title: "[303🔱] 303 Squadron",
+  clan_DSX_description:
+  "I am a member of the 303 Squadron (historical name: No. 303 Polish Fighter Squadron, named after Tadeusz Kościuszko), a Polish faction in the War Tycoon game.",
   dsx_show_more: "Show more",
-  dsx_modal_title: "[DSX🔱] Death Squadron X — Details",
+  dsx_modal_title: "[303🔱] 303 Squadron — Details",
 
-  dsx_modal_content: "This is a Polish Faction (in fact, it's international but the majority are Poles) in War Tycoon, and this faction has won many wars (including big ones), such as: [GK] Glorious Kingdom and [CRC] Command Raid Conquer. I have been a member of DSX since June 1, 2025, and I was a temporary (server) owner of DSX on Discord. I am also responsible for the entire rebuild of the DSX faction and the implementation of new systems on the DSX faction server :>",
+  dsx_modal_content: "This is a Polish Faction (in fact, it's international but the majority are Poles) in War Tycoon, and this faction has won many wars (including big ones), such as: [GK] Glorious Kingdom and [CRC] Command Raid Conquer. I have been a member of 303 since June 1, 2025, and I was a temporary (server) owner of 303 on Discord. I am also responsible for the entire rebuild of the 303 faction and the implementation of new systems on the 303 faction server :>",
   modal_close_label: "Close",
 
      
@@ -151,8 +151,8 @@ const translations = {
     current_time: "Aktualna godzina: Ładowanie...",
     all_rights_reserved: "Wszystkie prawa zastrzeżone.",
     info_member_DSX:
-      "Jestem członkiem frakcji [DSX🔱] Death Squadron X w war tycoonie od 1 czerwca 2025.",
-    info_co_leader_dsx: "Jestem odpowiedzialny za cały rebuild frakcji DSX'u (Death Squadron X), jako chwilowy właściciel (serwerowy) DSX na discordzie. Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji DSX :>",
+      "Jestem członkiem frakcji [303🔱] 303 Dywizja w war tycoonie od 1 czerwca 2025.",
+    info_co_leader_dsx: "Jestem odpowiedzialny za cały rebuild frakcji 303 (303 Dywizja). Byłem tymczasowym właścicielem serwerowym 303; obecnie pełnię rangę Lieutenant Colonel (Elder). Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji 303 :>",
     info_member_gk: "Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)",
 
     // fav-games.html
@@ -215,12 +215,12 @@ const translations = {
       "Jestem właścicielem Nowej Elitarnej Organizacji (N.E.O), która jest kontynuacją dawnej Sztucznej Elity. N.E.O narodziła się w grudniu 2023 roku, czyli rok po premierze MadCity: Chapter 2. Początkowo nosiła nazwę „Nowa Elita”, jednak z czasem przekształciłem ją w organizację.",
     // Poniżej dodany nowy klucz dla przycisku na stronie członkostwa
     button_neo_docs: "Przejdź do Dokumentacji NEO",
-    clan_DSX_title: "[DSX🔱] Death Squadron X",
+  clan_DSX_title: "[303🔱] 303 Dywizja",
     clan_DSX_description:
-      "Jestem członkiem DSX, Polska frakcja w war tycoonie :>",
+      "Jestem członkiem 303 Dywizji (historyczna nazwa: 303 Dywizjon Myśliwski Warszawski im. Tadeusza Kościuszki), Polska frakcja w war tycoonie :>",
     dsx_show_more: "Pokaż więcej",
-    dsx_modal_title: "[DSX🔱] Death Squadron X — Szczegóły",
-    dsx_modal_content: "To Polska Frakcja (wsumie i też międzynarodowa ale większość stanowią polacy) w war tycoonie, i ta frakcja wiele wojen wygrało (także duże) między innymi: [GK] Glorious Kingdom i [CRC] Command Raid Conquer. Jestem członkiem DSX'u od 1 czerwca 2025 roku oraz byłem chwilowym właścicielem (serwerowym) DSX'a na discordzie. Oraz jestem odpowiedzialny za cały rebuild frakcji DSX'u oraz wprowadzenie nowych systemów na serwerze frakcji DSX :>",
+    dsx_modal_title: "[303🔱] 303 Dywizja — Szczegóły",
+    dsx_modal_content: "To Polska Frakcja (w sumie też międzynarodowa, ale większość stanowią Polacy) w war tycoonie, i ta frakcja wygrała wiele wojen (również dużych), między innymi przeciwko: [GK] Glorious Kingdom i [CRC] Command Raid Conquer. Jestem członkiem 303 od 1 czerwca 2025 roku oraz byłem chwilowym właścicielem (serwerowym) 303 na Discordzie. Oraz jestem odpowiedzialny za cały rebuild frakcji 303 oraz wprowadzenie nowych systemów na serwerze frakcji 303 :>",
     
       // gallery.html
     gallery_title: "Galeria wspomnień (i dziwnych) z gier",
@@ -267,8 +267,8 @@ const translations = {
     current_time: "Aktuální čas: Načítání...",
     all_rights_reserved: "Všechna práva vyhrazena.",
     info_member_DSX:
-  "Jsem členem frakce [DSX🔱] Death Squadron X ve war tycoonu od 1. června 2025.",
-  info_co_leader_dsx: "Jsem zodpovědný za kompletní rebuild frakce DSX (Death Squadron X) jako dočasný (serverový) vlastník DSX na Discordu. Také mám na starosti zavedení nových systémů na server frakce DSX :>",
+  "Jsem členem frakce [303🔱] 303 Letka ve war tycoonu od 1. června 2025.",
+  info_co_leader_dsx: "Jsem zodpovědný za kompletní rebuild frakce 303 (303 Letka). Byl jsem dočasným (serverovým) vlastníkem 303; nyní zastávám hodnost Lieutenant Colonel (Elder). Také jsem zodpovědný za zavedení nových systémů na server frakce 303 :>",
     info_member_gk: "Jsem členem frakce [GK] Glorious Kingdom ve válečném tycoonu od 27. září 2025.",
   info_member_gk: "Jsem bývalým členem frakce [GK] Glorious Kingdom ve war tycoonu od 27. září 2025. (Ano, byl jsem členem GK jen 1 den lol)",
 
@@ -332,12 +332,12 @@ const translations = {
       "Jsem vlastníkem Nové Elitní Organizace (N.E.O), která navazuje na bývalú Umelú Elitu. N.E.O vznikla v prosinci 2023, rok po vydání MadCity: Kapitola 2. Původně se jmenovala „Nová Elita“, ale postupem času jsem ji přetvořil v organizaci.",
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
-  "Jsem členem DSX, polská frakce ve war tycoonu :>",
+  "Jsem členem 303 Letky (historický název: 303 Polská stíhací letka pojmenovaná po Tadeuszu Kościuszko), polská frakce ve War Tycoonu :>",
   dsx_show_more: "Zobrazit více",
-  dsx_modal_title: "[DSX🔱] Death Squadron X — Detaily",
-  dsx_modal_content: "Toto je polská frakce (vlastně i mezinárodní, ale většinu tvoří Poláci) ve War Tycoonu, a tato frakce vyhrála mnoho válek (včetně velkých), mimo jiné proti: [GK] Glorious Kingdom a [CRC] Command Raid Conquer. Jsem členem DSX od 1. června 2025 a byl jsem dočasným (serverovým) majitelem DSX na Discordu. Jsem také zodpovědný za celou přestavbu frakce DSX a zavedení nových systémů na serveru frakce DSX :>",
-    
-      // gallery.html
+  dsx_modal_title: "[303🔱] 303 Letka — Detaily",
+
+
+  dsx_modal_content: "This is a Polish Faction (in fact, it's international but the majority are Poles) in War Tycoon, and this faction has won many wars (including big ones), such as: [GK] Glorious Kingdom and [CRC] Command Raid Conquer. I have been a member of 303 since June 1, 2025, and I was a temporary (server) owner of 303 on Discord. I am also responsible for the entire rebuild of the 303 faction and the implementation of new systems on the 303 faction server :>",
     gallery_title: "Galerie vzpomínek (a podivných) ze her",
     gallery_folder_madcity: "MadCity - Podezřelé věci",
     gallery_folder_madcity_desc:
@@ -383,8 +383,8 @@ const translations = {
     current_time: "Aktuálny čas: Načítava sa...",
     all_rights_reserved: "Všetky práva vyhradené.",
     info_member_DSX:
-  "Som členom frakcie [DSX🔱] Death Squadron X vo war tycoone od 1. júna 2025.",
-  info_co_leader_dsx: "Som zodpovedný za kompletný rebuild frakcie DSX (Death Squadron X) ako dočasný (serverový) vlastník DSX na Discorde. Tiež som zodpovedný za zavedenie nových systémov na server frakcie DSX :>",
+  "Som členom frakcie [303🔱] 303 Letka vo war tycoone od 1. júna 2025.",
+  info_co_leader_dsx: "Som zodpovedný za kompletný rebuild frakcie 303 (303 Letka). Bol som dočasným (serverovým) vlastníkom 303; teraz zastávam hodnosť Lieutenant Colonel (Elder). Tiež som zodpovedný za zavedenie nových systémov na server frakcie 303 :>",
     info_member_gk: "Som členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025.",
   info_member_gk: "Som bývalým členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025. (Áno, bol som členom GK len 1 deň lol)",
 
@@ -448,10 +448,10 @@ const translations = {
       "Som vlastníkom Novej Elitnej Organizácie (N.E.O), ktorá je pokračovaním bývalej Umelej Elity. N.E.O vznikla v decembri 2023, rok po vydaní MadCity: Kapitola 2. Pôvodne sa volala „Nová Elita“, ale časom som ju pretransformoval na organizáciu.",
     clan_DSX_title: "[DSX🔱] Death Squadron X",
     clan_DSX_description:
-  "Som členom DSX, poľská frakcia vo war tycoone :>",
+  "Som členom 303 Letky (historický názov: 303 Poľská stíhacia letka, pomenovaná po Tadeuszovi Kościuszko), poľská frakcia v War Tycoone :>",
   dsx_show_more: "Zobraziť viac",
-  dsx_modal_title: "[DSX🔱] Death Squadron X — Detaily",
-  dsx_modal_content: "Toto je Poľská Frakcia (v podstate aj medzinárodná, ale väčšinu tvoria Poliaci) vo War Tycoone, a táto frakcia vyhrala mnoho vojen (aj veľkých), okrem iného proti: [GK] Glorious Kingdom a [CRC] Command Raid Conquer. Som členom DSX od 1. júna 2025 a bol som dočasným (serverovým) majiteľom DSX na Discorde. Taktiež som zodpovedný za celú prestavbu frakcie DSX a zavedenie nových systémov na serveri frakcie DSX :>",
+  dsx_modal_title: "[303🔱] 303 Letka — Detaily",
+  dsx_modal_content: "Toto je Poľská Frakcia (v podstate aj medzinárodná, ale väčšinu tvoria Poliaci) vo War Tycoone, a táto frakcia vyhrala mnoho vojen (aj veľkých), okrem iného proti: [GK] Glorious Kingdom a [CRC] Command Raid Conquer. Som členom 303 od 1. júna 2025 a bol som dočasným (serverovým) majiteľom 303 na Discorde. Taktiež som zodpovedný za celú prestavbu frakcie 303 a zavedenie nových systémov na serveri frakcie 303 :>",
     
       // gallery.html
     gallery_title: "Galéria spomienok (a zvláštnych) z hier",
@@ -501,7 +501,7 @@ const translations = {
     all_rights_reserved: "Alle Rechte vorbehalten.",
     info_member_DSX:
   "Ich bin Mitglied der Fraktion [DSX🔱] Death Squadron X in War Tycoon seit dem 1. Juni 2025.",
-  info_co_leader_dsx: "Ich bin verantwortlich für den kompletten Wiederaufbau der Fraktion DSX (Death Squadron X) und fungiere als vorübergehender (Server-)Inhaber von DSX auf Discord. Außerdem bin ich dafür verantwortlich, neue Systeme auf dem DSX-Server einzuführen :>",
+  info_co_leader_dsx: "Ich bin verantwortlich für den vollständigen Wiederaufbau der Fraktion 303 (303 Staffel). Ich war zeitweiliger (Server-)Inhaber von 303; derzeit trage ich den Rang Lieutenant Colonel (Elder). Außerdem bin ich verantwortlich für die Einführung neuer Systeme auf dem Server der Fraktion 303 :>",
     info_member_gk: "Ich bin ein Mitglied der [GK] Glorious Kingdom Fraktion in einem War Tycoon seit dem 27. September 2025.",
   info_member_gk: "Ich bin ein ehemaliges Mitglied der Fraktion [GK] Glorious Kingdom in War Tycoon seit dem 27. September 2025. (Ja, ich war nur 1 Tag lang Mitglied bei GK lol)",
 
@@ -564,12 +564,12 @@ const translations = {
     community_neo: "Neue Elitäre Organisation (N.E.O)",
     desc_neo:
       "Ich bin der Besitzer der Neuen Elitären Organisation (N.E.O), die eine Fortsetzung der alten Künstlichen Elite ist. N.E.O wurde im Dezember 2023 gegründet, also ein Jahr nach der Veröffentlichung von MadCity: Kapitel 2. Zunächst trug sie den Namen „Neue Elite“, aber im Laufe der Zeit habe ich sie in eine Organisation umgewandelt.",
-    clan_DSX_title: "[DSX🔱] Death Squadron X",
+  clan_DSX_title: "[303🔱] 303 Staffel",
     clan_DSX_description:
-  "Ich bin Mitglied der DSX, polnische Fraktion in War Tycoon :>",
+  "Ich bin Mitglied der 303 Staffel (historische Bezeichnung: Nr. 303 Polnische Jagdstaffel, benannt nach Tadeusz Kościuszko), eine polnische Fraktion in War Tycoon :>",
 dsx_show_more: "Mehr anzeigen",
-dsx_modal_title: "[DSX🔱] Death Squadron X — Details",
-  dsx_modal_content: "Das ist eine polnische Fraktion (eigentlich auch international, aber die Mehrheit sind Polen) in War Tycoon, und diese Fraktion hat viele Kriege (auch große) gewonnen, unter anderem gegen: [GK] Glorious Kingdom und [CRC] Command Raid Conquer. Ich bin seit dem 1. Juni 2025 Mitglied von DSX und war ein vorübergehender (Server-)Besitzer von DSX auf Discord. Ich bin auch verantwortlich für den gesamten Wiederaufbau der DSX-Fraktion und die Einführung neuer Systeme auf dem DSX-Fraktionsserver :>",
+dsx_modal_title: "[303🔱] 303 Staffel — Details",
+  dsx_modal_content: "Das ist eine polnische Fraktion (eigentlich auch international, aber die Mehrheit sind Polen) in War Tycoon, und diese Fraktion hat viele Kriege (auch große) gewonnen, unter anderem gegen: [GK] Glorious Kingdom und [CRC] Command Raid Conquer. Ich bin seit dem 1. Juni 2025 Mitglied von 303 und war ein vorübergehender (Server-)Besitzer von 303 auf Discord. Ich bin auch verantwortlich für den gesamten Wiederaufbau der 303-Fraktion und die Einführung neuer Systeme auf dem 303-Fraktionsserver :>",
  
     
       // gallery.html

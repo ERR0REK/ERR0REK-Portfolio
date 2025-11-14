@@ -89,7 +89,14 @@
                     <span class="subgallery-close" id="subgallery-close">&times;</span>
                     <h3 id="subgallery-title"></h3>
                     <div class="subgallery-images" id="subgallery-images"></div>
-                    <div class="img-lightbox" id="img-lightbox" style="display:none;">
+                        <!-- iframe-based video container for external sources (YouTube, embed links) -->
+                        <div class="video-iframe-container" id="video-iframe-container" style="display:none;">
+                            <div class="video-iframe-wrapper">
+                                <button class="video-lightbox-close-iframe" id="video-lightbox-close-iframe" aria-label="Zamknij wideo">&times;</button>
+                                <iframe id="video-lightbox-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Wideo" ></iframe>
+                            </div>
+                        </div>
+                        <div class="img-lightbox" id="img-lightbox" style="display:none;">
                         <span class="img-lightbox-close" id="img-lightbox-close">&times;</span>
                         <span class="img-lightbox-arrow" id="img-lightbox-prev">&#8592;</span>
                         <img id="img-lightbox-img" src="" alt="Podgląd" />
@@ -181,7 +188,10 @@
             'pojebane-i-itd-akcje-w-war-tycoon': {
                 title: 'War tycoon pojebane akcje i itd (2025)',
                 images: [
-                    // brak
+                    // Przykład dodania zewnętrznego wideo (YouTube):
+                    // { videoUrl: 'https://www.youtube.com/watch?v=TWELVE_CHAR_ID', alt: 'Opis wideo' },
+                    // Przykład dodania lokalnego pliku wideo:
+                    // { video: 'Obrazy/video.mp4', alt: 'Lokalne wideo' }
                 ]
             }
         };
@@ -237,6 +247,7 @@
                     }
                     thumb.alt = media.alt || '';
                     thumb.title = media.alt || '';
+                    thumb.loading = 'lazy';
                     thumb.style.cursor = 'pointer';
                     el.appendChild(thumb);
                     el.addEventListener('click', function() {
@@ -248,6 +259,7 @@
                     el.alt = media.alt || '';
                     el.className = 'subgallery-img';
                     el.style.cursor = 'zoom-in';
+                    el.loading = 'lazy';
                     el.addEventListener('click', function() {
                         openLightbox(folderKey, idx, images);
                     });
@@ -428,8 +440,12 @@
             iframe.src = videoUrl;
         }
         document.getElementById('video-lightbox-caption').textContent = caption || '';
+        // show iframe container inside modal backdrop
         iframeContainer.style.display = 'block';
-        document.getElementById('video-lightbox').style.display = 'flex';
+        const vb = document.getElementById('video-lightbox');
+        if (vb) vb.style.display = 'flex';
+        // ensure iframe accessible name
+        iframe.setAttribute('title', caption || 'Wideo');
         document.body.style.overflow = 'hidden';
     }
 
@@ -440,11 +456,26 @@
         const iframe = document.getElementById('video-lightbox-iframe');
         if (iframeClose) {
             iframeClose.addEventListener('click', function() {
-                if (iframe) iframe.src = '';
+                if (iframe) {
+                    // stop playback by clearing src
+                    iframe.src = '';
+                }
                 if (iframeContainer) iframeContainer.style.display = 'none';
                 const vb = document.getElementById('video-lightbox');
                 if (vb) vb.style.display = 'none';
                 document.body.style.overflow = '';
+            });
+        }
+        // allow clicking outside iframe to close
+        if (iframeContainer) {
+            iframeContainer.addEventListener('click', function(e) {
+                if (e.target === iframeContainer) {
+                    if (iframe) iframe.src = '';
+                    iframeContainer.style.display = 'none';
+                    const vb = document.getElementById('video-lightbox');
+                    if (vb) vb.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
             });
         }
     });
