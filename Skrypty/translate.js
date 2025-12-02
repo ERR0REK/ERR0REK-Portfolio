@@ -34,7 +34,14 @@ const translations = {
   info_co_leader_dsx: "I am responsible for the full rebuild of the 303 faction (303 Squadron). I served as a temporary (server) owner of 303; I currently hold the rank of Lieutenant Colonel (Elder). I am also responsible for introducing new systems to the 303 faction's server :>",
     info_member_gk: "	I am a former member of the [GK] Glorious Kingdom faction in a war tycoon since September 27, 2025. (Yes, I was a GK member for just 1 day lol)",
 
-    // fav-games.html
+    // Contact section
+    contact_heading: "Get in Touch",
+    contact_description: "Interested in collaboration, have a question, or just want to chat? Feel free to contact me via:",
+
+    // Current Activity
+    current_activity: "Currently playing War Tycoon",
+
+
     page_title_fav_games: "ERR0REK - Favorite Games",
     fav_games_heading: "Favorite Games",
     category_nicks: "Nicks in Games",
@@ -155,7 +162,13 @@ const translations = {
     info_co_leader_dsx: "Jestem odpowiedzialny za cały rebuild frakcji 303 (303 Dywizja). Byłem tymczasowym właścicielem serwerowym 303; obecnie pełnię rangę Lieutenant Colonel (Elder). Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji 303 :>",
     info_member_gk: "Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)",
 
-    // fav-games.html
+    // Contact section
+    contact_heading: "Skontaktuj się ze mną",
+    contact_description: "Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać? Skontaktuj się ze mną poprzez:",
+
+    // Current Activity
+    current_activity: "Aktywnie grám w War Tycoon",
+
     page_title_fav_games: "ERR0REK - Ulubione Gry",
     fav_games_heading: "Ulubione Gry",
     category_nicks: "Nicki w Grach",
@@ -237,6 +250,10 @@ const translations = {
     gallery_folder_count3: "0 zdjęć",
     gallery_folder_count4: "0 filmów",
     gallery_open_media_btn: "Zobacz zdjęcia i filmy",
+
+    // Contact section
+    contact_heading: "Skontaktuj się ze mną",
+    contact_description: "Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać? Skontaktuj się ze mną poprzez:",
   },
   cs: {
     // Czeski
@@ -272,7 +289,14 @@ const translations = {
     info_member_gk: "Jsem členem frakce [GK] Glorious Kingdom ve válečném tycoonu od 27. září 2025.",
   info_member_gk: "Jsem bývalým členem frakce [GK] Glorious Kingdom ve war tycoonu od 27. září 2025. (Ano, byl jsem členem GK jen 1 den lol)",
 
-    // fav-games.html
+    // Contact section
+    contact_heading: "Kontaktuj mě",
+    contact_description: "Zajímá tě spolupráce, máš otázku nebo jen chceš chatovat? Kontaktuj mě přes:",
+
+    // Current Activity
+    current_activity: "Aktuálně hraju War Tycoon",
+
+
     page_title_fav_games: "ERR0REK - Oblíbené Hry",
     fav_games_heading: "Oblíbené Hry",
     category_nicks: "Přezdívky ve hrách",
@@ -388,7 +412,13 @@ const translations = {
     info_member_gk: "Som členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025.",
   info_member_gk: "Som bývalým členom frakcie [GK] Glorious Kingdom vo war tycoone od 27. septembra 2025. (Áno, bol som členom GK len 1 deň lol)",
 
-    // fav-games.html
+    // Contact section
+    contact_heading: "Kontaktuj ma",
+    contact_description: "Zaujíma ťa spolupráca, máš otázku alebo chceš len chatovať? Kontaktuj ma cez:",
+
+    // Current Activity
+    current_activity: "Momentálne hrám War Tycoon",
+
     page_title_fav_games: "ERR0REK - Obľúbené Hry",
     fav_games_heading: "Obľúbené Hry",
     category_nicks: "Prezývky v hrách",
@@ -505,7 +535,14 @@ const translations = {
     info_member_gk: "Ich bin ein Mitglied der [GK] Glorious Kingdom Fraktion in einem War Tycoon seit dem 27. September 2025.",
   info_member_gk: "Ich bin ein ehemaliges Mitglied der Fraktion [GK] Glorious Kingdom in War Tycoon seit dem 27. September 2025. (Ja, ich war nur 1 Tag lang Mitglied bei GK lol)",
 
-    // fav-games.html
+    // Contact section
+    contact_heading: "Kontaktiere mich",
+    contact_description: "Interessiert an Zusammenarbeit, hast eine Frage oder möchtest einfach nur chatten? Kontaktiere mich über:",
+
+    // Current Activity
+    current_activity: "Spiele aktuell War Tycoon",
+
+
     page_title_fav_games: "ERR0REK - Lieblingsspiele",
     fav_games_heading: "Lieblingsspiele",
     category_nicks: "Namen in Spielen",

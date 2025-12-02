@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">ERR0REK - Osobista Wizytówka</title>
+    <meta name="description" content="ERR0REK - Gaming enthusiast, N.E.O Leader, War Tycoon & MadCity Veteran. Poznaj moje zainteresowania, projekty i historię frakcji.">
+    <meta name="keywords" content="ERR0REK, gaming, Roblox, War Tycoon, MadCity, N.E.O, 303">
+    <meta name="author" content="ERR0REK">
+    <meta property="og:title" content="ERR0REK - Osobista Wizytówka">
+    <meta property="og:description" content="Gaming enthusiast, N.E.O Leader, War Tycoon & MadCity Veteran">
+    <meta property="og:image" content="obrazy/pfp1.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#00ffea">
+    <link rel="canonical" href="https://err0rek-portfolio.netlify.app/">
     <link rel="stylesheet" href="Style/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,6 +39,7 @@
         </nav>
         <div class="header-widgets">
             <div id="current-time" class="time-widget"></div>
+            <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle theme" aria-label="Toggle theme">🟣</button>
             <div class="language-dropdown">
                 <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -49,6 +59,12 @@
                 <img src="obrazy/pfp1.png" alt="Awatar ERR0RKA" class="avatar" id="avatar-image">
                 <h1 class="nickname" data-i18n="home_greeting">Cześć, nazywam się <span>ERR0R/Macio</span></h1>
                 <p class="dynamic-text"></p>
+                
+                <div class="current-activity">
+                    <span class="activity-indicator"></span>
+                    <p data-i18n="current_activity">Aktywnie gram w War Tycoon</p>
+                </div>
+
                 <div class="quote-container">
                     <p class="quote-text"></p>
                     <span class="quote-author"></span>
@@ -90,28 +106,53 @@
                 <h2 data-i18n="additional_info">Dodatkowe Informacje</h2>
                 <div class="info-grid">
                     <div class="info-item full-width">
+                        <span class="badge badge-founder"><i class="fas fa-crown"></i> Founder</span>
                         <p data-i18n="info_owner_neo">Jestem właścicielem / twórcą N.E.O (Nowa Elitarna Organizacja)</p>
                     </div>
                     <div class="info-item full-width">
+                        <span class="badge badge-veteran"><i class="fas fa-gamepad"></i> Veteran</span>
                         <p data-i18n="info_roblox">Zacząłem grać w Robloxa w 2019 roku... (fun fact jest taki że moje najstarsze konto na robloxie pochodziło z grudnia 2018 ale nie pamiętam nic z tego konta)</p>
                     </div>
                     <div class="info-item full-width">
+                        <span class="badge badge-tech"><i class="fas fa-microchip"></i> Tech</span>
                         <p data-i18n="info_technology">Interesuję się nowoczesną technologią.</p>
                     </div>
                     <div class="info-item full-width">
+                        <span class="badge badge-patriot"><i class="fas fa-flag-poland"></i> Patriot</span>
                         <p data-i18n="politics_view">Jestem narodowcem, konserwatystą i patriotą. Trochę też zmieniam poglądy czyli: prawicę na skrajną prawicę i odwrotnie.</p>
                     </div>
                     <div class="info-item full-width"> 
+                        <span class="badge badge-active"><i class="fas fa-circle"></i> Active</span>
                         <p data-i18n="info_member_DSX">Jestem członkiem frakcji <strong>[303🔱] 303 Dywizja</strong> w war tycoonie od 1 czerwca 2025.</p>
                         <p data-i18n="info_member_gk">Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)</p>
                     </div>
                         <div class="info-item full-width">
+                        <span class="badge badge-leader"><i class="fas fa-shield-heart"></i> ???</span>
                         <p data-i18n="info_co_leader_dsx">Jestem odpowiedzialny za cały rebuild frakcji 303 (303 Dywizja). Byłem tymczasowym właścicielem serwerowym 303; obecnie pełnię rangę Lieutenant Colonel (Elder). Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji 303 :></p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+
+
+    <section id="contact-section" class="contact-section">
+        <div class="container">
+            <h2 data-i18n="contact_heading">Skontaktuj się ze mną</h2>
+            <p data-i18n="contact_description">Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać? Skontaktuj się ze mną poprzez:</p>
+            <div class="contact-links">
+                <a href="https://discord.com/users/687701665771814939" class="contact-btn discord-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+                <a href="https://www.guilded.gg/profile/mb3YnkRA" class="contact-btn guilded-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-guilded"></i> Guilded
+                </a>
+                <a href="https://x.com/indstrctible_pl" class="contact-btn twitter-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-x-twitter"></i> X/Twitter
+                </a>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-content">
@@ -400,6 +441,54 @@
     });
     if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
     if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
+    </script>
+
+    <!-- TIER 2: Scroll Animations & Theme Toggle -->
+    <script>
+    // --- SCROLL ANIMATIONS (Intersection Observer) ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-scroll');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all info-items and timeline-items on load
+    document.addEventListener('DOMContentLoaded', () => {
+        const infoItems = document.querySelectorAll('.info-item, .contact-section, .timeline-item');
+        infoItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+
+    // --- THEME TOGGLE (Cyan ↔ Purple) ---
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const htmlElement = document.documentElement;
+    
+    // Load saved theme from localStorage or default to cyan
+    const savedTheme = localStorage.getItem('theme') || 'cyan';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    if (themeToggleBtn) {
+        themeToggleBtn.textContent = savedTheme === 'cyan' ? '🟣' : '🔵';
+    }
+
+    // Toggle theme on button click
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'cyan' ? 'purple' : 'cyan';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggleBtn.textContent = newTheme === 'cyan' ? '🟣' : '🔵';
+        });
+    }
     </script>
 </body>
 </html>
