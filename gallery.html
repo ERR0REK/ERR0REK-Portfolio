@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="gallery_title">ERR0REK - Galeria</title>
-    <meta name="description" content="ERR0REK - Galeria wspomnień z gier: MadCity, War Tycoon i innych. Screenshoty i momenty z moich przygód.">
+    <meta name="description"
+        content="ERR0REK - Galeria wspomnień z gier: MadCity, War Tycoon i innych. Screenshoty i momenty z moich przygód.">
     <meta name="keywords" content="ERR0REK, galeria, screenshot, gaming, wspomnienia">
     <meta property="og:title" content="ERR0REK - Galeria">
     <meta property="og:description" content="Moja galeria wspomnień z gier">
@@ -12,29 +14,45 @@
     <meta name="theme-color" content="#00ffea">
     <link rel="stylesheet" href="Style/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <script src="Skrypty/translate.js" defer></script>
+    <script src="Skrypty/main.js" defer></script>
+    <script src="Skrypty/gallery.js" defer></script>
 </head>
+
 <body>
-    <video autoplay muted loop id="background-video" poster="obrazy/pfp1.png">
+    <video autoplay muted loop playsinline id="background-video">
         <source src="obrazy/nwm.mp4" type="video/mp4">
         Twoja przeglądarka nie obsługuje tagu wideo.
     </video>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
     <header>
         <a href="index.html" class="logo">ERR0REK</a>
         <nav>
             <ul>
-                <li><a href="index.html"data-i18n="nav_home">Strona Główna</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Strona Główna</a></li>
                 <li><a href="fav-games.html" data-i18n="nav_fav_games">Ulubione Gry</a></li>
                 <li><a href="projects.html" data-i18n="nav_projects">Projekty</a></li>
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
                 <li><a href="gallery.html" class="active" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
-                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO
+                        Dokumentacja</a>
                 </li>
             </ul>
         </nav>
         <div class="header-widgets">
             <div id="current-time" class="time-widget"></div>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
             <div class="language-dropdown">
                 <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -53,37 +71,45 @@
             <div class="gallery-folders">
                 <!-- Przykładowe foldery/wydarzenia z miniaturką, opisem i licznikiem -->
                 <div class="gallery-folder" data-folder="madcity-podejrzane">
-                    <div class="folder-thumb" style="background-image:url('Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png')"></div>
+                    <div class="folder-thumb"
+                        style="background-image:url('Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png')">
+                    </div>
                     <div class="folder-info">
                         <span class="folder-name" data-i18n="gallery_folder_madcity">MadCity - Podejrzane Rzeczy</span>
                         <span class="folder-year">2022</span>
                     </div>
-                    <div class="folder-desc" data-i18n="gallery_folder_madcity_desc">Podejrzane rzeczy uchwycone podczas boss fightu w sezonie 2 ch2</div>
+                    <div class="folder-desc" data-i18n="gallery_folder_madcity_desc">Podejrzane rzeczy uchwycone podczas
+                        boss fightu w sezonie 2 ch2</div>
                     <div class="folder-count"><span data-i18n="gallery_folder_count">6 zdjęć</span></div>
                     <button class="open-folder-btn" data-i18n="gallery_open_btn">Zobacz zdjęcia</button>
                 </div>
-                
+
                 <div class="gallery-folder" data-folder="madcity-archiwum">
                     <div class="folder-thumb" style="background-image:url('Obrazy/MadCity - Archiwum/image.png')"></div>
                     <div class="folder-info">
                         <span class="folder-name" data-i18n="gallery_folder_madcity_archive">MadCity - Archiwum</span>
                         <span class="folder-year">2022-20XX</span>
                     </div>
-                    <div class="folder-desc" data-i18n="gallery_folder_madcity_archive_desc">Archiwalne zdjęcia z MadCity</div>
+                    <div class="folder-desc" data-i18n="gallery_folder_madcity_archive_desc">Archiwalne zdjęcia z
+                        MadCity</div>
                     <div class="folder-count"><span data-i18n="gallery_folder_count2">24 zdjęć</span></div>
                     <button class="open-folder-btn" data-i18n="gallery_open_btn">Zobacz zdjęcia</button>
                 </div>
 
                 <div class="gallery-folder" data-folder="pojebane-i-itd-akcje-w-war-tycoon">
-                    <div class="folder-thumb" style="background-image:url('Obrazy/War Tycoon - Pojebane akcje itd/')"></div>
+                    <div class="folder-thumb" style="background-image:url('Obrazy/War Tycoon - Pojebane akcje itd/')">
+                    </div>
                     <div class="folder-info">
-                        <span class="folder-name" data-i18n="gallery_folder_war_tycoon">War tycoon pojebane akcje i itd</span>
+                        <span class="folder-name" data-i18n="gallery_folder_war_tycoon">War tycoon pojebane akcje i
+                            itd</span>
                         <span class="folder-year">2025</span>
                     </div>
-                    <div class="folder-desc" data-i18n="gallery_folder_war_tycoon_desc">Pojebane akcje i itd w war tycoonie</div>
+                    <div class="folder-desc" data-i18n="gallery_folder_war_tycoon_desc">Pojebane akcje i itd w war
+                        tycoonie</div>
                     <div class="folder-count"><span data-i18n="gallery_folder_count3">0 zdjęć</span></div>
                     <div class="folder-count"><span data-i18n="gallery_folder_count4">0 filmów</span></div>
-                    <button class="open-folder-media-btn" data-i18n="gallery_open_media_btn">Zobacz zdjęcia i filmy</button>
+                    <button class="open-folder-media-btn" data-i18n="gallery_open_media_btn">Zobacz zdjęcia i
+                        filmy</button>
                 </div>
 
 
@@ -95,14 +121,17 @@
                     <span class="subgallery-close" id="subgallery-close">&times;</span>
                     <h3 id="subgallery-title"></h3>
                     <div class="subgallery-images" id="subgallery-images"></div>
-                        <!-- iframe-based video container for external sources (YouTube, embed links) -->
-                        <div class="video-iframe-container" id="video-iframe-container" style="display:none;">
-                            <div class="video-iframe-wrapper">
-                                <button class="video-lightbox-close-iframe" id="video-lightbox-close-iframe" aria-label="Zamknij wideo">&times;</button>
-                                <iframe id="video-lightbox-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Wideo" ></iframe>
-                            </div>
+                    <!-- iframe-based video container for external sources (YouTube, embed links) -->
+                    <div class="video-iframe-container" id="video-iframe-container" style="display:none;">
+                        <div class="video-iframe-wrapper">
+                            <button class="video-lightbox-close-iframe" id="video-lightbox-close-iframe"
+                                aria-label="Zamknij wideo">&times;</button>
+                            <iframe id="video-lightbox-iframe" src="" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen title="Wideo"></iframe>
                         </div>
-                        <div class="img-lightbox" id="img-lightbox" style="display:none;">
+                    </div>
+                    <div class="img-lightbox" id="img-lightbox" style="display:none;">
                         <span class="img-lightbox-close" id="img-lightbox-close">&times;</span>
                         <span class="img-lightbox-arrow" id="img-lightbox-prev">&#8592;</span>
                         <img id="img-lightbox-img" src="" alt="Podgląd" />
@@ -112,7 +141,8 @@
                     <div class="video-lightbox" id="video-lightbox" style="display:none;">
                         <span class="video-lightbox-close" id="video-lightbox-close">&times;</span>
                         <video id="video-lightbox-video" class="video-lightbox-player" controls></video>
-                        <button class="video-lightbox-fullscreen" id="video-lightbox-fullscreen" title="Pełny ekran"><i class="fas fa-expand"></i></button>
+                        <button class="video-lightbox-fullscreen" id="video-lightbox-fullscreen" title="Pełny ekran"><i
+                                class="fas fa-expand"></i></button>
                         <div class="video-lightbox-caption" id="video-lightbox-caption"></div>
                     </div>
                 </div>
@@ -124,421 +154,8 @@
             <p>&copy; ERR0REK. Wszystkie prawa zastrzeżone.</p>
         </div>
     </footer>
-    <script src="Skrypty/translate.js"></script>
-    <script>
-    // --- ZEGAR ---
-    function updateClock() {
-        const now = new Date();
-        const options = {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZone: 'Europe/Warsaw'
-        };
-        const timeString = now.toLocaleTimeString('pl-PL', options);
-        const timezoneOffset = now.getTimezoneOffset();
-        const isCEST = (timezoneOffset === -120);
-        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
-        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
 
-    // --- GALERIA/FOLDERY ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const folders = {
-            'madcity-podejrzane': {
-                title: 'MadCity - Podejrzane Rzeczy (2022)',
-                images: [
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211806212.png'},
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_211858060.png'},
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212000867.png'},
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212034843.png'},
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/RobloxScreenShot20230714_212414816.png'},
-                    {src: 'Obrazy/Madcity - Podejrzane rzeczy/Zrzut_ekranu_2023-07-14_212310.png'}
-                ],
-                sort: 'date'
-            },
-            'madcity-archiwum': {
-                title: 'MadCity - Archwium (2022-20XX)',
-                images: [
-                    {src: 'Obrazy/Madcity - Archiwum/image.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image1.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image2.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image3.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image4.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image5.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image6.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image7.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image8.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image9.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image10.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image11.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/image13.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/RobloxScreenShot20230714_135733057.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Screenshot_2025-01-26-21-59-41-83_572064f74bd5f9fa804b05334aa4f912.jpg'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-09-15_204344.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-09-15_205447.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-10-01_212136.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_223348.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_223704.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_224408.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_231633.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_231641.png'},
-                    {src: 'Obrazy/Madcity - Archiwum/Zrzut_ekranu_2023-12-01_231654.png'},
+</body>
 
-                ],
-                sort: 'date'
-            },
-            'pojebane-i-itd-akcje-w-war-tycoon': {
-                title: 'War tycoon pojebane akcje i itd (2025)',
-                images: [
-                    // Przykład dodania zewnętrznego wideo (YouTube):
-                    // { videoUrl: 'https://www.youtube.com/watch?v=TWELVE_CHAR_ID', alt: 'Opis wideo' },
-                    // Przykład dodania lokalnego pliku wideo:
-                    // { video: 'Obrazy/video.mp4', alt: 'Lokalne wideo' }
-                ]
-            }
-        };
-    const openBtns = document.querySelectorAll('.open-folder-btn');
-    const mediaBtns = document.querySelectorAll('.open-folder-media-btn');
-    const modal = document.getElementById('subgallery-modal');
-        const modalTitle = document.getElementById('subgallery-title');
-        const modalImages = document.getElementById('subgallery-images');
-        const modalClose = document.getElementById('subgallery-close');
-        const imgLightbox = document.getElementById('img-lightbox');
-        const imgLightboxImg = document.getElementById('img-lightbox-img');
-        const imgLightboxClose = document.getElementById('img-lightbox-close');
-        let currentFolder = null;
-        let currentImgIndex = 0;
-        function renderSubgallery(folderKey) {
-            const folder = folders[folderKey];
-            if (!folder) return;
-            modalTitle.textContent = folder.title;
-            modalImages.innerHTML = '';
-            let images = [...folder.images];
-            if (folder.sort === 'date') {
-                images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-            } else if (folder.sort === 'name') {
-                images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
-            }
-            images.forEach((media, idx) => {
-                let el;
-                if (media.video) {
-                    el = document.createElement('video');
-                    el.src = media.video;
-                    el.className = 'subgallery-video';
-                    el.controls = true;
-                    el.alt = media.alt || '';
-                    el.title = media.alt || '';
-                    el.style.cursor = 'pointer';
-                    el.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        openVideoLightbox(folderKey, idx, images);
-                    });
-                } else if (media.videoUrl) {
-                    // YouTube / external video link — create thumbnail and open iframe modal
-                    el = document.createElement('div');
-                    el.className = 'subgallery-video-item';
-                    const ytId = extractYouTubeID(media.videoUrl);
-                    const thumb = document.createElement('img');
-                    thumb.className = 'subgallery-img';
-                    if (ytId) {
-                        thumb.src = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
-                    } else if (media.thumb) {
-                        thumb.src = media.thumb;
-                    } else {
-                        thumb.src = '';
-                    }
-                    thumb.alt = media.alt || '';
-                    thumb.title = media.alt || '';
-                    thumb.loading = 'lazy';
-                    thumb.style.cursor = 'pointer';
-                    el.appendChild(thumb);
-                    el.addEventListener('click', function() {
-                        openIframeModal(media.videoUrl, media.alt || '');
-                    });
-                } else if (media.src) {
-                    el = document.createElement('img');
-                    el.src = media.src;
-                    el.alt = media.alt || '';
-                    el.className = 'subgallery-img';
-                    el.style.cursor = 'zoom-in';
-                    el.loading = 'lazy';
-                    el.addEventListener('click', function() {
-                        openLightbox(folderKey, idx, images);
-                    });
-                    if (media.tags) {
-                        el.title = media.tags.join(' ');
-                    }
-                }
-                if (el) modalImages.appendChild(el);
-            });
-        // --- VIDEO LIGHTBOX ---
-        const videoLightbox = document.getElementById('video-lightbox');
-        const videoLightboxVideo = document.getElementById('video-lightbox-video');
-        const videoLightboxClose = document.getElementById('video-lightbox-close');
-        const videoLightboxCaption = document.getElementById('video-lightbox-caption');
-        const videoLightboxFullscreen = document.getElementById('video-lightbox-fullscreen');
-        let currentVideoIdx = 0;
-        let currentVideoFolder = null;
-        let currentVideoList = [];
-
-        function openVideoLightbox(folderKey, idx, videosArr) {
-            currentVideoFolder = folderKey;
-            currentVideoIdx = idx;
-            currentVideoList = videosArr;
-            const videoObj = videosArr[idx];
-            videoLightboxVideo.src = videoObj.video;
-            videoLightboxVideo.currentTime = 0;
-            videoLightboxVideo.play();
-            videoLightboxCaption.textContent = videoObj.alt || '';
-            videoLightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        videoLightboxClose.addEventListener('click', function() {
-            videoLightbox.style.display = 'none';
-            videoLightboxVideo.pause();
-            videoLightboxVideo.src = '';
-            document.body.style.overflow = '';
-        });
-        videoLightbox.addEventListener('click', function(e) {
-            if (e.target === videoLightbox) {
-                videoLightbox.style.display = 'none';
-                videoLightboxVideo.pause();
-                videoLightboxVideo.src = '';
-                document.body.style.overflow = '';
-            }
-        });
-        videoLightboxFullscreen.addEventListener('click', function() {
-            if (videoLightboxVideo.requestFullscreen) {
-                videoLightboxVideo.requestFullscreen();
-            } else if (videoLightboxVideo.webkitRequestFullscreen) {
-                videoLightboxVideo.webkitRequestFullscreen();
-            } else if (videoLightboxVideo.msRequestFullscreen) {
-                videoLightboxVideo.msRequestFullscreen();
-            }
-        });
-        }
-        function openLightbox(folderKey, idx, imagesArr) {
-            currentFolder = folderKey;
-            currentImgIndex = idx;
-            const folder = folders[folderKey];
-            let images = imagesArr || folder.images;
-            if (folder.sort === 'date') {
-                images = [...images].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-            } else if (folder.sort === 'name') {
-                images = [...images].sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
-            }
-            const img = images[idx];
-            imgLightboxImg.src = img.src;
-            imgLightboxImg.alt = img.alt || '';
-            document.getElementById('img-lightbox-caption').textContent = img.caption || '';
-            imgLightboxImg.setAttribute('data-tags', img.tags ? img.tags.join(' ') : '');
-            imgLightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            setTimeout(()=>{imgLightboxClose.focus();}, 100);
-        }
-        openBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const folderKey = this.parentElement.getAttribute('data-folder');
-                renderSubgallery(folderKey);
-                modal.style.display = 'flex';
-            });
-        });
-        mediaBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const folderKey = this.parentElement.getAttribute('data-folder');
-                renderSubgallery(folderKey);
-                modal.style.display = 'flex';
-            });
-        });
-        imgLightboxClose.addEventListener('click', function() {
-            imgLightbox.style.display = 'none';
-            document.body.style.overflow = '';
-        });
-        imgLightbox.addEventListener('click', function(e) {
-            if (e.target === imgLightbox) {
-                imgLightbox.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-        // QOL: Zamknięcie modali ESC, focus, zatrzymanie filmu
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (imgLightbox.style.display === 'flex') {
-                    imgLightbox.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-                if (videoLightbox.style.display === 'flex') {
-                    videoLightbox.style.display = 'none';
-                    videoLightboxVideo.pause();
-                    videoLightboxVideo.src = '';
-                    document.body.style.overflow = '';
-                }
-                if (modal.style.display === 'flex') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-        document.getElementById('img-lightbox-prev').addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (currentFolder !== null) {
-                const folder = folders[currentFolder];
-                let images = [...folder.images];
-                if (folder.sort === 'date') {
-                    images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-                } else if (folder.sort === 'name') {
-                    images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
-                }
-                currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
-                openLightbox(currentFolder, currentImgIndex, images);
-            }
-        });
-        document.getElementById('img-lightbox-next').addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (currentFolder !== null) {
-                const folder = folders[currentFolder];
-                let images = [...folder.images];
-                if (folder.sort === 'date') {
-                    images.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-                } else if (folder.sort === 'name') {
-                    images.sort((a, b) => (a.alt || '').localeCompare(b.alt || ''));
-                }
-                currentImgIndex = (currentImgIndex + 1) % images.length;
-                openLightbox(currentFolder, currentImgIndex, images);
-            }
-        });
-        modalClose.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-    });
-
-    // Helper: extract YouTube ID from various URL forms
-    function extractYouTubeID(url) {
-        if (!url) return null;
-        const patterns = [
-            /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]{11})/, 
-            /(?:https?:\/\/)?youtu\.be\/([\w-]{11})/, 
-            /(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([\w-]{11})/
-        ];
-        for (const p of patterns) {
-            const m = url.match(p);
-            if (m && m[1]) return m[1];
-        }
-        return null;
-    }
-
-    // Open iframe modal for external video (YouTube)
-    function openIframeModal(videoUrl, caption) {
-        const iframeContainer = document.getElementById('video-iframe-container');
-        const iframe = document.getElementById('video-lightbox-iframe');
-        if (!iframeContainer || !iframe) return;
-        const ytId = extractYouTubeID(videoUrl);
-        if (ytId) {
-            iframe.src = `https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1&autoplay=1`;
-        } else {
-            iframe.src = videoUrl;
-        }
-        document.getElementById('video-lightbox-caption').textContent = caption || '';
-        // show iframe container inside modal backdrop
-        iframeContainer.style.display = 'block';
-        const vb = document.getElementById('video-lightbox');
-        if (vb) vb.style.display = 'flex';
-        // ensure iframe accessible name
-        iframe.setAttribute('title', caption || 'Wideo');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Close iframe modal helper
-    document.addEventListener('DOMContentLoaded', function() {
-        const iframeClose = document.getElementById('video-lightbox-close-iframe');
-        const iframeContainer = document.getElementById('video-iframe-container');
-        const iframe = document.getElementById('video-lightbox-iframe');
-        if (iframeClose) {
-            iframeClose.addEventListener('click', function() {
-                if (iframe) {
-                    // stop playback by clearing src
-                    iframe.src = '';
-                }
-                if (iframeContainer) iframeContainer.style.display = 'none';
-                const vb = document.getElementById('video-lightbox');
-                if (vb) vb.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        }
-        // allow clicking outside iframe to close
-        if (iframeContainer) {
-            iframeContainer.addEventListener('click', function(e) {
-                if (e.target === iframeContainer) {
-                    if (iframe) iframe.src = '';
-                    iframeContainer.style.display = 'none';
-                    const vb = document.getElementById('video-lightbox');
-                    if (vb) vb.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-    });
-    </script>
-    <script>
-    // Uniwersalny dropdown języka (identyczny jak w index.html)
-    const dropbtn = document.querySelector('.dropbtn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const langOptions = document.querySelectorAll('.dropdown-content a');
-    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
-    function updateDropbtnText(lang) {
-        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
-        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
-    }
-    updateDropbtnText(currentLang);
-    langOptions.forEach(option => {
-        option.classList.toggle('active', option.dataset.lang === currentLang);
-    });
-    dropbtn.addEventListener('click', (event) => {
-        dropdownContent.classList.toggle('show');
-        event.stopPropagation();
-    });
-    langOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault();
-            const newLang = option.dataset.lang;
-            if (newLang !== currentLang) {
-                currentLang = newLang;
-                localStorage.setItem('selectedLanguage', newLang);
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                if (typeof translatePage === 'function') {
-                    translatePage(newLang);
-                }
-                updateDropbtnText(newLang);
-                dropdownContent.classList.remove('show');
-            }
-        });
-    });
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-            dropdownContent.classList.remove('show');
-        }
-    });
-    document.addEventListener('languageChanged', (event) => {
-        currentLang = event.detail.lang;
-        updateDropbtnText(currentLang);
-        langOptions.forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === currentLang);
-        });
-    });
-    // Tłumaczenie po wejściu na stronę
-    document.addEventListener('DOMContentLoaded', () => {
-        if (typeof translatePage === 'function') {
-            translatePage(currentLang);
-        }
-    });
-    </script>
 </html>
 </body>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">ERR0REK - Osobista Wizytówka</title>
-    <meta name="description" content="ERR0REK - Gaming enthusiast, N.E.O Leader, War Tycoon & MadCity Veteran. Poznaj moje zainteresowania, projekty i historię frakcji.">
+    <meta name="description"
+        content="ERR0REK - Gaming enthusiast, N.E.O Leader, War Tycoon & MadCity Veteran. Poznaj moje zainteresowania, projekty i historię frakcji.">
     <meta name="keywords" content="ERR0REK, gaming, Roblox, War Tycoon, MadCity, N.E.O, 303">
     <meta name="author" content="ERR0REK">
     <meta property="og:title" content="ERR0REK - Osobista Wizytówka">
@@ -14,14 +16,23 @@
     <meta name="theme-color" content="#00ffea">
     <link rel="canonical" href="https://err0rek-portfolio.netlify.app/">
     <link rel="stylesheet" href="Style/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="Skrypty/translate.js" defer></script>
+    <script src="Skrypty/main.js" defer></script>
 </head>
+
 <body>
-    <video autoplay muted loop id="background-video">
+    <video autoplay muted loop playsinline id="background-video">
         <source src="obrazy/nwm.mp4" type="video/mp4">
         Twój przeglądarka nie obsługuje tagu wideo.
     </video>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
 
     <header>
         <a href="#" class="logo">ERR0REK</a>
@@ -33,13 +44,20 @@
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
                 <li><a href="gallery.html" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
-                <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
-            </li>
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO
+                        Dokumentacja</a>
+                </li>
             </ul>
         </nav>
         <div class="header-widgets">
             <div id="current-time" class="time-widget"></div>
-            <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle theme" aria-label="Toggle theme">🟣</button>
+            <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle theme"
+                aria-label="Toggle theme">🟣</button>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
             <div class="language-dropdown">
                 <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -59,7 +77,7 @@
                 <img src="obrazy/pfp1.png" alt="Awatar ERR0RKA" class="avatar" id="avatar-image">
                 <h1 class="nickname" data-i18n="home_greeting">Cześć, nazywam się <span>ERR0R/Macio</span></h1>
                 <p class="dynamic-text"></p>
-                
+
                 <div class="current-activity">
                     <span class="activity-indicator"></span>
                     <p data-i18n="current_activity">Aktywnie gram w War Tycoon</p>
@@ -72,13 +90,14 @@
 
                 <div class="social-discord-container">
                     <div class="social-icons">
-                        <a href="https://www.guilded.gg/profile/mb3YnkRA" target="_blank" class="social-icon"><i class="fa-brands fa-guilded"></i></a>
-                        <a href="https://www.tiktok.com/@macio_pl16yt" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://x.com/indstrctible_pl" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@macio_pl16yt" target="_blank" class="social-icon"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://x.com/indstrctible_pl" target="_blank" class="social-icon"><i
+                                class="fa-brands fa-x-twitter"></i></a>
                     </div>
-                    <div class="discord-tag-widget">
-                        <i class="fab fa-discord discord-logo-icon"></i>
-                        <span class="discord-username">polonia.errorglitchtv</span>
+                    <div class="discord-static-tag">
+                        <i class="fab fa-discord"></i>
+                        <span>polonia.errorglitchtv</span>
                     </div>
                 </div>
             </div>
@@ -89,7 +108,8 @@
                 <h2 data-i18n="info_heading">Podstawowe informacje</h2>
                 <div class="info-grid">
                     <div class="info-item full-width">
-                        <p data-i18n="info_intro">Pochodzę z Polski, mam 17 lat i interesuję się językami obcymi takimi jak:</p>
+                        <p data-i18n="info_intro">Pochodzę z Polski, mam 17 lat i interesuję się językami obcymi takimi
+                            jak:</p>
                         <ul>
                             <li data-i18n="lang_slavic"><strong>Języki Słowiańskie</strong></li>
                             <li data-i18n="lang_german"><strong>Język Niemiecki</strong></li>
@@ -97,7 +117,8 @@
                         </ul>
                     </div>
                     <div class="info-item full-width">
-                        <p data-i18n="info_programming">Interesuję się też programowaniem (znam trochę C++ i JavaScript).</p>
+                        <p data-i18n="info_programming">Interesuję się też programowaniem (znam trochę C++ i
+                            JavaScript).</p>
                     </div>
                 </div>
             </section>
@@ -111,7 +132,9 @@
                     </div>
                     <div class="info-item full-width">
                         <span class="badge badge-veteran"><i class="fas fa-gamepad"></i> Veteran</span>
-                        <p data-i18n="info_roblox">Zacząłem grać w Robloxa w 2019 roku... (fun fact jest taki że moje najstarsze konto na robloxie pochodziło z grudnia 2018 ale nie pamiętam nic z tego konta)</p>
+                        <p data-i18n="info_roblox">Zacząłem grać w Robloxa w 2019 roku... (fun fact jest taki że moje
+                            najstarsze konto na robloxie pochodziło z grudnia 2018 ale nie pamiętam nic z tego konta)
+                        </p>
                     </div>
                     <div class="info-item full-width">
                         <span class="badge badge-tech"><i class="fas fa-microchip"></i> Tech</span>
@@ -119,16 +142,22 @@
                     </div>
                     <div class="info-item full-width">
                         <span class="badge badge-patriot"><i class="fas fa-flag-poland"></i> Patriot</span>
-                        <p data-i18n="politics_view">Jestem narodowcem, konserwatystą i patriotą. Trochę też zmieniam poglądy czyli: prawicę na skrajną prawicę i odwrotnie.</p>
+                        <p data-i18n="politics_view">Jestem narodowcem, konserwatystą i patriotą. Trochę też zmieniam
+                            poglądy czyli: prawicę na skrajną prawicę i odwrotnie.</p>
                     </div>
-                    <div class="info-item full-width"> 
+                    <div class="info-item full-width">
                         <span class="badge badge-active"><i class="fas fa-circle"></i> Active</span>
-                        <p data-i18n="info_member_DSX">Jestem członkiem frakcji <strong>[303🔱] 303 Dywizja</strong> w war tycoonie od 1 czerwca 2025.</p>
-                        <p data-i18n="info_member_gk">Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)</p>
+                        <p data-i18n="info_member_DSX">Jestem członkiem frakcji <strong>[303🔱] 303 Dywizja</strong> w
+                            war tycoonie od 1 czerwca 2025.</p>
+                        <p data-i18n="info_member_gk">Jestem byłym członkiem frakcji [GK] Glorious Kingdom w war
+                            tycoonie od 27 września 2025. (Tak przez 1 dzień byłem członkiem GK lol)</p>
                     </div>
-                        <div class="info-item full-width">
+                    <div class="info-item full-width">
                         <span class="badge badge-leader"><i class="fas fa-shield-heart"></i> ???</span>
-                        <p data-i18n="info_co_leader_dsx">Jestem odpowiedzialny za cały rebuild frakcji 303 (303 Dywizja). Byłem tymczasowym właścicielem serwerowym 303; obecnie pełnię rangę Lieutenant Colonel (Elder). Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji 303 :></p>
+                        <p data-i18n="info_co_leader_dsx">Jestem odpowiedzialny za cały rebuild frakcji 303 (303
+                            Dywizja). Byłem tymczasowym właścicielem serwerowym 303; obecnie pełnię rangę Lieutenant
+                            Colonel (Elder). Oraz odpowiedzialny za wprowadzenie nowych systemów do serwera frakcji 303
+                            :></p>
                     </div>
                 </div>
             </section>
@@ -139,15 +168,15 @@
     <section id="contact-section" class="contact-section">
         <div class="container">
             <h2 data-i18n="contact_heading">Skontaktuj się ze mną</h2>
-            <p data-i18n="contact_description">Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać? Skontaktuj się ze mną poprzez:</p>
+            <p data-i18n="contact_description">Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać?
+                Skontaktuj się ze mną poprzez:</p>
             <div class="contact-links">
-                <a href="https://discord.com/users/687701665771814939" class="contact-btn discord-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.com/users/687701665771814939" class="contact-btn discord-btn" target="_blank"
+                    rel="noopener noreferrer">
                     <i class="fab fa-discord"></i> Discord
                 </a>
-                <a href="https://www.guilded.gg/profile/mb3YnkRA" class="contact-btn guilded-btn" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-guilded"></i> Guilded
-                </a>
-                <a href="https://x.com/indstrctible_pl" class="contact-btn twitter-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/indstrctible_pl" class="contact-btn twitter-btn" target="_blank"
+                    rel="noopener noreferrer">
                     <i class="fab fa-x-twitter"></i> X/Twitter
                 </a>
             </div>
@@ -160,335 +189,220 @@
         </div>
     </footer>
 
-    <script src="Skrypty/translate.js"></script>
+
     <script>
-    // --- ZEGAR ---
-    function updateClock() {
-        const now = new Date();
-        const options = {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZone: 'Europe/Warsaw'
+        // --- DYNAMIC CONTENT (Index Specific) ---
+
+        // --- DYNAMIC TEXT ---
+        const dynamicTextElement = document.querySelector('.dynamic-text');
+        const dynamicPhrases = {
+            pl: [
+                "Jestem... Liderem N.E.O.",
+                "Jestem... Weteranem MadCity.",
+                "Jestem... narodowcem, patriotą i konserwatystą.",
+                "Jestem... Lieutenant Colonel frakcji 303 dywizjon w war tycoonie."
+            ],
+            en: [
+                "I am... the Leader of N.E.O.",
+                "I am... a MadCity Veteran.",
+                "I am... a nationalist, a patriot and a conservative.",
+                "I am... Lieutenant Colonel (Elder) of the 303 faction in War Tycoon."
+            ],
+            cs: [
+                "Jsem... Lídr N.E.O.",
+                "Jsem... Veterán MadCity.",
+                "Jsem... nacionalista, vlastenec a konzervativec.",
+                "Jsem... Lieutenant Colonel (Elder) frakce 303 ve War Tycoonu."
+            ],
+            sk: [
+                "Som... Líder N.E.O.",
+                "Som... Veterán MadCity.",
+                "Som... nacionalista, vlastenec a konzervatívec.",
+                "Som... Lieutenant Colonel (Elder) frakcie 303 vo War Tycoone."
+            ],
+            de: [
+                "Ich bin... der Anführer von N.E.O.",
+                "Ich bin... ein MadCity-Veteran.",
+                "Ich bin... ein Nationalist, ein Patriot und ein Konservativer.",
+                "Ich bin... Lieutenant Colonel (Elder) der Fraktion 303 in War Tycoon."
+            ]
         };
-        const timeString = now.toLocaleTimeString('pl-PL', options);
-        const timezoneOffset = now.getTimezoneOffset();
-        const isCEST = (timezoneOffset === -120);
-        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
-        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // --- DYNAMICZNY TEKST ---
-    const dynamicTextElement = document.querySelector('.dynamic-text');
-    const dynamicPhrases = {
-        pl: [
-            "Jestem... Liderem N.E.O.",
-            "Jestem... Weteranem MadCity.",
-            "Jestem... narodowcem, patriotą i konserwatystą.",
-            "Jestem... Lieutenant Colonel frakcji 303 dywizjon w war tycoonie."
-        ],
-        en: [
-            "I am... the Leader of N.E.O.",
-            "I am... a MadCity Veteran.",
-            "I am... a nationalist, a patriot and a conservative.",
-            "I am... Lieutenant Colonel (Elder) of the 303 faction in War Tycoon."
-        ],
-        cs: [
-            "Jsem... Lídr N.E.O.",
-            "Jsem... Veterán MadCity.",
-            "Jsem... nacionalista, vlastenec a konzervativec.",
-            "Jsem... Lieutenant Colonel (Elder) frakce 303 ve War Tycoonu."
-        ],
-        sk: [
-            "Som... Líder N.E.O.",
-            "Som... Veterán MadCity.",
-            "Som... nacionalista, vlastenec a konzervatívec.",
-            "Som... Lieutenant Colonel (Elder) frakcie 303 vo War Tycoone."
-        ],
-        de: [
-            "Ich bin... der Anführer von N.E.O.",
-            "Ich bin... ein MadCity-Veteran.",
-            "Ich bin... ein Nationalist, ein Patriot und ein Konservativer.",
-            "Ich bin... Lieutenant Colonel (Elder) der Fraktion 303 in War Tycoon."
-        ]
-    };
-    let phraseIndex = 0;
-    let dynamicTextInterval;
-    function updateDynamicText() {
-        const lang = localStorage.getItem('selectedLanguage') || 'pl';
-        const phrases = dynamicPhrases[lang];
-        if (!phrases || phrases.length === 0) return;
-        dynamicTextElement.classList.add('fade-out-text');
-        setTimeout(() => {
-            dynamicTextElement.innerText = phrases[phraseIndex];
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            dynamicTextElement.classList.remove('fade-out-text');
-            dynamicTextElement.classList.add('fade-in-text');
+        let phraseIndex = 0;
+        let dynamicTextInterval;
+        function updateDynamicText() {
+            const lang = localStorage.getItem('selectedLanguage') || 'pl';
+            const phrases = dynamicPhrases[lang];
+            if (!phrases || phrases.length === 0) return;
+            dynamicTextElement.classList.add('fade-out-text');
             setTimeout(() => {
-                dynamicTextElement.classList.remove('fade-in-text');
+                dynamicTextElement.innerText = phrases[phraseIndex];
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                dynamicTextElement.classList.remove('fade-out-text');
+                dynamicTextElement.classList.add('fade-in-text');
+                setTimeout(() => {
+                    dynamicTextElement.classList.remove('fade-in-text');
+                }, 500);
             }, 500);
-        }, 500);
-    }
-    function startDynamicTextInterval() {
-        if (dynamicTextInterval) clearInterval(dynamicTextInterval);
-        updateDynamicText();
-        dynamicTextInterval = setInterval(updateDynamicText, 3000);
-    }
-    if (dynamicTextElement) startDynamicTextInterval();
-
-    // --- CYTATY ---
-    const quoteTextElement = document.querySelector('.quote-text');
-    const quoteAuthorElement = document.querySelector('.quote-author');
-    const historicalQuotes = {
-        pl: [
-            { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
-            { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
-            { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
-            { quote: "Nie chciejcie ojczyzny, która was nic nie kosztuje.", author: "Jan Paweł II" },
-            { quote: "Polska potrzebuje ludzi sumienia, ludzi prawego serca.", author: "Jan Paweł II" },
-            { quote: "Człowiek nie może siebie sam zrozumieć bez Chrystusa – ani Polska.", author: "Jan Paweł II" },
-            { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
-            { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
-            { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" },
-            { quote: "Nie ufajcie globalistom, lewakom ani liberałom, którzy zabierają nam: suwerenność państwa, wolność słowa, tradycyjne wartości, rodzinę i wiarę.", author: "ERR0REK" },
-            { quote: "Polska to nie tylko kraj, to nasza dusza, nasza historia i nasza przyszłość.", author: "ERR0REK" },
-            { quote: "Wolność nie jest dana raz na zawsze, trzeba o nią walczyć każdego dnia.", author: "ERR0REK" },
-            { quote: "Nie ma wolności bez odpowiedzialności.", author: "ERR0REK" },
-            { quote: "Prawdziwa siła narodu tkwi w jego jedności i determinacji.", author: "ERR0REK" }
-        ],
-        en: [
-            { quote: "A nation that loses its memory ceases to be a Nation – it becomes merely a collection of people temporarily occupying a given territory.", author: "Józef Piłsudski" },
-            { quote: "To be defeated and not surrender – that is victory.", author: "Józef Piłsudski" },
-            { quote: "He who was not a rebel in his youth will be a swine in old age.", author: "Józef Piłsudski" },
-            { quote: "Do not desire a homeland that costs you nothing.", author: "John Paul II" },
-            { quote: "Poland needs people of conscience, people with a righteous heart.", author: "John Paul II" },
-            { quote: "Man cannot understand himself without Christ – nor can Poland.", author: "John Paul II" },
-            { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
-            { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
-            { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" },
-            { quote: "Do not trust globalists, leftists, or liberals who take away our state sovereignty, freedom of speech, traditional values, family, and faith.", author: "ERR0REK" },
-            { quote: "Poland is not just a country, it is our soul, our history, and our future.", author: "ERR0REK" },
-            { quote: "Freedom is not given once and for all; you have to fight for it every day.", author: "ERR0REK" },
-            { quote: "There is no freedom without responsibility.", author: "ERR0REK" },
-            { quote: "The true strength of a nation lies in its unity and determination.", author: "ERR0REK" }
-        ],
-        cs: [
-            { quote: "Národ, který ztrácí paměť, přestává být Národem – stává se pouze souborem lidí, dočasně obývajících dané území.", author: "Józef Piłsudski" },
-            { quote: "Být poražen a nepodlehnout – to je vítězství.", author: "Józef Piłsudski" },
-            { quote: "Kdo nebyl za mlada rebel, bude ve stáří prase.", author: "Józef Piłsudski" },
-            { quote: "Nechtějte vlast, která vás nic nestojí.", author: "Jan Pavel II" },
-            { quote: "Polsko potřebuje lidi svědomí, lidi s pravým srdcem.", author: "Jan Pavel II" },
-            { quote: "Člověk nemůže sám sebe pochopit bez Krista – ani Polsko.", author: "Jan Pavel II" },
-            { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
-            { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
-            { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" },
-            { quote: "Nedůvěřujte globalistům, levičákům ani liberálům, kteří nám berou: suverenitu státu, svobodu slova, tradiční wartości, rodinu a víru.", author: "ERR0REK" },
-            { quote: "Polsko není jen země, je to naše duše, naše historia i przyszłość.", author: "ERR0REK" },
-            { quote: "Svoboda není dána jednou provždy, musíte za ni bojovat každý den.", author: "ERR0REK" },
-            { quote: "Bez odpovědnosti není svoboda.", author: "ERR0REK" },
-            { quote: "Skutečná síla národa spočívá v jeho jednotě a odhodlání.", author: "ERR0REK" }
-        ],
-        sk: [
-            { quote: "Národ, ktorý stráca pamäť, prestáva byť Národom – stáva sa len zbierkou ľudí, dočasne obývajúcich dané územie.", author: "Józef Piłsudski" },
-            { quote: "Byť porazený a nepodľahnúť – to je víťazstvo.", author: "Józef Piłsudski" },
-            { quote: "Kto nebol za mlada rebel, ten bude v starobe sviňa.", author: "Józef Piłsudski" },
-            { quote: "Nechcite vlasť, ktorá vás nič nestojí.", author: "Ján Pavol II" },
-            { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
-            { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
-            { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
-            { quote: "Nestojím na ničej milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
-            { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" },
-            { quote: "Nedôverujte globalistom, ľavičiarom ani liberálom, ktorí nám berú: suverenitu štátu, slobodu slova, tradičné hodnoty, rodinu a vieru.", author: "ERR0REK" },
-            { quote: "Poľsko nie je len krajina, je to naša duša, naša história a naša budúcnosť.", author: "ERR0REK" },
-            { quote: "Sloboda nie je daná raz a navždy, treba za ňu bojovať každý deň.", author: "ERR0REK" },
-            { quote: "Bez zodpovednosti nie je sloboda.", author: "ERR0REK" },
-            { quote: "Skutočná sila národa spočíva v jeho jednote a odhodlaní.", author: "ERR0REK" }
-        ],
-        de: [
-            { quote: "Eine Nation, die ihr Gedächtnis verliert, hört auf, eine Nation zu sein – sie wird lediglich zu einer Ansammlung von Menschen, die vorübergehend ein bestimmtes Territorium besetzen.", author: "Józef Piłsudski" },
-            { quote: "Besiegt zu werden und nicht zu unterliegen – das ist der Sieg.", author: "Józef Piłsudski" },
-            { quote: "Wer in seiner Jugend kein Rebell war, wird im Alter ein Schwein sein.", author: "Józef Piłsudski" },
-            { quote: "Wünscht euch kein Vaterland, das euch nichts kostet.", author: "Johannes Paul II" },
-            { quote: "Polen braucht Menschen mit Gewissen, Menschen mit einem aufrichtigen Herzen.", author: "Johannes Paul II" },
-            { quote: "Der Mensch kann sich ohne Christus – und auch Polen nicht – selbst verstehen.", author: "Johannes Paul II" },
-            { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
-            { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
-            { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" },
-            { quote: "Vertrauen Sie keinen Globalisten, Linken oder Liberalen, die uns Folgendes wegnehmen: staatliche Souveränität, Meinungsfreiheit, traditionelle Werte, Familie und Glauben.", author: "ERR0REK" },
-            { quote: "Polen ist nicht nur ein Land, es ist unsere Seele, unsere Geschichte und unsere Zukunft.", author: "ERR0REK" },
-            { quote: "Freiheit wird nicht ein für alle Mal gegeben, man muss jeden Tag dafür kämpfen.", author: "ERR0REK" },
-            { quote: "Es gibt keine Freiheit ohne Verantwortung.", author: "ERR0REK" },
-            { quote: "Die wahre Stärke einer Nation liegt in ihrer Einheit und Entschlossenheit.", author: "ERR0REK" }
-        ]
-    };
-    let quoteIndex = 0;
-    let quoteInterval;
-    function updateDynamicQuote() {
-        const lang = localStorage.getItem('selectedLanguage') || 'pl';
-        const quotes = historicalQuotes[lang];
-        if (!quotes || quotes.length === 0) {
-            quoteTextElement.style.opacity = '0';
-            quoteAuthorElement.style.opacity = '0';
-            return;
         }
-        quoteTextElement.style.opacity = '1';
-        quoteAuthorElement.style.opacity = '1';
-        quoteTextElement.classList.add('fade-out-text');
-        quoteAuthorElement.classList.add('fade-out-text');
-        setTimeout(() => {
-            quoteTextElement.innerText = `„${quotes[quoteIndex].quote}”`;
-            quoteAuthorElement.innerText = `- ${quotes[quoteIndex].author}`;
-            quoteIndex = (quoteIndex + 1) % quotes.length;
-            quoteTextElement.classList.remove('fade-out-text');
-            quoteAuthorElement.classList.remove('fade-out-text');
-            quoteTextElement.classList.add('fade-in-text');
-            quoteAuthorElement.classList.add('fade-in-text');
-            setTimeout(() => {
-                quoteTextElement.classList.remove('fade-in-text');
-                quoteAuthorElement.classList.remove('fade-in-text');
-            }, 500);
-        }, 500);
-    }
-    function startDynamicQuoteInterval() {
-        if (quoteInterval) clearInterval(quoteInterval);
-        updateDynamicQuote();
-        quoteInterval = setInterval(updateDynamicQuote, 7000);
-    }
-    if (quoteTextElement && quoteAuthorElement) startDynamicQuoteInterval();
+        function startDynamicTextInterval() {
+            if (dynamicTextInterval) clearInterval(dynamicTextInterval);
+            updateDynamicText();
+            dynamicTextInterval = setInterval(updateDynamicText, 3000);
+        }
+        if (dynamicTextElement) startDynamicTextInterval();
 
-    // --- ZMIENIAJĄCE SIĘ PFP ---
-    const avatarImage = document.getElementById('avatar-image');
-    const pfpImages = [
-        "Obrazy/ZdjęciaPfp/pfp1.png",
-        "Obrazy/ZdjęciaPfp/pfp2.png",
-        "Obrazy/ZdjęciaPfp/pfp3.png"    
-    ];
-    let currentPfpIndex = 0;
-    function changePfp() {
-        avatarImage.classList.add('fade-out');
-        setTimeout(() => {
-            currentPfpIndex = (currentPfpIndex + 1) % pfpImages.length;
-            avatarImage.src = pfpImages[currentPfpIndex];
-            avatarImage.classList.remove('fade-out');
-            avatarImage.classList.add('fade-in');
+        // --- QUOTES ---
+        const quoteTextElement = document.querySelector('.quote-text');
+        const quoteAuthorElement = document.querySelector('.quote-author');
+        const historicalQuotes = {
+            pl: [
+                { quote: "Naród, który traci pamięć, przestaje być Narodem – staje się jedynie zbiorem ludzi, czasowo zajmujących dane terytorium.", author: "Józef Piłsudski" },
+                { quote: "Być zwyciężonym i nie ulec – to zwycięstwo.", author: "Józef Piłsudski" },
+                { quote: "Kto nie był buntownikiem za młodu, ten będzie świnią na starość.", author: "Józef Piłsudski" },
+                { quote: "Nie chciejcie ojczyzny, która was nic nie kosztuje.", author: "Jan Paweł II" },
+                { quote: "Polska potrzebuje ludzi sumienia, ludzi prawego serca.", author: "Jan Paweł II" },
+                { quote: "Człowiek nie może siebie sam zrozumieć bez Chrystusa – ani Polska.", author: "Jan Paweł II" },
+                { quote: "Najwyższym prawem człowieka jest wolność.", author: "Tadeusz Kościuszko" },
+                { quote: "Ja na niczyjej łasce nie stoję. Ja dla Ojczyzny żyłem, dla niej umierać będę.", author: "Tadeusz Kościuszko" },
+                { quote: "Nie ma nic piękniejszego nad wolność i niepodległość.", author: "Tadeusz Kościuszko" },
+                { quote: "Nie ufajcie globalistom, lewakom ani liberałom, którzy zabierają nam: suwerenność państwa, wolność słowa, tradycyjne wartości, rodzinę i wiarę.", author: "ERR0REK" },
+                { quote: "Polska to nie tylko kraj, to nasza dusza, nasza historia i nasza przyszłość.", author: "ERR0REK" },
+                { quote: "Wolność nie jest dana raz na zawsze, trzeba o nią walczyć każdego dnia.", author: "ERR0REK" },
+                { quote: "Nie ma wolności bez odpowiedzialności.", author: "ERR0REK" },
+                { quote: "Prawdziwa siła narodu tkwi w jego jedności i determinacji.", author: "ERR0REK" }
+            ],
+            en: [
+                { quote: "A nation that loses its memory ceases to be a Nation – it becomes merely a collection of people temporarily occupying a given territory.", author: "Józef Piłsudski" },
+                { quote: "To be defeated and not surrender – that is victory.", author: "Józef Piłsudski" },
+                { quote: "He who was not a rebel in his youth will be a swine in old age.", author: "Józef Piłsudski" },
+                { quote: "Do not desire a homeland that costs you nothing.", author: "John Paul II" },
+                { quote: "Poland needs people of conscience, people with a righteous heart.", author: "John Paul II" },
+                { quote: "Man cannot understand himself without Christ – nor can Poland.", author: "John Paul II" },
+                { quote: "The highest law of man is freedom.", author: "Tadeusz Kościuszko" },
+                { quote: "I stand on no one's grace. I lived for my Homeland, for it I shall die.", author: "Tadeusz Kościuszko" },
+                { quote: "There is nothing more beautiful than freedom and independence.", author: "Tadeusz Kościuszko" },
+                { quote: "Do not trust globalists, leftists, or liberals who take away our state sovereignty, freedom of speech, traditional values, family, and faith.", author: "ERR0REK" },
+                { quote: "Poland is not just a country, it is our soul, our history, and our future.", author: "ERR0REK" },
+                { quote: "Freedom is not given once and for all; you have to fight for it every day.", author: "ERR0REK" },
+                { quote: "There is no freedom without responsibility.", author: "ERR0REK" },
+                { quote: "The true strength of a nation lies in its unity and determination.", author: "ERR0REK" }
+            ],
+            cs: [
+                { quote: "Národ, který ztrácí paměť, přestává být Národem – stává se pouze souborem lidí, dočasně obývajících dané území.", author: "Józef Piłsudski" },
+                { quote: "Být poražen a nepodlehnout – to je vítězství.", author: "Józef Piłsudski" },
+                { quote: "Kdo nebyl za mlada rebel, bude ve stáří prase.", author: "Józef Piłsudski" },
+                { quote: "Nechtějte vlast, která vás nic nestojí.", author: "Jan Pavel II" },
+                { quote: "Polsko potřebuje lidi svědomí, lidi s pravým srdcem.", author: "Jan Pavel II" },
+                { quote: "Člověk nemůže sám sebe pochopit bez Krista – ani Polsko.", author: "Jan Pavel II" },
+                { quote: "Nejvyšším právem člověka je svoboda.", author: "Tadeáš Kościuszko" },
+                { quote: "Nestojím na ničí milosti. Žil jsem pro vlast, pro ni zemřu.", author: "Tadeáš Kościuszko" },
+                { quote: "Nic není krásnějšího než svoboda a nezávislost.", author: "Tadeáš Kościuszko" },
+                { quote: "Nedůvěřujte globalistům, levičákům ani liberálům, kteří nám berou: suverenitu státu, svobodu slova, tradiční wartości, rodinu a víru.", author: "ERR0REK" },
+                { quote: "Polsko není jen země, je to naše duše, naše historia i przyszłość.", author: "ERR0REK" },
+                { quote: "Svoboda není dána jednou provždy, musíte za ni bojovat každý den.", author: "ERR0REK" },
+                { quote: "Bez odpovědnosti není svoboda.", author: "ERR0REK" },
+                { quote: "Skutečná síla národa spočívá v jeho jednotě a odhodlání.", author: "ERR0REK" }
+            ],
+            sk: [
+                { quote: "Národ, ktorý stráca pamäť, prestáva byť Národom – stáva sa len zbierkou ľudí, dočasne obývajúcich dané územie.", author: "Józef Piłsudski" },
+                { quote: "Byť porazený a nepodľahnúť – to je víťazstvo.", author: "Józef Piłsudski" },
+                { quote: "Kto nebol za mlada rebel, ten bude v starobe sviňa.", author: "Józef Piłsudski" },
+                { quote: "Nechcite vlasť, ktorá vás nič nestojí.", author: "Ján Pavol II" },
+                { quote: "Poľsko potrebuje ľudí svedomia, ľudí s pravým srdcom.", author: "Ján Pavol II" },
+                { quote: "Človek nemôže sám seba pochopiť bez Krista – ani Poľsko.", author: "Ján Pavol II" },
+                { quote: "Najvyšším právom človeka je sloboda.", author: "Tadeusz Kościuszko" },
+                { quote: "Nestojím na ničej milosti. Žil som pre vlasť, pre ňu zomriem.", author: "Tadeusz Kościuszko" },
+                { quote: "Nič nie je krajšie ako sloboda a nezávislosť.", author: "Tadeusz Kościuszko" },
+                { quote: "Nedôverujte globalistom, ľavičiarom ani liberálom, ktorí nám berú: suverenitu štátu, slobodu slova, tradičné hodnoty, rodinu a vieru.", author: "ERR0REK" },
+                { quote: "Poľsko nie je len krajina, je to naša duša, naša história a naša budúcnosť.", author: "ERR0REK" },
+                { quote: "Sloboda nie je daná raz a navždy, treba za ňu bojovať každý deň.", author: "ERR0REK" },
+                { quote: "Bez zodpovednosti nie je sloboda.", author: "ERR0REK" },
+                { quote: "Skutočná sila národa spočíva v jeho jednote a odhodlaní.", author: "ERR0REK" }
+            ],
+            de: [
+                { quote: "Eine Nation, die ihr Gedächtnis verliert, hört auf, eine Nation zu sein – sie wird lediglich zu einer Ansammlung von Menschen, die vorübergehend ein bestimmtes Territorium besetzen.", author: "Józef Piłsudski" },
+                { quote: "Besiegt zu werden und nicht zu unterliegen – das ist der Sieg.", author: "Józef Piłsudski" },
+                { quote: "Wer in seiner Jugend kein Rebell war, wird im Alter ein Schwein sein.", author: "Józef Piłsudski" },
+                { quote: "Wünscht euch kein Vaterland, das euch nichts kostet.", author: "Johannes Paul II" },
+                { quote: "Polen braucht Menschen mit Gewissen, Menschen mit einem aufrichtigen Herzen.", author: "Johannes Paul II" },
+                { quote: "Der Mensch kann sich ohne Christus – und auch Polen nicht – selbst verstehen.", author: "Johannes Paul II" },
+                { quote: "Das höchste Gesetz des Menschen ist die Freiheit.", author: "Tadeusz Kościuszko" },
+                { quote: "Ich stehe in niemandes Gnade. Ich lebte für das Vaterland, für es werde ich sterben.", author: "Tadeusz Kościuszko" },
+                { quote: "Es gibt nichts Schöneres als Freiheit und Unabhängigkeit.", author: "Tadeusz Kościuszko" },
+                { quote: "Vertrauen Sie keinen Globalisten, Linken oder Liberalen, die uns Folgendes wegnehmen: staatliche Souveränität, Meinungsfreiheit, traditionelle Werte, Familie und Glauben.", author: "ERR0REK" },
+                { quote: "Polen ist nicht nur ein Land, es ist unsere Seele, unsere Geschichte und unsere Zukunft.", author: "ERR0REK" },
+                { quote: "Freiheit wird nicht ein für alle Mal gegeben, man muss jeden Tag dafür kämpfen.", author: "ERR0REK" },
+                { quote: "Es gibt keine Freiheit ohne Verantwortung.", author: "ERR0REK" },
+                { quote: "Die wahre Stärke einer Nation liegt in ihrer Einheit und Entschlossenheit.", author: "ERR0REK" }
+            ]
+        };
+        let quoteIndex = 0;
+        let quoteInterval;
+        function updateDynamicQuote() {
+            const lang = localStorage.getItem('selectedLanguage') || 'pl';
+            const quotes = historicalQuotes[lang];
+            if (!quotes || quotes.length === 0) {
+                quoteTextElement.style.opacity = '0';
+                quoteAuthorElement.style.opacity = '0';
+                return;
+            }
+            quoteTextElement.style.opacity = '1';
+            quoteAuthorElement.style.opacity = '1';
+            quoteTextElement.classList.add('fade-out-text');
+            quoteAuthorElement.classList.add('fade-out-text');
             setTimeout(() => {
-                avatarImage.classList.remove('fade-in');
+                quoteTextElement.innerText = `„${quotes[quoteIndex].quote}”`;
+                quoteAuthorElement.innerText = `- ${quotes[quoteIndex].author}`;
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteTextElement.classList.remove('fade-out-text');
+                quoteAuthorElement.classList.remove('fade-out-text');
+                quoteTextElement.classList.add('fade-in-text');
+                quoteAuthorElement.classList.add('fade-in-text');
+                setTimeout(() => {
+                    quoteTextElement.classList.remove('fade-in-text');
+                    quoteAuthorElement.classList.remove('fade-in-text');
+                }, 500);
             }, 500);
-        }, 500);
-    }
-    setInterval(changePfp, 5000);
+        }
+        function startDynamicQuoteInterval() {
+            if (quoteInterval) clearInterval(quoteInterval);
+            updateDynamicQuote();
+            quoteInterval = setInterval(updateDynamicQuote, 7000);
+        }
+        if (quoteTextElement && quoteAuthorElement) startDynamicQuoteInterval();
 
-    // --- Synchronizacja po zmianie języka ---
-    document.addEventListener('languageChanged', (event) => {
-        phraseIndex = 0;
-        quoteIndex = 0;
-        startDynamicTextInterval();
-        startDynamicQuoteInterval();
-    });
+        // --- PFP CHANGE ---
+        const avatarImage = document.getElementById('avatar-image');
+        const pfpImages = [
+            "Obrazy/ZdjęciaPfp/pfp1.png",
+            "Obrazy/ZdjęciaPfp/pfp2.png",
+            "Obrazy/ZdjęciaPfp/pfp3.png"
+        ];
+        let currentPfpIndex = 0;
+        function changePfp() {
+            if (!avatarImage) return; // Guard clause
+            avatarImage.classList.add('fade-out');
+            setTimeout(() => {
+                currentPfpIndex = (currentPfpIndex + 1) % pfpImages.length;
+                avatarImage.src = pfpImages[currentPfpIndex];
+                avatarImage.classList.remove('fade-out');
+                avatarImage.classList.add('fade-in');
+                setTimeout(() => {
+                    avatarImage.classList.remove('fade-in');
+                }, 500);
+            }, 500);
+        }
+        setInterval(changePfp, 5000);
+
+        // --- UPDATE ON LANGUAGE CHANGE ---
+        document.addEventListener('languageChanged', (event) => {
+            phraseIndex = 0;
+            quoteIndex = 0;
+            startDynamicTextInterval();
+            startDynamicQuoteInterval();
+        });
     </script>
     <script src="Skrypty/birthday.js"></script>
-    <!-- Uniwersalny kod dropdowna języka i dynamicznych treści -->
-    <script>
-    const dropbtn = document.querySelector('.dropbtn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const langOptions = document.querySelectorAll('.dropdown-content a');
-    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
-    function updateDropbtnText(lang) {
-        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
-        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
-    }
-    updateDropbtnText(currentLang);
-    langOptions.forEach(option => {
-        option.classList.toggle('active', option.dataset.lang === currentLang);
-    });
-    dropbtn.addEventListener('click', (event) => {
-        dropdownContent.classList.toggle('show');
-        event.stopPropagation();
-    });
-    langOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault();
-            const newLang = option.dataset.lang;
-            if (newLang !== currentLang) {
-                currentLang = newLang;
-                localStorage.setItem('selectedLanguage', newLang);
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                if (typeof translatePage === 'function') {
-                    translatePage(newLang);
-                }
-                updateDropbtnText(newLang);
-                dropdownContent.classList.remove('show');
-            }
-        });
-    });
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-            dropdownContent.classList.remove('show');
-        }
-    });
-    document.addEventListener('languageChanged', (event) => {
-        currentLang = event.detail.lang;
-        updateDropbtnText(currentLang);
-        langOptions.forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === currentLang);
-        });
-        if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
-        if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
-    });
-    if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
-    if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
-    </script>
-
-    <!-- TIER 2: Scroll Animations & Theme Toggle -->
-    <script>
-    // --- SCROLL ANIMATIONS (Intersection Observer) ---
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-scroll');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all info-items and timeline-items on load
-    document.addEventListener('DOMContentLoaded', () => {
-        const infoItems = document.querySelectorAll('.info-item, .contact-section, .timeline-item');
-        infoItems.forEach(item => {
-            observer.observe(item);
-        });
-    });
-
-    // --- THEME TOGGLE (Cyan ↔ Purple) ---
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    const htmlElement = document.documentElement;
-    
-    // Load saved theme from localStorage or default to cyan
-    const savedTheme = localStorage.getItem('theme') || 'cyan';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    if (themeToggleBtn) {
-        themeToggleBtn.textContent = savedTheme === 'cyan' ? '🟣' : '🔵';
-    }
-
-    // Toggle theme on button click
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'cyan' ? 'purple' : 'cyan';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggleBtn.textContent = newTheme === 'cyan' ? '🟣' : '🔵';
-        });
-    }
-    </script>
 </body>
+
 </html>

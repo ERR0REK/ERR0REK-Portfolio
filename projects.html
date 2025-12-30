@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title_projects">ERR0REK - Projekty</title>
-    <meta name="description" content="ERR0REK - Moje projekty: Discord Bot, Minecraft Texture Pack, Veinminer Datapack. Poznaj moje side-project'y.">
+    <meta name="description"
+        content="ERR0REK - Moje projekty: Discord Bot, Minecraft Texture Pack, Veinminer Datapack. Poznaj moje side-project'y.">
     <meta name="keywords" content="ERR0REK, projekty, Discord Bot, Minecraft, datapack">
     <meta property="og:title" content="ERR0REK - Projekty">
     <meta property="og:description" content="Moje twórcze projekty i side-project'y">
@@ -17,13 +18,19 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script src="Skrypty/translate.js" defer></script>
+    <script src="Skrypty/main.js" defer></script>
 </head>
 
 <body>
-    <video autoplay muted loop id="background-video">
+    <video autoplay muted loop playsinline id="background-video">
         <source src="obrazy/nwm.mp4" type="video/mp4">
         Twój przeglądarka nie obsługuje tagu wideo.
     </video>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
 
     <header>
         <a href="index.html" class="logo">ERR0REK</a>
@@ -35,12 +42,18 @@
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
                 <li><a href="gallery.html" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
-                <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
-            </li>
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO
+                        Dokumentacja</a>
+                </li>
             </ul>
         </nav>
         <div class="header-widgets">
             <div id="current-time" class="time-widget"></div>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
             <div class="language-dropdown">
                 <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -60,7 +73,7 @@
 
             <div class="project-card reveal">
                 <div class="project-header">
-                    <img src="" alt="Ikonka Discord Bota" class="project-icon">
+                    <i class="fab fa-discord project-icon-placeholder"></i>
                     <h3 data-i18n="project1_title">Asystent Grupki (Discord Bot)</h3>
                 </div>
                 <p data-i18n="project1_description">Bot Discordowy stworzony do zarządzania serwerem, automatyzacji
@@ -81,7 +94,7 @@
 
             <div class="project-card reveal">
                 <div class="project-header">
-                    <img src="" alt="Ikonka Minecraft" class="project-icon">
+                    <i class="fas fa-cube project-icon-placeholder"></i>
                     <h3 data-i18n="project2_title">Polskie tłumaczenie modyfikacji MC (Texture Pack)</h3>
                 </div>
                 <p data-i18n="project2_description">Pakiet zasobów (texture pack) zawierający kompleksowe polskie
@@ -97,8 +110,7 @@
                     </ul>
                 </div>
                 <div class="project-links">
-                    <a href="" target="_blank" class="btn small-btn"
-                        data-i18n="view_code">
+                    <a href="" target="_blank" class="btn small-btn" data-i18n="view_code">
                         <i class="fab fa-github"></i> Zobacz Kod / See code
                     </a>
                 </div>
@@ -107,7 +119,7 @@
 
             <div class="project-card reveal">
                 <div class="project-header">
-                    <img src="obrazy/datapack_icon.png" alt="Ikonka Datapacka" class="project-icon">
+                    <i class="fas fa-hammer project-icon-placeholder"></i>
                     <h3 data-i18n="project3_title">Veinminer (rozbudowany Datapack)</h3>
                 </div>
                 <p data-i18n="project3_description">Datapack zainspirowany popularnym modem Veinminer. Pozwala na
@@ -123,12 +135,11 @@
                         <li><i class="fas fa-terminal"></i> JSON/Commands</li>
                     </ul>
                 </div>
-                 <div class="project-links">
-                    <a href="" target="_blank" class="btn small-btn"
-                        data-i18n="view_code">
-                        <i class="fab fa-github"></i> Zobacz Kod / see code 
+                <div class="project-links">
+                    <a href="" target="_blank" class="btn small-btn" data-i18n="view_code">
+                        <i class="fab fa-github"></i> Zobacz Kod / see code
                     </a>
-                </div> 
+                </div>
                 <div class="project-status status-in-progress" data-i18n="status_in_progress">Status: W Trakcie</div>
             </div>
 
@@ -143,128 +154,7 @@
 
     <button id="scroll-to-top-btn"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="Skrypty/translate.js"></script>
-    <script>
-        // Obsługa zegara (przeniesiona z index.html dla spójności)
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false,
-                timeZone: 'Europe/Warsaw'
-            };
-            const timeString = now.toLocaleTimeString('pl-PL', options);
 
-            const timezoneOffset = now.getTimezoneOffset();
-            const isCEST = (timezoneOffset === -120); // Sprawdza, czy offset to -120 minut (czyli +2 godziny, dla CEST)
-            const timezoneAbbr = isCEST ? 'CEST' : 'CET'; // Przyjmuje CET poza okresem letnim
-
-            document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-
-        // --- Obsługa Dropdowna Języka (przeniesiona z index.html dla spójności) ---
-        const dropbtn = document.getElementById('current-language');
-        const dropdownContent = document.querySelector('.dropdown-content');
-        const langOptions = document.querySelectorAll('.lang-option');
-    // ...
-
-        let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
-        function updateDropbtnText(lang) {
-            const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
-            dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
-        }
-        updateDropbtnText(currentLang);
-        langOptions.forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === currentLang);
-        });
-        dropbtn.addEventListener('click', (event) => {
-            dropdownContent.classList.toggle('show');
-            event.stopPropagation();
-        });
-        langOptions.forEach(option => {
-            option.addEventListener('click', (event) => {
-                event.preventDefault();
-                const newLang = option.dataset.lang;
-                if (newLang !== currentLang) {
-                    currentLang = newLang;
-                    localStorage.setItem('selectedLanguage', newLang);
-                    langOptions.forEach(opt => opt.classList.remove('active'));
-                    option.classList.add('active');
-                    if (typeof translatePage === 'function') {
-                        translatePage(newLang);
-                    }
-                    updateDropbtnText(newLang);
-                    dropdownContent.classList.remove('show');
-                }
-            });
-        });
-        window.addEventListener('click', (event) => {
-            if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-                dropdownContent.classList.remove('show');
-            }
-        });
-        document.addEventListener('languageChanged', (event) => {
-            currentLang = event.detail.lang;
-            updateDropbtnText(currentLang);
-            langOptions.forEach(option => {
-                option.classList.toggle('active', option.dataset.lang === currentLang);
-            });
-        });
-
-        // =====================================
-        // JavaScript dla Scroll-to-Top Button
-        // =====================================
-        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Pokaż przycisk po przewinięciu 300px
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // =====================================
-        // JavaScript dla Scroll Reveal (dla projektów)
-        // =====================================
-        const revealElements = document.querySelectorAll('.project-card.reveal');
-
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // 10% elementu musi być widoczne
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    entry.target.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                    observer.unobserve(entry.target); // Przestań obserwować po animacji
-                }
-            });
-        }, observerOptions);
-
-        revealElements.forEach(element => {
-            element.style.opacity = '0'; // Ukryj początkowo
-            element.style.transform = 'translateY(20px)'; // Przesuń nieco w dół
-            observer.observe(element);
-        });
-
-    </script>
 </body>
 
 </html>

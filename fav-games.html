@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title_fav_games">ERR0REK - Ulubione Gry</title>
-    <meta name="description" content="ERR0REK - Moje ulubione gry: Roblox, MadCity, War Tycoon, GTA5, Cyberpunk, Minecraft. Sprawdź moje nicki i czym się bawie.">
+    <meta name="description"
+        content="ERR0REK - Moje ulubione gry: Roblox, MadCity, War Tycoon, GTA5, Cyberpunk, Minecraft. Sprawdź moje nicki i czym się bawie.">
     <meta name="keywords" content="ERR0REK, gry, Roblox, MadCity, War Tycoon, gaming">
     <meta property="og:title" content="ERR0REK - Ulubione Gry">
     <meta property="og:description" content="Moje ulubione gry i nicki w nich">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00ffea">
     <link rel="stylesheet" href="Style/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Michroma&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="Skrypty/translate.js" defer></script>
+    <script src="Skrypty/main.js" defer></script>
 </head>
+
 <body>
-    <video autoplay muted loop id="background-video">
+    <video autoplay muted loop playsinline id="background-video">
         <source src="obrazy/nwm.mp4" type="video/mp4">
         Twój przeglądarka nie obsługuje tagu wideo.
     </video>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
 
     <header>
         <a href="index.html" class="logo">ERR0REK</a>
@@ -30,18 +41,26 @@
                 <li><a href="membership.html" data-i18n="nav_membership">Członkostwo</a></li>
                 <li><a href="gallery.html" data-i18n="nav_gallery">Galeria</a></li>
                 <li class="language-restricted-item" data-lang-restricted="pl">
-                <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO Dokumentacja</a>
-            </li>
+                    <a href="https://neo-dokumentacja.netlify.app/" target="_blank" data-i18n="nav_neo_docs">NEO
+                        Dokumentacja</a>
+                </li>
             </ul>
         </nav>
         <div class="header-widgets">
             <div id="current-time" class="time-widget"></div>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
             <div class="language-dropdown">
                 <button class="dropbtn" id="current-language">PL <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
                     <a href="#" data-lang="pl" class="lang-option active">Polski</a>
                     <a href="#" data-lang="en" class="lang-option">English</a>
-                    <a href="#" data-lang="cs" class="lang-option">Čeština</a> <a href="#" data-lang="sk" class="lang-option">Slovenčina</a> <a href="#" data-lang="de" class="lang-option">Deutsch</a> </div>
+                    <a href="#" data-lang="cs" class="lang-option">Čeština</a> <a href="#" data-lang="sk"
+                        class="lang-option">Slovenčina</a> <a href="#" data-lang="de" class="lang-option">Deutsch</a>
+                </div>
             </div>
         </div>
     </header>
@@ -91,78 +110,7 @@
         </div>
     </footer>
 
-    <script src="Skrypty/translate.js"></script>
-    <script>
-    // ZEGAR
-    function updateClock() {
-        const now = new Date();
-        const options = {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZone: 'Europe/Warsaw'
-        };
-        const timeString = now.toLocaleTimeString('pl-PL', options);
-        const timezoneOffset = now.getTimezoneOffset();
-        const isCEST = (timezoneOffset === -120);
-        const timezoneAbbr = isCEST ? 'CEST' : 'CET';
-        document.getElementById('current-time').innerText = `${timeString} ${timezoneAbbr}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-    </script>
-    <!-- Uniwersalny kod dropdowna języka i dynamicznych treści -->
-    <script>
-    const dropbtn = document.querySelector('.dropbtn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const langOptions = document.querySelectorAll('.dropdown-content a');
-    let currentLang = localStorage.getItem('selectedLanguage') || 'pl';
-    function updateDropbtnText(lang) {
-        const langTextMap = { pl: 'PL', en: 'EN', cs: 'CS', sk: 'SK', de: 'DE' };
-        dropbtn.innerHTML = `${langTextMap[lang] || 'PL'} <i class="fas fa-caret-down"></i>`;
-    }
-    updateDropbtnText(currentLang);
-    langOptions.forEach(option => {
-        option.classList.toggle('active', option.dataset.lang === currentLang);
-    });
-    dropbtn.addEventListener('click', (event) => {
-        dropdownContent.classList.toggle('show');
-        event.stopPropagation();
-    });
-    langOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault();
-            const newLang = option.dataset.lang;
-            if (newLang !== currentLang) {
-                currentLang = newLang;
-                localStorage.setItem('selectedLanguage', newLang);
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                if (typeof translatePage === 'function') {
-                    translatePage(newLang);
-                }
-                updateDropbtnText(newLang);
-                dropdownContent.classList.remove('show');
-            }
-        });
-    });
-    window.addEventListener('click', (event) => {
-        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-            dropdownContent.classList.remove('show');
-        }
-    });
-    document.addEventListener('languageChanged', (event) => {
-        currentLang = event.detail.lang;
-        updateDropbtnText(currentLang);
-        langOptions.forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === currentLang);
-        });
-        if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
-        if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
-    });
-    if (typeof startDynamicTextInterval === 'function') startDynamicTextInterval();
-    if (typeof startDynamicQuoteInterval === 'function') startDynamicQuoteInterval();
-    </script>
+
 </body>
+
 </html>
