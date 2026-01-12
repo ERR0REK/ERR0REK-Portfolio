@@ -167,7 +167,7 @@ const translations = {
     contact_description: "Zainteresowany współpracą, pytaniem lub po prostu chcesz porozmawiać? Skontaktuj się ze mną poprzez:",
 
     // Current Activity
-    current_activity: "Aktywnie grám w War Tycoon",
+    current_activity: "Aktualnie gram w War Tycoona",
 
     page_title_fav_games: "ERR0REK - Ulubione Gry",
     fav_games_heading: "Ulubione Gry",
