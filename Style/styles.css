@@ -4403,3 +4403,99 @@ select,
 .project-description {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
+
+/* --- Deprecation Notice Banner --- */
+.deprecation-banner {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    color: #ffffff;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5);
+    border-bottom: 3px solid #ff0000;
+    animation: slideDown 0.5s ease-out;
+    margin-top: 0;
+}
+
+.deprecation-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.deprecation-content i {
+    font-size: 2.5rem;
+    color: #ffff00;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+}
+
+.deprecation-content p {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.deprecation-content strong {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Adjust body padding to account for fixed banner */
+body {
+    padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .deprecation-banner {
+        padding: 0.75rem 1rem;
+    }
+
+    .deprecation-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .deprecation-content p {
+        font-size: 0.9rem;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+}
